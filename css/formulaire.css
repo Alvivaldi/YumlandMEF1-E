@@ -8,15 +8,22 @@
 }
 
 body {
-    background-color: #B0E0E6;
+    background: url('../images/inde.jpeg') no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+
 section {
-    background-color:	#4682B4;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.732);
+    backdrop-filter: blur(10px);
     padding: 30px;
     width: 420px;
     border-radius: 20px;
@@ -25,7 +32,7 @@ section {
 section h1{
     font-size: 30px;
     text-align: center;
-    color: white;
+    color: black;
     margin-bottom: 20px;
 }
 
