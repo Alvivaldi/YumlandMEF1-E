@@ -1,8 +1,36 @@
 /* spécialité du moment */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #4b1707;
+    height: 150px;
+   
+}
+
+header img {
+    position: absolute;
+    left: 20px;
+    width: 300px;
+
+}
+h1.big-title {
+    font-family: "Optima", sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: white;
+    margin-left: 20px;
+}
+
 .specialite {
+    font-family: "Optima", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
     width: 100%;
     padding: 50px 0;
-    text-align: center;
+    text-align: left;
+    color: #4b1707;
 }
 
 .specialite-list {
@@ -19,7 +47,7 @@
 .box {
     flex: 0 0 22%;            
     max-width: 450px;         /* largeur boite */
-    background-color: #7a2308; 
+    background-color: #4b1707; 
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -41,9 +69,13 @@
 }
 
 .entree{
+    font-family: "Optima", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
     width: 100%;
     padding: 50px 0;
-    text-align: center;
+    text-align: left;
+    color: #4b1707;
 }
 
 .entree-list {
@@ -81,9 +113,13 @@
     color: white;
 }
 .plat{
+    font-family: "Optima", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
     width: 100%;
     padding: 50px 0;
-    text-align: center;
+    text-align: left;
+    color: #4b1707;
 }
 
 .plat-list {
@@ -122,9 +158,13 @@
 }
 
 .dessert{
+    font-family: "Optima", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
     width: 100%;
     padding: 50px 0;
-    text-align: center;
+    text-align: left;
+    color: #4b1707;
 }
 
 .dessert-list {
@@ -157,6 +197,51 @@
 
 /* LE TEXTE DANS LA BOITE */
 .box1-content {
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.boisson {
+    font-family: "Optima", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    width: 100%;
+    padding: 50px 0;
+    text-align: left;
+    color: #4b1707;
+}
+
+.boisson-list {
+    display: flex;
+    flex-direction: row;     
+    justify-content: center;   
+    gap: 25px;                /* L'espace entre les images */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;       
+}
+
+.box2 {
+    flex: 0 0 22%;            
+    max-width: 450px;         /* largeur boite */
+    background-color: #7a2308; 
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.box2 img {
+    width: 100%;
+    height: 280px;            
+    object-fit: cover;        /* Recadre proprement la photo */
+}
+
+/* LE TEXTE DANS LA BOITE */
+.box2-content {
     padding: 30px;
     text-align: center;
     color: white;
