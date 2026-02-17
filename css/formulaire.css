@@ -9,4 +9,35 @@
 
 body {
     background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section {
+    background-color:	#4682B4;
+    padding: 30px;
+    width: 420px;
+    border-radius: 20px;
+}
+
+section h1{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.input-box{
+    width: 100%;
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 40px;
+    outline: none;
 }
