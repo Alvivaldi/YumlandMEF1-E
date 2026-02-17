@@ -23,6 +23,56 @@ h1.big-title {
     margin-left: 20px;
 }
 
+/* Filtres */
+
+.margFiltre{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.filtre{
+    display: flex;
+    align-items: center;
+}
+.margFiltreTitre{
+    margin-right: 20px;
+}
+
+.filtreTexteIcons{
+    border: 2px solid #f2f2f2;
+    height: 50px;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+.filtreTexteIcons:hover > .filtreTexte {
+    color: #4b1707;
+}
+
+.filtreTexteIcons:hover > .filtreIcons {
+    color: white;
+    background-color: #4b1707;
+}
+
+.filtreTexte {
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 0 25px 25px 0;
+}
+
+.filtreIcons{
+    margin-left: -2px;
+    border-radius: 25px;
+    width: 52px;
+    height: 52px;
+    color: #4b1707;
+    background-color: #deebff;
+
+}
+
+/* Specialite du moment */
+
 .specialite {
     font-family: "Optima", sans-serif;
     font-weight: 800;
