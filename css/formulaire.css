@@ -50,3 +50,68 @@ section h1{
     color: white;
 }
 
+.input-box i{
+    position: absolute;
+    transform: translateY(-50%);
+    right: 20px;
+    top: 50%;
+    color: white;
+}
+
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.remember-forgot a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+
+    }
+
+.remember-forgot a:hover{
+    text-decoration: underline ;
+}
+
+.login-btn{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 40px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition 0.5s;
+}
+
+.login-btn:hover{
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.register-link{
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+    font-size: 14px;
+}
+
+.register-link a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+
+}
+
+.register-link:hover{
+    text-decoration: underline ;
+}
