@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: url('../images/inde2.jpg') no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: changeBackground 10s infinite;
+}
+
+
+section {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.732);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    width: 420px;
+    border-radius: 20px;
+}
+
+section h1{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: black;
+    font-size: 20px;
+    background: white;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+}
+
+.input-box{
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 40px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding-right: 40px;
+}
+
+.input-box input::placeholder{
+    color: white;
+}
+
+.input-box i{
+    position: absolute;
+    transform: translateY(-50%);
+    right: 20px;
+    top: 50%;
+    color: white;
+}
+
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.remember-forgot a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+
+    }
+
+.remember-forgot a:hover{
+    text-decoration: underline ;
+}
+
+.login-btn{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 40px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition 0.5s;
+}
+
+.login-btn:hover{
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.register-link{
+    text-align: center;
+    margin : 25px;
+    color: white;
+    font-size: 14px;
+}
+
+.register-link a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+
+}
+
+.register-link a:hover{
+    text-decoration: underline ;
+}
+
