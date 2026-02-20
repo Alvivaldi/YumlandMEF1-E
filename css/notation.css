@@ -36,26 +36,3 @@ nav.navigation li {
     margin: 0 15px;
 }
 
-div.notation-form {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 300px;
-
-    input {
-        display: none;
-    }
-
-    label{
-        cursor: pointer;
-        svg {
-            width: 5px;
-            height: 5px;
-            path{
-                stroke: antiquewhite;*
-                fill: transparent;
-                transition: 0.3s all ease-in-out;
-            }
-        }
-    }
-    
-}
