@@ -1,0 +1,90 @@
+/* Layout spécifique Restaurateur */
+.restaurateur-main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*images*/
+
+.commandes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 30px;
+}
+
+/* Style des cartes de commandes */
+.box-commande {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 8px solid #7a2308;
+}
+
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.num-commande {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #4b1707;
+}
+
+.heure {
+    background: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.commande-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.commande-details li {
+    padding: 5px 0;
+    font-size: 1.1rem;
+}
+
+/* Boutons tactiles larges */
+.btn-action-status {
+    width: 100%;
+    padding: 15px;
+    background-color: #4b1707;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-action-status:hover {
+    background-color: #7a2308;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background-color: #e0e0e0;
+    color: #777;
+    border: none;
+    border-radius: 10px;
+    cursor: not-allowed;
+}
+
+.delivery-mode {
+    border-left-color: #deebff; /* Couleur différente pour le suivi */
+    opacity: 0.8;
+}
