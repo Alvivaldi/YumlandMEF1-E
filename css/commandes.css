@@ -5,11 +5,7 @@
     margin: 0 auto;
 }
 
-header img {
-    position: absolute;
-    width: 100px;
-
-}
+/*images*/
 
 .commandes-grid {
     display: grid;
