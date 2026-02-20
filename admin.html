@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration</title>
+    <link rel="stylesheet" type="text/css" href="css/admin.css" />
+</head>
+<body class="admin-body">
+    <header>
+        <img src="images/phLogo.png" alt="logo" />
+        <h1 class="big-title">Page Administrateur</h1>
+    </header>
+
+    <div class="admin-wrapper">
+        <nav class="admin-sidebar">
+            <div class="sidebar-content">
+                <div class="filtreTexteIcons active-admin">
+                    <div class="filtreIcons">📊</div>
+                    <span class="filtreTexte">Dernières commandes</span>
+                </div>
+                <div class="filtreTexteIcons">
+                    <div class="filtreIcons">👤</div>
+                    <span class="filtreTexte">Utilisateurs</span>
+                </div>
+                <div class="filtreTexteIcons">
+                    <div class="filtreIcons">🍴</div>
+                    <span class="filtreTexte">Modifier la Carte</span>
+                </div>
+            </div>
+        </nav>
+
+        <main class="admin-main">
+            <h2 class="specialite">Gestion des Utilisateurs</h2>
+            
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Rôle</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alexis</td>
+                            <td><span class="badge">Client</span></td>
+                            <td>alexis@mail.com</td>
+                            <td><button class="btn-edit">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>Charmelle</td>
+                            <td><span class="badge restaurateur">Restauratrice</span></td>
+                            <td>charmelle@gmail.fr</td>
+                            <td><button class="btn-edit">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>Lasugaa</td>
+                            <td><span class="badge livreur">Livreuse</span></td>
+                            <td>lasugaa@gmail.fr</td>
+                            <td><button class="btn-edit">Modifier</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
