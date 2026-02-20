@@ -9,46 +9,56 @@
 </head>
 
 <body>
-
     <section class="top-page">
-      <header>
-        <img src="images/phLogo.png" alt="logo" />
-        <nav class="navigation">
-          <li>Accueil</li>
-          <li>Menu</li>
-          <li>Réserver</li>
-        </nav>
-      </header>
+        <header>
+            <img src="images/phLogo.png" alt="logo" />
+            <nav class="navigation">
+                <li>Accueil</li>
+                <li>Menu</li>
+                <li>Réserver</li>
+            </nav>
+        </header>
     </section>
     <section class="notation">
         <h1>NOTATION</h1>
         <h2>Donnez nous votre avis !</h2>
-        <div class="notation-form">
-            <h3>LIVRAISON</h3>
-            <p>Comment évalueriez-vous la qualité de notre service de livraison ?</p>
-            <div class="stars">
-                <span class="star" data-value="1">☆</span>
-                <span class="star" data-value="2">☆</span>
-                <span class="star" data-value="3">☆</span>
-                <span class="star" data-value="4">☆</span>
-                <span class="star" data-value="5">☆</span>
+        <h3>LIVRAISON</h3>
+        <h4>Comment évalueriez-vous la qualité de notre service de livraison ?</h4>
+        <div class="notation-container">
+            <div class="notation-item">
+                <h3>Note:</h3>
+                <div class="stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data -value="4">★</span>
+                    <span class="star" data-value="5">☆</span>
+                </div>
             </div>
-            <label for="comment">Commentaire :</label>
-            <textarea id="comment" name="comment" rows="3" cols="50" placeholder="Votre commentaire..."></textarea>
-            <button type="submit">Envoyer</button>
-
-            <h3>QUALITÉ DES PLATS</h3>
-            <p>Comment évalueriez-vous la qualité de nos plats ?</p>
-            <div class="stars">
-                <span class="star" data-value="1">☆</span>
-                <span class="star" data-value="2">☆</span>
-                <span class="star" data-value="3">☆</span>
-                <span class="star" data-value="4">☆</span>
-                <span class="star" data-value="5">☆</span>
+            <div class="notation-item">
+                <h3>Commentaire:</h3>
+                <textarea placeholder="Laissez votre commentaire ici..."></textarea>
             </div>
-            <label for="comment2">Commentaire :</label>
-            <textarea id="comment2" name="comment2" rows="3" cols="50" placeholder="Votre commentaire..."></textarea>
-            <button type="submit">Envoyer</button>  
+            <button class="submit-btn">Soumettre</button>
+        </div>
+        <h4>QUALITÉ DES PLATS</h4>
+        <h4>Comment évalueriez-vous la qualité de nos plats ?</h4>
+        <div class="notation-container">
+            <div class="notation-item">
+                <h3>Note:</h3>
+                <div class="stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">☆</span>
+                </div>
+            </div>
+            <div class="notation-item">
+                <h3>Commentaire:</h3>
+                <textarea placeholder="Laissez votre commentaire ici..."></textarea>
+            </div>
+            <button class="submit-btn">Soumettre</button>
         </div>
     </section>
 
