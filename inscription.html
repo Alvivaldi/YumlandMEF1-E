@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login form</title>
+    <title>Signin form</title>
     <link rel="stylesheet" href="css/formulaire.css">
     <script src="https://kit.fontawesome.com/9da9447313.js" crossorigin="anonymous"></script>
 </head>
@@ -19,21 +19,24 @@
         </nav>
       </header>
     </section>
-    
+
     <div class="background">
         <div class="slide slide1"></div>
         <div class="slide slide2"></div>
         <div class="slide slide3"></div>
-    </div>  
-
+    </div>
     <section class="form-section">
         <span class="close-btn" onclick="window.location.href='index.html'">
             <i class="fa-solid fa-xmark"></i>
         </span>
-        <h1>Connexion</h1>
+        <h1>Inscription</h1>
         <div class="input-box">
             <input type="text" placeholder="Nom d'utilisateur">
             <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="input-box">
+            <input type="text" placeholder="e-mail">
+            <i class="fa-solid fa-envelope"></i>
         </div>
         <div class="input-box">
             <input type="password" placeholder="Mot de passe">
@@ -41,16 +44,16 @@
         </div>
         <div class="remember-forgot">
             <label>
-                <input type="checkbox"> Se souvenir de moi
+                <input type="checkbox"> J'accepte les termes et conditions
             </label>
-            <a href="#">Mot de passe oublié ?</a>
         </div>
-        <button class="login-btn"  onclick="window.location.href='index.html'">Se connecter</button>
+        <button class="login-btn" onclick="window.location.href='index.html'"">S'inscrire</button>
         <div class="register-link">
-            <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+            <p>Déjà un compte ? <a href="formulaire.html">Se connecter</a></p>
         </div>
 
 
     </section>
+
 </body>
 </html>

@@ -8,20 +8,96 @@
 }
 
 body {
-    background: url('../images/inde2.jpg') no-repeat;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    animation: changeBackground 10s infinite;
+}
+
+header{
+    display: flex;
+    align-items: center;
+   
+    background-color: white;
+    height: 100px;
+   
+}
+
+h1.big-title {
+    color: white;
+    margin-left: 20px;
+}
+header img {
+    width: 250px;
+    
+}
+
+section.top-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* haut / centre / bas */
+}
+
+nav.navigation {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+ 
+    margin-left: 30px;
+}
+
+nav.navigation li {
+    color: brown;
+    margin: 0 15px;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fade 18s infinite;
 }
 
 
-section {
+
+.slide1 {
+    background-image: url('../images/inde2.jpg');
+    animation-delay: 0s;
+}
+
+.slide2 {
+    background-image: url('../images/france.jpg');
+    animation-delay: 6s;
+}
+
+.slide3 {
+    background-image: url('../images/cameroun.jpg');
+    animation-delay: 12s;
+}
+
+@keyframes fade {
+    0% { opacity: 0; transform: scale(1);}
+    10% { opacity: 1; transform: scale(1.05);}
+    30% { opacity: 1; transform: scale(1.1);}
+    40% { opacity: 0; transform: scale(1.1);}
+    100% { opacity: 0; transform: scale(1);}
+}
+
+.form-section {
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.732);
     backdrop-filter: blur(10px);
@@ -39,15 +115,17 @@ section h1{
 
 .close-btn{
     position: absolute;
-    top: 20px;
-    right: 20px;
-    color: black;
-    font-size: 20px;
-    background: white;
+    top: -1.1px;
+    right: -1.1px;
+    width: 40px;
+    color: white;
+    font-size: 25px;
     cursor: pointer;
     justify-content: center;
     align-items: center;
     border-bottom-left-radius: 10px;
+    border-top-right-radius: 15px;
+    border: 2px solid white;
 }
 
 .input-box{
@@ -109,7 +187,7 @@ section h1{
     font-weight: bold;
     cursor: pointer;
     border: 2px solid transparent;
-    transition 0.5s;
+    transition: 0.5s;
 }
 
 .login-btn:hover{

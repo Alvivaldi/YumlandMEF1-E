@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Commandes</title>
+    <link rel="stylesheet" href="css/commandes.css">
+</head>
+<body class="admin-body">
+    <header>
+
+        <h1 class="big-title">Commandes & Livraison</h1>
+    </header>
+
+    <main class="restaurateur-main">
+        <div class="stats-container">
+            <div class="box1-content admin-card">
+                <h3>À cuisiner</h3>
+                <p class="stat-number">Nombres de commandes...</p>
+            </div>
+            <div class="box1-content admin-card" style="background-color: #4b1707;">
+                <h2 class="entree" style="color: white;">🚚 En cours de préparation...</h2>
+                <p class="stat-number entree" style="color: white;">3</p>
+            </div>
+        </div>
+
+        <div class="commandes-grid">
+            <section class="column-prepa">
+                <h2 class="entree">🔥 À Préparer</h2>
+                
+                <div class="box-commande">
+                    <div class="commande-header">
+                        <span class="num-commande">#Cmd-1</span>
+                        <span class="heure">heure...</span>
+                    </div>
+                    <div class="commande-details">
+                        <ul>
+                            <li>1x Menu Naanfant</li>
+                            <li>2x Pastels</li>
+                            <li>3x Coca-Cola</li>
+                        </ul>
+                        <p class="note-client"><em>Note : ...</em></p>
+                    </div>
+                    <button class="btn-action-status">Prêt : Lancer Livraison</button>
+                </div>
+
+                <div class="box-commande">
+                    <div class="commande-header">
+                        <span class="num-commande">#Cmd-2</span>
+                        <span class="heure">heure...</span>
+                    </div>
+                    <div class="commande-details">
+                        <ul>
+                            <li>1x Biryani</li>
+                            <li>1x Rose Milk</li>
+                        </ul>
+                    </div>
+                    <button class="btn-action-status">Prêt : Lancer Livraison</button>
+                </div>
+            </section>
+
+            <section class="column-livraison">
+                <h2 class="entree" style="color: #7a2308;">🚚 En cours de livraison</h2>
+                
+                <div class="box-commande delivery-mode">
+                    <div class="commande-header">
+                        <span class="num-commande">#Cmd-3</span>
+                        <span class="badge livreur">Livreuse : Lasugaa</span>
+                    </div>
+                    <div class="commande-details">
+                        <p>Destination : CY TECH, Cergy</p>
+                        <p>Montant : ...€</p>
+                    </div>
+                    <button class="btn-secondary" disabled>En attente de remise...</button>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
