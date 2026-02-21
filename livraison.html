@@ -1,46 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Livraison</title>
-  <link rel="stylesheet" href="css/livraison.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Livraison</title>
+    <link rel="stylesheet" href="css/livraison.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Mogra&display=swap"
+    />
 
-<div class="livraison-container">
-  <h1>Détails de livraison</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="carte.html">Menu</a></li>
+        <li><a href="commandes.html">Commander en ligne</a></li>
+        <li><a href="profil.html">Mon profil</a></li>
+      </ul>
+    </nav>
 
-  <div class="info-livraison">
-    <div class="field">
-      <span>Adresse :</span>
-      <span>12 Rue de la Paix, Paris</span>
-    </div>
-    <div class="field">
-      <span>Code interphone :</span>
-      <span>1234</span>
-    </div>
-    <div class="field">
-      <span>Étage :</span>
-      <span>3ème</span>
-    </div>
-    <div class="field">
-      <span>Commentaires :</span>
-      <span>Sonner deux fois, porte à gauche</span>
-    </div>
-    <div class="field">
-      <span>Téléphone :</span>
-      <span><a href="tel:+33123456789">06 12 34 56 78</a></span>
-    </div>
-  </div>
+    <div class="livraison-container">
+      <h1>Détails de livraison</h1>
 
-  <div class="actions">
-    <a href="https://www.google.com/maps/search/?api=1&query=12+Rue+de+la+Paix+Paris" target="_blank" class="btn nav-btn">Ouvrir dans Maps</a>
-    <a href="https://waze.com/ul?ll=48.8566,2.3522&navigate=yes" target="_blank" class="btn nav-btn">Ouvrir dans Waze</a>
+      <div class="info-livraison">
+        <div class="field">
+          <span>Adresse :</span>
+          <span>650 route de la fromonière, Soings-en-Solognes</span>
+        </div>
+        <div class="field">
+          <span>Code interphone :</span>
+          <span>1234</span>
+        </div>
+        <div class="field">
+          <span>Étage :</span>
+          <span>3ème</span>
+        </div>
+        <div class="field">
+          <span>Commentaires :</span>
+          <span>Caresser le chat et entrée</span>
+        </div>
+        <div class="field">
+          <span>Téléphone :</span>
+          <span><a href="tel:+3301010101">01 01 01 01 01</a></span>
+        </div>
+      </div>
 
-    <button class="btn complete-btn" disabled>Livraison terminée</button>
-  </div>
-</div>
+      <div class="actions">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=650+Route+de+la+Fromonière+Soings-en-Sologne"
+          target="_blank"
+          class="btn nav-btn"
+          >Ouvrir dans Maps</a
+        >
+        <a
+          href="https://waze.com/ul?ll=48.8566,2.3522&navigate=yes"
+          target="_blank"
+          class="btn nav-btn"
+          >Ouvrir dans Waze</a
+        >
 
-</body>
+        <button class="btn complete-btn" disabled>Livraison terminée</button>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,28 +1,69 @@
-/* Reset et typographie */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Corps du site : Chewy */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  padding: 20px;
+    font-family: 'Chewy', cursive;
+    background-color: #fffcfb;
 }
+
+/* Titres : Mogra */
+h1, h2, h3 {
+    font-family: 'Mogra', cursive;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #231f20;
+    padding: 3px 40px;
+}
+
+.logo img {
+    height: 100px; /* taille du logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 150px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fffcfb;
+    transition: color 0.3s ease;
+    font-size: 30px; /* taille du texte */
+}
+
+.nav-links a:hover {
+    color: #d23508;
+}
+
+
+
+
+
 
 .livraison-container {
-  max-width: 500px;
+  max-width: 800px;
   margin: auto;
-  background-color: white;
+  background-color: #faebe4;
+  margin-top: 80px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-size: 25px;
+  line-height: 1.5;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #d23508;
 }
 
 /* Infos livraison */
@@ -31,7 +72,7 @@ h1 {
   justify-content: space-between;
   margin-bottom: 15px;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #fffcfb;
   border-radius: 8px;
 }
 
@@ -58,7 +99,7 @@ a {
 }
 
 .nav-btn {
-  background-color: brown;
+  background-color: #d23508;
 }
 
 .nav-btn:hover {

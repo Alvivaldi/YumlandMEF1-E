@@ -14,11 +14,16 @@ body {
 h1, h2, h3 {
     font-family: 'Mogra', cursive;
 }
+
+
+
+/* BARRE NAVIGATION */
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fffcfb;
+    background-color: #231f20;
     padding: 3px 40px;
 }
 
@@ -34,13 +39,13 @@ h1, h2, h3 {
 
 .nav-links a {
     text-decoration: none;
-    color: #d23508;
+    color: #fffcfb;
     transition: color 0.3s ease;
     font-size: 30px; /* taille du texte */
 }
 
 .nav-links a:hover {
-    color: #f57328;
+    color: #d23508;
 }
 
 
@@ -58,7 +63,7 @@ h1, h2, h3 {
     align-items: center;
     text-align: center;
     position: relative;
-
+    background-color: #fffcfb;
     
 }
 
