@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,50 +9,53 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap">
     <title>Notre carte</title>
 </head>
+
 <body>
-  <header>
-    <img src="images/phLogo.png" alt="logo" />
-    <h1 class="big-title">NOTRE CARTE</h1>
-  </header>
+    <header>
+        <img src="images/phLogo.png" alt="logo" />
+        <h1 class="big-title">NOTRE CARTE</h1>
+    </header>
 
     <div class="filtre margFiltre">
-            <div class="margFiltreTitre"><h2>Filtres : </h2></div>
-             <div class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-utensils fa-lg"></i>
-                </div>
-                <div class="filtreTexte flexCentre">Type de plats</div>
+        <div class="margFiltreTitre">
+            <h2>Filtres : </h2>
+        </div>
+        <a href="#specialites" class="flexBetween filtreTexteIcons">
+            <div class="filtreIcons flexCentre">
+                <i class="fa-solid fa-utensils fa-lg"></i>
             </div>
-            <div class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-bowl-food fa-lg"></i>
-                </div>
-                <div class="filtreTexte flexCentre">Nos Formules</div>
+            <div class="filtreTexte flexCentre">Type de plats</div>
+        </a>
+        <a href="#entrees" class="flexBetween filtreTexteIcons">
+            <div class="filtreIcons flexCentre">
+                <i class="fa-solid fa-bowl-food fa-lg"></i>
             </div>
-            <div class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-seedling fa-lg"></i>
-                </div>
-                <div class="filtreTexte flexCentre">Veggie</div>
+            <div class="filtreTexte flexCentre">Nos Formules</div>
+        </a>
+        <a href="#plats" class="flexBetween filtreTexteIcons">
+            <div class="filtreIcons flexCentre">
+                <i class="fa-solid fa-seedling fa-lg"></i>
             </div>
-            <div class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-martini-glass-citrus fa-lg"></i>
-                </div>
-                <div class="filtreTexte flexCentre">Boissons</div>
+            <div class="filtreTexte flexCentre">Veggie</div>
+        </a>
+        <a href="#boissons" class="flexBetween filtreTexteIcons">
+            <div class="filtreIcons flexCentre">
+                <i class="fa-solid fa-martini-glass-citrus fa-lg"></i>
             </div>
-            <div class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-ban fa-lg"></i>
-                </div>
-                <div class="filtreTexte flexCentre">Allergènes</div>
+            <div class="filtreTexte flexCentre">Boissons</div>
+        </a>
+        <div class="flexBetween filtreTexteIcons">
+            <div class="filtreIcons flexCentre">
+                <i class="fa-solid fa-ban fa-lg"></i>
             </div>
+            <div class="filtreTexte flexCentre">Allergènes</div>
         </div>
     </div>
 
 
+
     <!-- Spécialités du moment  -->
-    <section class="specialite">
+    <section id="specialites" class="specialite">
         <h1>Specialité du moment </h1>
         <div class="specialite-list">
             <div class="box">
@@ -75,7 +79,7 @@
                 <div class="box-content">
                     <h3>Butter</h3>
                     <p>Description...</p>
-                     <span>prix</span>
+                    <span>prix</span>
                 </div>
             </div>
             <div class="box">
@@ -90,8 +94,8 @@
     </section>
     <!-- specialite du moment -->
 
-     <!-- entrée -->
-    <section class="entree">
+    <!-- entrée -->
+    <section id="entrees" class="entree">
         <h1>Entrées</h1>
         <div class="entree-list">
             <div class="box1">
@@ -138,8 +142,8 @@
     </section>
     <!-- entrée -->
 
-     <!-- plats -->
-     <section class="plat">
+    <!-- plats -->
+    <section id="plats" class="plat">
         <h1>Plats</h1>
         <div class="plat-list">
             <div class="box1">
@@ -187,7 +191,7 @@
     <!-- plats -->
 
     <!-- desserts -->
-    <section class="dessert">
+    <section id="desserts" class="dessert">
         <h1>Desserts</h1>
         <div class="dessert-list">
             <div class="box1">
@@ -234,7 +238,7 @@
     </section>
     <!-- desserts -->
     <!-- boissons  -->
-      <section class="boisson">
+    <section id="boissons" class="boisson">
         <h1>Boissons </h1>
         <div class="boisson-list">
             <div class="box2">
@@ -258,7 +262,7 @@
                 <div class="box-content">
                     <h3>Mango Lassi</h3>
                     <p>Description...</p>
-                     <span>prix</span>
+                    <span>prix</span>
                 </div>
             </div>
             <div class="box2">
