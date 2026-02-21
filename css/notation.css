@@ -36,3 +36,62 @@ nav.navigation li {
     margin: 0 15px;
 }
 
+section h1{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    border: black solid 1px;
+    background-color: brown;
+    border-radius: 5px;
+}
+
+section h2{
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+section h3{
+    text-decoration: underline;
+    font-size: 25px;
+}
+
+
+.stars {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.star {
+    color: lightgray;
+    transition: 0.3s;
+}
+
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.submit-btn {
+    background-color: brown;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 40px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: black;
+}
