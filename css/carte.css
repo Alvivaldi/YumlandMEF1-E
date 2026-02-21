@@ -36,6 +36,7 @@ h1.big-title {
 .filtre{
     display: flex;
     align-items: center;
+    position: relative;
 }
 .margFiltreTitre{
     margin-right: 40px;
@@ -44,12 +45,14 @@ h1.big-title {
 .filtreTexteIcons {
     border: 2px solid #f2f2f2;
     display: flex;
+    text-decoration: none;
     align-items: center;
     border-radius: 40px;
     margin-right: 20px; 
     padding-right: 20px; 
     cursor: pointer;
     transition: all 0.3s;
+    color: black;
 }
 
 .filtreIcons {
@@ -306,4 +309,39 @@ h1.big-title {
     padding: 30px;
     text-align: center;
     color: white;
+}
+
+/* On cible toutes les boites de plats en même temps */
+.box, .box1, .box2 {
+    transition: all 0.3s ease; /* Pour que le changement soit fluide */
+    cursor: pointer;
+    border-radius: 15px; /* Optionnel : pour arrondir les bords si ce n'est pas fait */
+    overflow: hidden;
+}
+
+/* Changement de couleur au survol de la souris */
+.box:hover, .box1:hover, .box2:hover {
+    background-color: #dd552c; /* Un beige/marron très clair pour le fond */
+    transform: translateY(-5px); /* Petit effet de soulèvement (optionnel) */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Ombre portée pour donner du relief */
+}
+
+/* Si tu veux que le titre (H3) change de couleur aussi au survol */
+.box:hover h3, .box1:hover h3, .box2:hover h3 {
+    color: #4b1707;
+}
+
+/* Évite que le haut de la section soit caché (si tu as un menu fixe) */
+section {
+    scroll-margin-top: 30px;
+}
+
+/* Rend le défilement fluide quand on clique */
+html {
+    scroll-behavior: smooth;
+}
+/* Effet de survol sur les cartes de plats (comme demandé) */
+.box, .box1, .box2 {
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
 }
