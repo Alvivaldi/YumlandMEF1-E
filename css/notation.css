@@ -1,3 +1,5 @@
+
+
 header{
     display: flex;
     align-items: center;
@@ -36,6 +38,19 @@ nav.navigation li {
     margin: 0 15px;
 }
 
+
+.notation {
+    border: 2px solid black;
+    padding: 23px;
+    width: 800px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+
 section h1{
     font-size: 30px;
     text-align: center;
@@ -44,10 +59,12 @@ section h1{
     border: black solid 1px;
     background-color: brown;
     border-radius: 5px;
+    width: 900px;
+    margin: auto;
 }
 
 section h2{
-    font-size: 25px;
+    font-size: 30px;
     text-align: center;
     color: black;
     margin-bottom: 30px;
@@ -72,7 +89,7 @@ section h3{
 
 
 textarea {
-    width: 100%;
+    width: 700px;
     min-height: 100px;
     padding: 10px;
     border-radius: 8px;
