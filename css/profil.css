@@ -5,43 +5,47 @@
     box-sizing: border-box;
 }
 
-/* 2. Body et typographie */
+/* Corps du site : Chewy */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Chewy', cursive;
+    background-color: #fffcfb;
+}
+
+/* Titres : Mogra */
+h1, h2, h3 {
+    font-family: 'Mogra', cursive;
 }
 
 
-header {
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    background-color: white;
-    height: 100px;
-    padding: 0 20px;
+    background-color: #231f20;
+    padding: 3px 40px;
 }
 
-header img {
-    width: 250px;
+.logo img {
+    height: 100px; /* taille du logo */
 }
 
-h1.big-title {
-    color: white;
-    margin-left: 20px;
-}
-
-nav.navigation {
-    display: flex;
+.nav-links {
     list-style: none;
-    justify-content: flex-end;
-    flex: 1;
-    gap: 30px;
+    display: flex;
+    gap: 150px;
 }
 
-nav.navigation li {
-    color: brown;
-    cursor: pointer;
-    
+.nav-links a {
+    text-decoration: none;
+    color: #fffcfb;
+    transition: color 0.3s ease;
+    font-size: 30px; /* taille du texte */
 }
+
+.nav-links a:hover {
+    color: #d23508;
+}
+
 
 
 
@@ -52,15 +56,18 @@ nav.navigation li {
 .profile-container {
   max-width: 800px;
   margin: auto;
-  background-color: white;
+  background-color: #faebe4;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: 80px;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 30px;
+  color:#d23508;
+  font-size: 50px;
 }
 
 section {
@@ -69,8 +76,9 @@ section {
 
 h2 {
   margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #d23508;
   padding-bottom: 5px;
+  font-size: 30px;
 }
 
 .field {
@@ -96,7 +104,7 @@ h2 {
 
 .past-orders li {
   padding: 8px;
-  background-color: #f0f0f0;
+  background-color: #fffcfb;
   margin-bottom: 5px;
   border-radius: 5px;
 }
@@ -104,5 +112,6 @@ h2 {
 .loyalty p {
   margin: 8px 0;
   font-weight: bold;
+  
 }
 

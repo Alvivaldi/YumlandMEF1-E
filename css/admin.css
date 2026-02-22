@@ -3,10 +3,7 @@
     background-color: #f2f2f2; /* Fond clair pour contraster avec tes marrons */
     margin: 0;
 }
-header img {
-    position: absolute;
-    width: 100px;
-}
+
 
 .admin-wrapper {
     display: flex;
@@ -42,8 +39,8 @@ header img {
 .admin-table th {
     text-align: left;
     padding: 15px;
-    border-bottom: 2px solid #4b1707;
-    color: #4b1707;
+    border-bottom: 2px solid #d23508;
+    color: #d23508;
 }
 
 .admin-table td {
@@ -66,7 +63,7 @@ header img {
 
 /* Bouton d'action */
 .btn-edit {
-    background-color: #4b1707;
+    background-color: #d23508;
     color: white;
     border: none;
     padding: 8px 15px;

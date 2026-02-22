@@ -1,4 +1,55 @@
-/* Layout spécifique Restaurateur */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps du site : Chewy */
+body {
+    font-family: 'Chewy', cursive;
+    background-color: #fffcfb;
+}
+
+/* Titres : Mogra */
+h1, h2, h3 {
+    font-family: 'Mogra', cursive;
+}
+
+
+
+/* BARRE NAVIGATION */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #231f20;
+    padding: 3px 40px;
+}
+
+.logo img {
+    height: 100px; /* taille du logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 150px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fffcfb;
+    transition: color 0.3s ease;
+    font-size: 30px; /* taille du texte */
+}
+
+.nav-links a:hover {
+    color: #d23508;
+}
+
+
+/* Restaurateur */
 .restaurateur-main {
     padding: 20px;
     max-width: 1200px;
@@ -20,7 +71,7 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-left: 8px solid #7a2308;
+    border-left: 8px solid #d23508;
 }
 
 .commande-header {
@@ -35,7 +86,7 @@
 .num-commande {
     font-weight: bold;
     font-size: 1.2rem;
-    color: #4b1707;
+    color: #d23508
 }
 
 .heure {
@@ -60,7 +111,7 @@
 .btn-action-status {
     width: 100%;
     padding: 15px;
-    background-color: #4b1707;
+    background-color: #d23508;
     color: white;
     border: none;
     border-radius: 10px;
@@ -71,7 +122,7 @@
 }
 
 .btn-action-status:hover {
-    background-color: #7a2308;
+    background-color: #f6d3c4;
 }
 
 .btn-secondary {

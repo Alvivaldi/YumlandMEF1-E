@@ -1,29 +1,72 @@
 /* spécialité du moment */
-header{
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+/* Corps du site*/
+body {
+    font-family: 'Chewy', cursive;
+    background-color: #fffcfb;
+}
+
+/* Titres : Mogra */
+h1, h2, h3 {
+    font-family: 'Mogra', cursive;
+}
+
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #4b1707;
-    height: 150px;
-   
+    background-color: #231f20;
+    padding: 3px 40px;
 }
 
-header img {
-    position: absolute;
-    left: 20px;
-    width: 300px;
-
-}
-h1.big-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 3rem;
-    color: white;
-    margin-left: 20px;
+.logo img {
+    height: 100px; 
 }
 
-/* navigation */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 150px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fffcfb;
+    transition: color 0.3s ease;
+    font-size: 30px; /* taille du texte */
+}
+
+.nav-links a:hover {
+    color: #d23508;
+}
+
+/*titre*/
+
+.container-titre {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    padding: 30px 0;         
+}
+
+.titre-carte {
+    font-size: 3rem;         
+    color: #d23508;          
+    text-align: center;
+    font-weight: bold;
+    /*bordure en bas*/
+    border-bottom: 3px solid #d23508; 
+    padding-bottom: 10px;
+}
+
+
 
 
 /* Filtres */
@@ -40,6 +83,7 @@ h1.big-title {
 }
 .margFiltreTitre{
     margin-right: 40px;
+    padding-left: 15px;
 }
 
 .filtreTexteIcons {
@@ -70,12 +114,12 @@ h1.big-title {
 
 
 .filtreTexteIcons:hover > .filtreTexte {
-    color: #4b1707;
+    color: #d23508;
 }
 
 .filtreTexteIcons:hover > .filtreIcons {
     color: white;
-    background-color: #4b1707;
+    background-color: #d23508;
 }
 
 .filtreTexte {
@@ -93,8 +137,8 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
-    color: #4b1707;
+    padding-left: 15px;
+    color: #d23508;
 }
 
 .specialite-list {
@@ -111,7 +155,7 @@ h1.big-title {
 .box {
     flex: 0 0 22%;            
     max-width: 450px;         /* largeur boite */
-    background-color: #4b1707; 
+    background-color: #d23508; 
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -122,7 +166,7 @@ h1.big-title {
 .box img {
     width: 100%;
     height: 200px;            
-    object-fit: cover;        /* Recadre proprement la photo */
+    object-fit: cover;        /* Recadre la photo */
 }
 
 /* LE TEXTE DANS LA BOITE */
@@ -138,8 +182,8 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
-    color: #4b1707;
+    padding-left: 15px;
+    color: #d23508;
 }
 
 .entree-list {
@@ -156,7 +200,7 @@ h1.big-title {
 .box {
     flex: 0 0 22%;            
     max-width: 450px;         
-    background-color: #7a2308; 
+    background-color: #d23508; 
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -177,13 +221,13 @@ h1.big-title {
     color: white;
 }
 .plat{
-    font-family: "Monserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
-    color: #4b1707;
+    padding-left: 15px;
+    color: #d23508;
 }
 
 .plat-list {
@@ -222,13 +266,13 @@ h1.big-title {
 }
 
 .dessert{
-    font-family: "Monserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
-    color: #4b1707;
+    padding-left: 15px;
+    color: #d23508;
 }
 
 .dessert-list {
@@ -245,7 +289,7 @@ h1.big-title {
 .box1 {
     flex: 0 0 22%;            
     max-width: 260px;        
-    background-color: #7a2308; 
+    background-color: #d23508; 
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -267,13 +311,13 @@ h1.big-title {
 }
 
 .boisson {
-    font-family: "Monserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
-    color: #4b1707;
+    padding-left: 15px;
+    color: #d23508;
 }
 
 .boisson-list {
@@ -290,7 +334,7 @@ h1.big-title {
 .box2 {
     flex: 0 0 22%;            
     max-width: 450px;         /* largeur boite */
-    background-color: #7a2308; 
+    background-color: #d23508; 
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -321,14 +365,14 @@ h1.big-title {
 
 /* Changement de couleur au survol de la souris */
 .box:hover, .box1:hover, .box2:hover {
-    background-color: #dd552c; /* Un beige/marron très clair pour le fond */
+    background-color: #f29376; /* Un beige/marron très clair pour le fond */
     transform: translateY(-5px); /* Petit effet de soulèvement (optionnel) */
     box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Ombre portée pour donner du relief */
 }
 
 /* Si tu veux que le titre (H3) change de couleur aussi au survol */
 .box:hover h3, .box1:hover h3, .box2:hover h3 {
-    color: #4b1707;
+    color: #d23508;
 }
 
 /* Évite que le haut de la section soit caché (si tu as un menu fixe) */
