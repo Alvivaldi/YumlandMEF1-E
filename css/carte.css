@@ -1,5 +1,59 @@
 /* spécialité du moment */
 
+.header-carte {
+    position: relative; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 100%;
+    padding: 40px 0;
+}
+
+/*titre*/
+
+.titre-carte {
+    font-size: 3rem;         
+    color: #d23508;          
+    text-align: center;
+    font-weight: bold;
+    /*bordure en bas*/
+    border-bottom: 3px solid #d23508; 
+    padding-bottom: 10px;
+}
+
+.recherche {
+    position: absolute; 
+    right: 20px;       
+}
+
+.search-bar {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #d23508;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px;
+    outline: none;
+    width: 200px;
+}
+
+.search-bar button {
+    border: none;
+    background: white;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -14,7 +68,7 @@ body {
 
 }
 
-/* Titres : Mogra */
+/* Titres */
 h1, h2, h3 {
     font-family: 'Mogra', cursive;
 }
@@ -47,28 +101,6 @@ h1, h2, h3 {
 .nav-links a:hover {
     color: #d23508;
 }
-
-/*titre*/
-
-.container-titre {
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    padding: 30px 0;         
-}
-
-.titre-carte {
-    font-size: 3rem;         
-    color: #d23508;          
-    text-align: center;
-    font-weight: bold;
-    /*bordure en bas*/
-    border-bottom: 3px solid #d23508; 
-    padding-bottom: 10px;
-}
-
-
 
 
 /* Filtres */
@@ -131,10 +163,12 @@ h1, h2, h3 {
 
 }
 
+
+
 /* Specialite du moment */
 
 .specialite {
-    font-family: "Montserrat", sans-serif;
+    /*font-family: "Montserrat", sans-serif;  a voir pour les autres aussi mais ne set à rien*/
     font-weight: 800;
     font-size: 1rem;
     width: 100%;
@@ -357,36 +391,34 @@ h1, h2, h3 {
     color: white;
 }
 
-/* On cible toutes les boites de plats en même temps */
+/* toutes les boites de plats en même temps */
 .box, .box1, .box2 {
-    transition: all 0.3s ease; /* Pour que le changement soit fluide */
+    transition: all 0.3s ease; /* changement fluide */
     cursor: pointer;
-    border-radius: 15px; /* Optionnel : pour arrondir les bords si ce n'est pas fait */
+    border-radius: 15px; 
     overflow: hidden;
 }
 
-/* Changement de couleur au survol de la souris */
+/* Changement de couleur au survol */
 .box:hover, .box1:hover, .box2:hover {
-    background-color: #f29376; /* Un beige/marron très clair pour le fond */
-    transform: translateY(-5px); /* Petit effet de soulèvement (optionnel) */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Ombre portée pour donner du relief */
+    background-color: #f29376; 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* ombrée */
 }
 
-/* Si tu veux que le titre (H3) change de couleur aussi au survol */
 .box:hover h3, .box1:hover h3, .box2:hover h3 {
     color: #d23508;
 }
 
-/* Évite que le haut de la section soit caché (si tu as un menu fixe) */
+
 section {
     scroll-margin-top: 30px;
 }
 
-/* Rend le défilement fluide quand on clique */
 html {
     scroll-behavior: smooth;
 }
-/* Effet de survol sur les cartes de plats (comme demandé) */
+/*survol sur les cartes de plats */
 .box, .box1, .box2 {
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;

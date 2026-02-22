@@ -1,7 +1,6 @@
 /* Admin */
 .admin-body {
-    background-color: #f2f2f2; /* Fond clair pour contraster avec tes marrons */
-    margin: 0;
+    background-color: #f2f2f2; 
 }
 
 
@@ -33,7 +32,7 @@
 .admin-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: "Optima", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .admin-table th {
@@ -58,8 +57,13 @@
     color: #0065FC;
 }
 
-.badge.restaurateur { background-color: #4b1707; color: white; }
-.badge.livreur { background-color: #7a2308; color: white; }
+.badge.restaurateur {
+    background-color: #4b1707; color: white; 
+}
+
+.badge.livreur { 
+    background-color: #7a2308; color: white; 
+}
 
 /* Bouton d'action */
 .btn-edit {

@@ -6,7 +6,7 @@
 
 /* Corps du site : Chewy */
 body {
-    font-family: 'Chewy', cursive;
+    font-family: 'Chewy';
     background-color: #fffcfb;
 }
 
@@ -136,6 +136,6 @@ h1, h2, h3 {
 }
 
 .delivery-mode {
-    border-left-color: #deebff; /* Couleur différente pour le suivi */
+    border-left-color: #deebff;
     opacity: 0.8;
 }
