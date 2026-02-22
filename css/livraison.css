@@ -1,52 +1,53 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Corps du site : Chewy */
 body {
-    font-family: 'Chewy', cursive;
-    background-color: #fffcfb;
+  font-family: "Chewy", cursive;
+  background-color: #fffcfb;
+  background-image: url("../images/dessins/profild1.png");
+  background-repeat: no-repeat;
+  background-position: center -100px;
+  background-size: 2000px;
 }
 
 /* Titres : Mogra */
-h1, h2, h3 {
-    font-family: 'Mogra', cursive;
+h1,
+h2,
+h3 {
+  font-family: "Mogra", cursive;
 }
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #231f20;
-    padding: 3px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #231f20;
+  padding: 3px 40px;
 }
 
 .logo img {
-    height: 100px; /* taille du logo */
+  height: 100px; /* taille du logo */
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 150px;
+  list-style: none;
+  display: flex;
+  gap: 150px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #fffcfb;
-    transition: color 0.3s ease;
-    font-size: 30px; /* taille du texte */
+  text-decoration: none;
+  color: #fffcfb;
+  transition: color 0.3s ease;
+  font-size: 30px; /* taille du texte */
 }
 
 .nav-links a:hover {
-    color: #d23508;
+  color: #d23508;
 }
-
-
-
-
-
 
 .livraison-container {
   max-width: 800px;
@@ -55,7 +56,7 @@ h1, h2, h3 {
   margin-top: 80px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   font-size: 25px;
   line-height: 1.5;
 }
@@ -96,7 +97,7 @@ a {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  color : white
+  color: white;
 }
 
 .nav-btn {

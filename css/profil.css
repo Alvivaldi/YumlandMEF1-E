@@ -1,57 +1,55 @@
 /* 1. Reset global */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Corps du site : Chewy */
 body {
-    font-family: 'Chewy', cursive;
-    background-color: #fffcfb;
+  font-family: "Chewy", cursive;
+  background-color: #fffcfb;
+  background-image: url("../images/dessins/profild1.png");
+  background-repeat: no-repeat;
+  background-position: center -100px;
+  background-size: 2000px;
 }
 
 /* Titres : Mogra */
-h1, h2, h3 {
-    font-family: 'Mogra', cursive;
+h1,
+h2,
+h3 {
+  font-family: "Mogra", cursive;
 }
 
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #231f20;
-    padding: 3px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #231f20;
+  padding: 3px 40px;
 }
 
 .logo img {
-    height: 100px; /* taille du logo */
+  height: 100px; /* taille du logo */
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 150px;
+  list-style: none;
+  display: flex;
+  gap: 150px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #fffcfb;
-    transition: color 0.3s ease;
-    font-size: 30px; /* taille du texte */
+  text-decoration: none;
+  color: #fffcfb;
+  transition: color 0.3s ease;
+  font-size: 30px; /* taille du texte */
 }
 
 .nav-links a:hover {
-    color: #d23508;
+  color: #d23508;
 }
-
-
-
-
-
-
-
 
 .profile-container {
   max-width: 800px;
@@ -59,14 +57,15 @@ h1, h2, h3 {
   background-color: #faebe4;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 80px;
+  margin-bottom: 120px;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color:#d23508;
+  color: #d23508;
   font-size: 50px;
 }
 
@@ -112,6 +111,59 @@ h2 {
 .loyalty p {
   margin: 8px 0;
   font-weight: bold;
-  
 }
 
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #231f20;
+  color: #fff;
+  padding: 70px;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  background-image: url("../images/dessins/footerd1.png");
+  background-repeat: no-repeat;
+  background-position:  left 50px bottom 100px ;
+  background-size: 600px;
+
+}
+
+.footer-logo img {
+  height: 150px;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+}
+
+.footer-links ul li {
+  margin-bottom: 40px;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #d23508;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
