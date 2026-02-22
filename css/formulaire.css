@@ -17,6 +17,12 @@ body {
     background-color: #fffcfb;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Mogra", cursive;
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -105,6 +111,7 @@ section h1{
     text-align: center;
     color: #fffcfb;
     margin-bottom: 20px;
+    font-family: "Mogra", cursive;
 }
 
 .close-btn{
