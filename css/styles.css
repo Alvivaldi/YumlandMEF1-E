@@ -4,20 +4,22 @@
   box-sizing: border-box;
 }
 
-/* Corps du site : Chewy */
 body {
   font-family: "Chewy", cursive;
   background-color: #fffcfb;
 }
 
-/* Titres : Mogra */
+
 h1,
 h2,
 h3 {
   font-family: "Mogra", cursive;
 }
 
-/* BARRE NAVIGATION */
+
+
+
+
 
 .navbar {
   display: flex;
@@ -28,7 +30,7 @@ h3 {
 }
 
 .logo img {
-  height: 100px; /* taille du logo */
+  height: 100px; 
 }
 
 .nav-links {
@@ -41,27 +43,34 @@ h3 {
   text-decoration: none;
   color: #fffcfb;
   transition: color 0.3s ease;
-  font-size: 30px; /* taille du texte */
+  font-size: 30px; 
+  
 }
 
 .nav-links a:hover {
   color: #d23508;
 }
 
+
+
+
+
+
+
 .hero {
   height: 900px;
   background: url("../images/plate.png") center no-repeat;
-  background-size: contain; /* image plus petite */
+  background-size: contain; 
 
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-  background-color: #fffcfb;
+  background-color: #d23508;
 }
 
-/* Effet sombre par-dessus l'image */
+
 .hero::before {
   content: "";
   position: absolute;
@@ -69,7 +78,7 @@ h3 {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* Texte au-dessus du filtre sombre */
+
 .hero-content {
   position: relative;
   color: #faebe4;
@@ -86,7 +95,11 @@ h3 {
   font-size: 60px;
 }
 
-/* 5. Recherche / barre de recherche */
+
+
+
+
+
 .recherche {
   display: flex;
   justify-content: center;
@@ -121,15 +134,21 @@ h3 {
   background-color: darkred;
 }
 
+
+
+
+
+
+
 .menu-container {
   display: flex;
   justify-content: center;
-  gap: 300px; /* espace entre les colonnes */
+  gap: 300px; 
   padding: 150px 20px;
   background-image: url("../images/dessins/acceuild1.png");
   background-repeat: no-repeat;
   background-position: center -10px;
-  background-size: 1200px; /* ou cover */
+  background-size: 1200px; 
 }
 
 .menu-box {
@@ -162,9 +181,9 @@ h3 {
   justify-content: space-between;
   align-items: flex-start;
   background-color: #231f20;
-  color: #fff; /* texte blanc */
+  color: #fff; 
   padding: 70px;
-  flex-wrap: wrap; /* responsive si écran petit */
+  flex-wrap: wrap; 
   gap: 30px;
 }
 
@@ -195,7 +214,7 @@ h3 {
 }
 
 .footer-links ul li a:hover {
-  color: #00bcd4;
+  color: #d23508;
 }
 
 .footer-contact p {

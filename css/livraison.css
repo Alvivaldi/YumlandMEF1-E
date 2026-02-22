@@ -96,6 +96,7 @@ a {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  color : white
 }
 
 .nav-btn {
@@ -108,7 +109,7 @@ a {
 
 .complete-btn {
   background-color: green;
-  color: white;
+  color: #fffcfb;
   border: none;
 }
 
