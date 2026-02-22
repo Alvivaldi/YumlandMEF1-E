@@ -1,13 +1,4 @@
 /* spécialité du moment */
-/*header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #4b1707;
-    height: 150px;
-   
-}*/
 
 *{
     margin: 0;
@@ -15,7 +6,7 @@
     box-sizing:border-box;
 }
 
-/* Corps du site : Chewy */
+/* Corps du site*/
 body {
     font-family: 'Chewy', cursive;
     background-color: #fffcfb;
@@ -35,7 +26,7 @@ h1, h2, h3 {
 }
 
 .logo img {
-    height: 100px; /* taille du logo */
+    height: 100px; 
 }
 
 .nav-links {
@@ -55,22 +46,27 @@ h1, h2, h3 {
     color: #d23508;
 }
 
-/*header img {
-    position: absolute;
-    left: 20px;
-    width: 300px;
+/*titre*/
 
-}*/ 
-
-h1.big-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 3rem;
-    color: white;
-    margin-left: 20px;
+.container-titre {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    padding: 30px 0;         
 }
 
-/* navigation */
+.titre-carte {
+    font-size: 3rem;         
+    color: #d23508;          
+    text-align: center;
+    font-weight: bold;
+    /*bordure en bas*/
+    border-bottom: 3px solid #d23508; 
+    padding-bottom: 10px;
+}
+
+
 
 
 /* Filtres */
@@ -87,6 +83,7 @@ h1.big-title {
 }
 .margFiltreTitre{
     margin-right: 40px;
+    padding-left: 15px;
 }
 
 .filtreTexteIcons {
@@ -140,7 +137,7 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
+    padding-left: 15px;
     color: #d23508;
 }
 
@@ -169,7 +166,7 @@ h1.big-title {
 .box img {
     width: 100%;
     height: 200px;            
-    object-fit: cover;        /* Recadre proprement la photo */
+    object-fit: cover;        /* Recadre la photo */
 }
 
 /* LE TEXTE DANS LA BOITE */
@@ -185,7 +182,7 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
+    padding-left: 15px;
     color: #d23508;
 }
 
@@ -229,7 +226,7 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
+    padding-left: 15px;
     color: #d23508;
 }
 
@@ -274,7 +271,7 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
+    padding-left: 15px;
     color: #d23508;
 }
 
@@ -319,7 +316,7 @@ h1.big-title {
     font-size: 1rem;
     width: 100%;
     padding: 50px 0;
-    text-align: left;
+    padding-left: 15px;
     color: #d23508;
 }
 
