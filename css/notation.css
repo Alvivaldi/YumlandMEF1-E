@@ -79,8 +79,21 @@ section h2{
 section h3{
     text-decoration: underline;
     font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+section h4{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+} 
+
+section h5{
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .stars {
     font-size: 30px;
