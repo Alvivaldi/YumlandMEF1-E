@@ -61,11 +61,11 @@ h3 {
 }
 
 section h1 {
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
   color: white;
   margin-bottom: 20px;
-  border: black solid 1px;
+  border: black solid 3px;
   background-color: brown;
   border-radius: 5px;
   width: 900px;
