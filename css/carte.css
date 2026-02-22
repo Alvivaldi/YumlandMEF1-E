@@ -67,7 +67,7 @@ body {
     background-color: #fffcfb;
     background-image: url("../images/dessins/menud2.png");
   background-repeat: no-repeat;
- background-position: calc(50% + 15px) 4%;  /* 50% = vertical centré */
+ background-position: calc(50% + 15px) 4%;  
   background-size: 1600px;
 
 }
@@ -422,7 +422,7 @@ section {
 html {
     scroll-behavior: smooth;
 }
-/*survol sur les cartes de plats */
+/*survol sur les cartes des plats */
 .box, .box1, .box2 {
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
