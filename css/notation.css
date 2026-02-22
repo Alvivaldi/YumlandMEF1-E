@@ -30,7 +30,6 @@ h3 {
 
 .logo img {
     height: 100px;
-    /* taille du logo */
 }
 
 .nav-links {
@@ -44,7 +43,6 @@ h3 {
     color: #fffcfb;
     transition: color 0.3s ease;
     font-size: 30px;
-    /* taille du texte */
 }
 
 .nav-links a:hover {
@@ -74,6 +72,7 @@ section h1 {
     margin: auto;
     margin-top: 50px;
 }
+
 
 section h2 {
     color: #333;
