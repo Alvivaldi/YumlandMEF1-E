@@ -1,227 +1,205 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Corps du site : Chewy */
 body {
-    font-family: 'Chewy', cursive;
-    background-color: #fffcfb;
+  font-family: "Chewy", cursive;
+  background-color: #fffcfb;
 }
 
 /* Titres : Mogra */
-h1, h2, h3 {
-    font-family: 'Mogra', cursive;
+h1,
+h2,
+h3 {
+  font-family: "Mogra", cursive;
 }
-
-
 
 /* BARRE NAVIGATION */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #231f20;
-    padding: 3px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #231f20;
+  padding: 3px 40px;
 }
 
 .logo img {
-    height: 100px; /* taille du logo */
+  height: 100px; /* taille du logo */
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 150px;
+  list-style: none;
+  display: flex;
+  gap: 150px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #fffcfb;
-    transition: color 0.3s ease;
-    font-size: 30px; /* taille du texte */
+  text-decoration: none;
+  color: #fffcfb;
+  transition: color 0.3s ease;
+  font-size: 30px; /* taille du texte */
 }
 
 .nav-links a:hover {
-    color: #d23508;
+  color: #d23508;
 }
 
-
-
-
-
-
 .hero {
-    height: 900px;
-    background: url("../images/plate.png") center no-repeat;
-    background-size: contain; /* image plus petite */
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    background-color: #fffcfb;
-    
+  height: 900px;
+  background: url("../images/plate.png") center no-repeat;
+  background-size: contain; /* image plus petite */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: #fffcfb;
 }
 
 /* Effet sombre par-dessus l'image */
 .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* Texte au-dessus du filtre sombre */
 .hero-content {
-    position: relative;
-    color: #faebe4;
-    z-index: 1;
+  position: relative;
+  color: #faebe4;
+  z-index: 1;
 }
 
 .hero h1 {
-    font-size: 120px;
-    margin-bottom: 20px;
+  font-size: 120px;
+  margin-bottom: 20px;
 }
 
 .hero p {
-    margin-bottom: 20px;
-    font-size: 60px;
+  margin-bottom: 20px;
+  font-size: 60px;
 }
-
-
-
-
-
-
 
 /* 5. Recherche / barre de recherche */
 .recherche {
-    display: flex;
-    justify-content: center;
-    margin: 60px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 30px 0;
 }
-
 
 .search-bar {
-    display: flex;
-    width: 50%;
+  display: flex;
+  width: 50%;
 }
-
 
 .search-bar input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    outline: none;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 25px 0 0 25px;
+  outline: none;
 }
-
 
 .search-bar button {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-left: none;
-    background-color: #d23508;
-    color: white;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-left: none;
+  background-color: #d23508;
+  color: white;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
 }
-
 
 .search-bar button:hover {
-    background-color: darkred;
+  background-color: darkred;
 }
 
-
 .menu-container {
-    display: flex;
-    justify-content: center;
-    gap: 300px; /* espace entre les colonnes */
-    padding: 150px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 300px; /* espace entre les colonnes */
+  padding: 150px 20px;
+  background-image: url("../images/dessins/acceuild1.png");
+  background-repeat: no-repeat;
+  background-position: center -10px;
+  background-size: 1200px; /* ou cover */
 }
 
 .menu-box {
-    background-color: #faebe4;
-    padding: 40px;
-    width: 500px;
-    text-align: center;
-    border-radius: 10px;
+  background-color: #faebe4;
+  padding: 40px;
+  width: 500px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .menu-box h2 {
-    font-size: 50px;
-    margin-bottom: 30px;
-    color:#d23508
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: #d23508;
 }
 
 .menu-box h3 {
-    font-size: 40px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .menu-box p {
-    font-size: 20px;
-    margin: 5px 0;
-    
+  font-size: 20px;
+  margin: 5px 0;
 }
 
-
-
-
-
-
-
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: #231f20;
-    color: #fff; /* texte blanc */
-    padding: 70px;
-    flex-wrap: wrap; /* responsive si écran petit */
-    gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #231f20;
+  color: #fff; /* texte blanc */
+  padding: 70px;
+  flex-wrap: wrap; /* responsive si écran petit */
+  gap: 30px;
 }
 
 .footer-logo img {
-    height: 150px;
+  height: 150px;
 }
 
 .footer-links h3,
 .footer-contact h3 {
-    margin-bottom: 50px;
-    font-size: 30px;
+  margin-bottom: 50px;
+  font-size: 30px;
 }
 
 .footer-links ul {
-    list-style: none;
-    padding: 0;
-    font-size: 20px;
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
 }
 
 .footer-links ul li {
-    margin-bottom: 40px;
-
+  margin-bottom: 40px;
 }
 
 .footer-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 .footer-links ul li a:hover {
-    color: #00bcd4;
+  color: #00bcd4;
 }
 
 .footer-contact p {
-    margin: 5px 0;
-    margin-bottom: 40px;
-    font-size: 20px;
+  margin: 5px 0;
+  margin-bottom: 40px;
+  font-size: 20px;
 }
-
