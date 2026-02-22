@@ -1,41 +1,39 @@
+body {
+    font-family: 'Chewy', cursive;
+    background-color: #fffcfb;
+}
 
+h1, h2, h3 {
+    font-family: 'Mogra', cursive;
+}
 
-header{
+.navbar {
     display: flex;
-    align-items: center;
-   
-    background-color: white;
-    height: 100px;
-   
-}
-
-h1.big-title {
-    color: white;
-    margin-left: 20px;
-}
-header img {
-    width: 250px;
-    
-}
-
-section.top-page {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* haut / centre / bas */
-}
-
-nav.navigation {
-    display: flex;
-    list-style: none;
     justify-content: space-between;
- 
-    margin-left: 30px;
+    align-items: center;
+    background-color: #231f20;
+    padding: 3px 40px;
 }
 
-nav.navigation li {
-    color: brown;
-    margin: 0 15px;
+.logo img {
+    height: 100px; /* taille du logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 150px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fffcfb;
+    transition: color 0.3s ease;
+    font-size: 30px; /* taille du texte */
+}
+
+.nav-links a:hover {
+    color: #d23508;
 }
 
 
@@ -61,6 +59,7 @@ section h1{
     border-radius: 5px;
     width: 900px;
     margin: auto;
+    margin-top: 50px;
 }
 
 section h2{
@@ -111,4 +110,14 @@ textarea {
 
 .submit-btn:hover {
     background-color: black;
+}
+
+section p{
+    text-align: center;
+    font-size: 15px;
+    width: 800px;
+    margin: auto;
+    margin-top: -20px;
+    margin-bottom: 50px;
+    color: rgb(188, 186, 186);
 }
