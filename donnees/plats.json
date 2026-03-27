@@ -1,0 +1,33 @@
+{
+    "plats": [
+      { "nom": "Pastels", "prix": 5.50, "categorie": "entrees" },
+      { "nom": "Beignets", "prix": 5.50, "categorie": "entrees" },
+      { "nom": "Bricks", "prix": 5.50, "categorie": "entrees" },
+      { "nom": "Alocos", "prix": 5.50, "categorie": "entrees" },
+      { "nom": "Salade", "prix": 5.50, "categorie": "entrees" },
+      { "nom": "Biryani", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Paneer Butter Masala", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Masala Dosa", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Gobi Manchurian", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Nouilles", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Poulet Tandoori", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Le Dahl", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Raita", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Poulet au Curry", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Aloo Gobi", "prix": 12.00, "categorie": "plats" },
+      { "nom": "Tarte Tatin", "prix": 12.00, "categorie": "desserts" },
+      { "nom": "Creme Brulée", "prix": 12.00, "categorie": "desserts" },
+      { "nom": "Mousse au Chocolat", "prix": 12.00, "categorie": "desserts" },
+      { "nom": "Fondant au Chocolat", "prix": 12.00, "categorie": "desserts" },
+      { "nom": "Eclair", "prix": 12.00, "categorie": "desserts" },
+      { "nom": "Rose Milk", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Bissap", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Eau", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Chai Masala Tea", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Eau de Noix de Coco", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Mango Lassi", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Falodaa", "prix": 12.00, "categorie": "boissons" },
+      { "nom": "Sodas", "prix": 12.00, "categorie": "boissons" }
+
+    ]
+  }
