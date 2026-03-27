@@ -1,0 +1,8 @@
+{
+"menus" : [
+    { "nom": "Menu Naanfant", "prix": 15.00, "composition": ["Naan", "Poulet", "Boisson"] },
+    { "nom": "Menu Le Classico", "prix": 15.00, "composition": ["Naan", "Poulet", "Boisson"] },
+    { "nom": "Menu Des Couvetrs", "prix": 15.00, "composition": ["Naan", "Poulet", "Boisson"] }
+  ]
+
+}
