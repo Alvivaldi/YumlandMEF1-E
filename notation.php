@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="../images/logo.png" alt="Logo" />
+            <img src="images/logo.png" alt="Logo" />
         </div>
         <ul class="nav-links">
             <li><a href="index.php">Accueil</a></li>
