@@ -1,0 +1,27 @@
+[
+    {
+      "id_commande": "Cmd-1",
+      "client": "Alex Térieur",
+      "details": [
+        {"produit": "Menu Naanfant", "quantite": 1},
+        {"produit": "Coca-Cola", "quantite": 2}
+      ],
+      "statut": "a_preparer",
+      "heure": "12:30",
+      "adresse_livraison": "10 rue Courbet",
+      "prix_total": 18.50,
+      "livreur_attribue": "Patoche"
+    },
+    {
+      "id_commande": "Cmd-3",
+      "client": "Jean Bon",
+      "details": [
+        {"produit": "Pastels", "quantite": 5}
+      ],
+      "statut": "en_livraison",
+      "heure": "12:15",
+      "adresse_livraison": "CY TECH, Cergy",
+      "prix_total": 16.50,
+      "livreur_attribue": "Lasugaa"
+    }
+  ]
