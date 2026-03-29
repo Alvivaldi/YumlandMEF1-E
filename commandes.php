@@ -36,7 +36,7 @@ $utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
             </div>
             <div class="box1-content admin-card" style="background-color: #d23508;">
                 <h2 class="entree" style="color: white;">🚚 En cours de préparation...</h2>
-                <p class="stat-number entree" style="color: white;">3</p>
+                <p class="stat-number entree" style="color: white;">2</p>
             </div>
         </div>
 
