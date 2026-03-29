@@ -1,6 +1,7 @@
 <?php
-$commandes_donnees = json_decode(file_get_contents('donnees/commandes.json'), true);
-$utilisateurs_donnees = json_decode(file_get_contents('donnees/utilisateurs.json'), true);
+include 'includes/fonctions.php';
+$commandes_donnees = lireJSON('donnees/commandes.json');
+$utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
 ?>
 
 
@@ -43,7 +44,7 @@ $utilisateurs_donnees = json_decode(file_get_contents('donnees/utilisateurs.json
             <section class="column-prepa">
                 <h2 class="entree">🔥 À Préparer</h2>
 
-                    <?php foreach ($commandes as $cmd): ?>
+                    <?php foreach ($commandes_donnees as $cmd): ?>
                         <?php if ($cmd['statut'] === 'a_preparer'): ?>
                             <div class="box-commande">
                                 <div class="commande-header">
@@ -66,7 +67,7 @@ $utilisateurs_donnees = json_decode(file_get_contents('donnees/utilisateurs.json
             <section class="column-livraison">
                 <h2 class="entree" style="color: #010000;">🚚 En cours de livraison</h2>
 
-                <?php foreach ($commandes as $cmd): ?>
+                <?php foreach ($commandes_donnees as $cmd): ?>
                     <?php if ($cmd['statut'] === 'en_livraison'): ?>
                         <div class="box-commande delivery-mode">
                             <div class="commande-header">

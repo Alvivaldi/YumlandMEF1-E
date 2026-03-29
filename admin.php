@@ -1,7 +1,6 @@
 <?php
-$json_source = file_get_contents('donnees/utilisateurs.json');
-$utilisateurs = json_decode($json_source, true);
-?>
+include 'includes/fonctions.php';
+$utilisateurs = lireJSON('donnees/utilisateurs.json'); 
 
 <!DOCTYPE html>
 <html lang="fr">
