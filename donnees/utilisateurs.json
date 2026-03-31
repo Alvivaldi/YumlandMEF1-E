@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "login": "alex.terieur@manger.com",
+        "email": "alex.terieur@manger.com",
         "password": "tascapte6",
         "role": "admin",
         "nom": "Téreur",
@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "login": "chacha.steven@manger.com",
+        "email": "chacha.steven@manger.com",
         "password": "patesauxsaumons2026",
         "role": "admin",
         "nom": "Caissier",
@@ -21,7 +21,7 @@
     },
     {
         "id": 3,
-        "login": "sixseven.manger.com",
+        "email": "sixseven.manger.com",
         "password": "67secret",
         "role": "client",
         "nom": "Six",
@@ -31,7 +31,7 @@
     },
     {
         "id": 4,
-        "login": "morgen.manger.com",
+        "email": "morgen.manger.com",
         "password": "cheval67",
         "role": "client",
         "nom": "Chevalier",
@@ -41,7 +41,7 @@
     },
     {
         "id": 5,
-        "login": "mohammed.manger.com",
+        "email": "mohammed.manger.com",
         "password": "zebinadri",
         "role": "client",
         "nom": "Moha",
@@ -51,7 +51,7 @@
     },
     {
         "id": 6,
-        "login": "jean.manger.com",
+        "email": "jean.manger.com",
         "password": "jeje54",
         "role": "client",
         "nom": "Richard",
@@ -61,7 +61,7 @@
     },
     {
         "id": 7,
-        "login": "momo.manger.com",
+        "email": "momo.manger.com",
         "password": "lili65",
         "role": "client",
         "nom": "Lerent",
@@ -71,7 +71,7 @@
     },
     {
         "id": 8,
-        "login": "jelo.manger.com",
+        "email": "jelo.manger.com",
         "password": "saumonjelo123",
         "role": "Restaurateur",
         "nom": "Jelo",
@@ -81,7 +81,7 @@
     },
     {
         "id": 9,
-        "login": "lasu.manger.com",
+        "email": "lasu.manger.com",
         "password": "nandri4",
         "role": "Livreur",
         "nom": "Dib",

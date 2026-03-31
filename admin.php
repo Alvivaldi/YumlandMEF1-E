@@ -1,6 +1,7 @@
 <?php
 include 'includes/fonctions.php';
 $utilisateurs = lireJSON('donnees/utilisateurs.json'); 
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
