@@ -37,7 +37,7 @@
                 <div class="filtreIcons flexCentre">
                     <i class="fa-solid fa-utensils fa-lg"></i>
                 </div>
-                <div class="filtreTexte flexCentre">Type de plats</div>
+                <div class="filtreTexte flexCentre">Spécialité du moment</div>
             </a>
             <a href="#entrees" class="flexBetween filtreTexteIcons">
                 <div class="filtreIcons flexCentre">
@@ -77,6 +77,7 @@
                         <h3>Biryani</h3>
                         <p>Description...</p>
                         <span>prix</span>
+                        <small>allergènes</small>
                     </div>
                 </div>
                 <div class="box">
