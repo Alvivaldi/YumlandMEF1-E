@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+
+include 'includes/fonctions.php';
+
+
+$plats = lireJSON('donnees/plats.json'); 
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -34,263 +44,143 @@
                 <h2>Filtres : </h2>
             </div>
             <a href="#specialites" class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-utensils fa-lg"></i>
-                </div>
+                <div class="filtreIcons flexCentre"><i class="fa-solid fa-utensils fa-lg"></i></div>
                 <div class="filtreTexte flexCentre">Type de plats</div>
             </a>
             <a href="#entrees" class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-bowl-food fa-lg"></i>
-                </div>
+                <div class="filtreIcons flexCentre"><i class="fa-solid fa-bowl-food fa-lg"></i></div>
                 <div class="filtreTexte flexCentre">Nos Formules</div>
             </a>
             <a href="#plats" class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-seedling fa-lg"></i>
-                </div>
+                <div class="filtreIcons flexCentre"><i class="fa-solid fa-seedling fa-lg"></i></div>
                 <div class="filtreTexte flexCentre">Veggie</div>
             </a>
             <a href="#boissons" class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-martini-glass-citrus fa-lg"></i>
-                </div>
+                <div class="filtreIcons flexCentre"><i class="fa-solid fa-martini-glass-citrus fa-lg"></i></div>
                 <div class="filtreTexte flexCentre">Boissons</div>
             </a>
             <div class="flexBetween filtreTexteIcons">
-                <div class="filtreIcons flexCentre">
-                    <i class="fa-solid fa-ban fa-lg"></i>
-                </div>
+                <div class="filtreIcons flexCentre"><i class="fa-solid fa-ban fa-lg"></i></div>
                 <div class="filtreTexte flexCentre">Allergènes</div>
             </div>
         </div>
 
-
-
-        <!-- Spécialités du moment  -->
         <section id="specialites" class="specialite">
             <h1>Specialité du moment </h1>
             <div class="specialite-list">
-                <div class="box">
-                    <img src="images/biryani.jpeg">
-                    <div class="box-content">
-                        <h3>Biryani</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/alloco.jpg">
-                    <div class="box-content">
-                        <h3>Alloco</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/butter.jpg">
-                    <div class="box-content">
-                        <h3>Butter</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="images/creme.jpg">
-                    <div class="box-content">
-                        <h3>Crême Brulée</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
+                <?php foreach ($plats as $plat): ?>
+                    <?php if ($plat['categorie'] === 'specialite'): ?>
+                        <div class="box">
+                            <img src="<?= htmlspecialchars($plat['image']) ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <div class="box-content">
+                                <h3><?= htmlspecialchars($plat['nom']) ?></h3>
+                                <p><?= htmlspecialchars($plat['description']) ?></p>
+                                <span><?= number_format($plat['prix'], 2) ?> €</span>
+                                <form action="ajout_panier.php" method="POST" style="margin-top: 10px;">
+                                    <input type="hidden" name="id_plat" value="<?= $plat['id'] ?>">
+                                    <input type="number" name="quantite" value="1" min="1" style="width: 50px;">
+                                    <button type="submit" style="cursor:pointer; background-color: #fca311; border: none; padding: 5px 10px; border-radius: 5px;">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </section>
-        <!-- specialite du moment -->
 
-        <!-- entrée -->
         <section id="entrees" class="entree">
             <h1>Entrées</h1>
             <div class="entree-list">
-                <div class="box1">
-                    <img src="images/pastel1.jpg">
-                    <div class="box-content">
-                        <h3>Pastel</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/alloco.jpg">
-                    <div class="box-content">
-                        <h3>Alloco</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/brick.jpg">
-                    <div class="box-content">
-                        <h3>Brick</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/salade.avif">
-                    <div class="box-content">
-                        <h3>Salade</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/beignet.webp">
-                    <div class="box-content">
-                        <h3>Beignets</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
+                <?php foreach ($plats as $plat): ?>
+                    <?php if ($plat['categorie'] === 'entree'): ?>
+                        <div class="box1">
+                            <img src="<?= htmlspecialchars($plat['image']) ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <div class="box-content">
+                                <h3><?= htmlspecialchars($plat['nom']) ?></h3>
+                                <p><?= htmlspecialchars($plat['description']) ?></p>
+                                <span><?= number_format($plat['prix'], 2) ?> €</span>
+                                <form action="ajout_panier.php" method="POST" style="margin-top: 10px;">
+                                    <input type="hidden" name="id_plat" value="<?= $plat['id'] ?>">
+                                    <input type="number" name="quantite" value="1" min="1" style="width: 50px;">
+                                    <button type="submit" style="cursor:pointer; background-color: #fca311; border: none; padding: 5px 10px; border-radius: 5px;">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </section>
-        <!-- entrée -->
 
-        <!-- plats -->
         <section id="plats" class="plat">
             <h1>Plats</h1>
             <div class="plat-list">
-                <div class="box1">
-                    <img src="images/butter.jpg">
-                    <div class="box-content">
-                        <h3>Butter chicken</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/biryani.jpeg">
-                    <div class="box-content">
-                        <h3>Biryani</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/nouille.jpg">
-                    <div class="box-content">
-                        <h3>Nouille</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/masala.webp">
-                    <div class="box-content">
-                        <h3>Masala Dosa</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/gobi.jpg">
-                    <div class="box-content">
-                        <h3>Gobi Manchurian</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
+                <?php foreach ($plats as $plat): ?>
+                    <?php if ($plat['categorie'] === 'plat'): ?>
+                        <div class="box1">
+                            <img src="<?= htmlspecialchars($plat['image']) ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <div class="box-content">
+                                <h3><?= htmlspecialchars($plat['nom']) ?></h3>
+                                <p><?= htmlspecialchars($plat['description']) ?></p>
+                                <span><?= number_format($plat['prix'], 2) ?> €</span>
+                                <form action="ajout_panier.php" method="POST" style="margin-top: 10px;">
+                                    <input type="hidden" name="id_plat" value="<?= $plat['id'] ?>">
+                                    <input type="number" name="quantite" value="1" min="1" style="width: 50px;">
+                                    <button type="submit" style="cursor:pointer; background-color: #fca311; border: none; padding: 5px 10px; border-radius: 5px;">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </section>
-        <!-- plats -->
 
-        <!-- desserts -->
         <section id="desserts" class="dessert">
             <h1>Desserts</h1>
             <div class="dessert-list">
-                <div class="box1">
-                    <img src="images/creme.jpg">
-                    <div class="box-content">
-                        <h3>Crème Brulée</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/eclair.webp">
-                    <div class="box-content">
-                        <h3>Eclair</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/fondant.jpg">
-                    <div class="box-content">
-                        <h3>Fondant</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/mousse.webp">
-                    <div class="box-content">
-                        <h3>Mousse au chocolat</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box1">
-                    <img src="images/tarte.webp">
-                    <div class="box-content">
-                        <h3>Tarte tatin</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
+                <?php foreach ($plats as $plat): ?>
+                    <?php if ($plat['categorie'] === 'dessert'): ?>
+                        <div class="box1">
+                            <img src="<?= htmlspecialchars($plat['image']) ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <div class="box-content">
+                                <h3><?= htmlspecialchars($plat['nom']) ?></h3>
+                                <p><?= htmlspecialchars($plat['description']) ?></p>
+                                <span><?= number_format($plat['prix'], 2) ?> €</span>
+                                <form action="ajout_panier.php" method="POST" style="margin-top: 10px;">
+                                    <input type="hidden" name="id_plat" value="<?= $plat['id'] ?>">
+                                    <input type="number" name="quantite" value="1" min="1" style="width: 50px;">
+                                    <button type="submit" style="cursor:pointer; background-color: #fca311; border: none; padding: 5px 10px; border-radius: 5px;">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </section>
-        <!-- desserts -->
-        <!-- boissons  -->
+
         <section id="boissons" class="boisson">
             <h1>Boissons </h1>
             <div class="boisson-list">
-                <div class="box2">
-                    <img src="images/rose_milk.jpg">
-                    <div class="box-content">
-                        <h3>Rose Milk</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box2">
-                    <img src="images/bissap.jpg">
-                    <div class="box-content">
-                        <h3>Bissap</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box2">
-                    <img src="images/mango.jpg">
-                    <div class="box-content">
-                        <h3>Mango Lassi</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
-                <div class="box2">
-                    <img src="images/soda.jpg">
-                    <div class="box-content">
-                        <h3>Sodas</h3>
-                        <p>Description...</p>
-                        <span>prix</span>
-                    </div>
-                </div>
+                <?php foreach ($plats as $plat): ?>
+                    <?php if ($plat['categorie'] === 'boisson'): ?>
+                        <div class="box2">
+                            <img src="<?= htmlspecialchars($plat['image']) ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <div class="box-content">
+                                <h3><?= htmlspecialchars($plat['nom']) ?></h3>
+                                <p><?= htmlspecialchars($plat['description']) ?></p>
+                                <span><?= number_format($plat['prix'], 2) ?> €</span>
+                                <form action="ajout_panier.php" method="POST" style="margin-top: 10px;">
+                                    <input type="hidden" name="id_plat" value="<?= $plat['id'] ?>">
+                                    <input type="number" name="quantite" value="1" min="1" style="width: 50px;">
+                                    <button type="submit" style="cursor:pointer; background-color: #fca311; border: none; padding: 5px 10px; border-radius: 5px;">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </section>
-        <!-- boissons-->
+
         <?php include 'includes/footer.php'; ?>
-
+    </div>
 </body>
-
 </html>

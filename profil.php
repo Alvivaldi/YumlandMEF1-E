@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="fr">
 
@@ -6,15 +7,17 @@
   <title>Mon Profil</title>
   <link rel="stylesheet" href="css/profil.css" />
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-<?php include 'includes/header.php'; ?>
+  <?php include 'includes/header.php'; ?>
+
   <div class="profile-container">
     <h1>Mon Profil</h1>
 
@@ -51,5 +54,4 @@
 
   <?php include 'includes/footer.php'; ?>
 </body>
-
 </html>
