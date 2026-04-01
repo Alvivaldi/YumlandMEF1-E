@@ -105,5 +105,21 @@
                 "quantite": 1
             }
         ]
+    },
+    {
+        "id_commande": "CMD177507283828",
+        "id_client": 1,
+        "date_creation": "01\/04\/2026 19:47",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 14,
+        "statut": "A_PREPARER",
+        "produits": [
+            {
+                "id_plat": 3,
+                "nom": "Butter chicken",
+                "quantite": 1
+            }
+        ]
     }
 ]

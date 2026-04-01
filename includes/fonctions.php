@@ -1,7 +1,6 @@
 <?php
 
 
-
 function lireJSON($cheminFichier) {
     if (file_exists($cheminFichier)) {
         $donnees = file_get_contents($cheminFichier);
@@ -9,7 +8,6 @@ function lireJSON($cheminFichier) {
     }
     return []; 
 }
-
 
 function ecrireJSON($cheminFichier, $donnees) {
     $json = json_encode($donnees, JSON_PRETTY_PRINT);
