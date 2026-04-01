@@ -1,3 +1,8 @@
+<?php
+include 'includes/fonctions.php';
+$utilisateurs = lireJSON('donnees/utilisateurs.json'); 
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -54,24 +59,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Alexis</td>
-                            <td><span class="badge">Client</span></td>
-                            <td>alexis@mail.com</td>
-                            <td><button class="btn-edit">Modifier</button></td>
-                        </tr>
-                        <tr>
-                            <td>Charmelle</td>
-                            <td><span class="badge restaurateur">Restauratrice</span></td>
-                            <td>charmelle@gmail.fr</td>
-                            <td><button class="btn-edit">Modifier</button></td>
-                        </tr>
-                        <tr>
-                            <td>Lasugaa</td>
-                            <td><span class="badge livreur">Livreuse</span></td>
-                            <td>lasugaa@gmail.fr</td>
-                            <td><button class="btn-edit">Modifier</button></td>
-                        </tr>
+                        <?php foreach ($utilisateurs as $user): ?>
+                            <tr>
+                                <td><?php echo $user['nom']; ?></td>
+                                <td>
+                                    <span class="badge <?php echo ($user['role'] !== 'client') ? $user['role'] : ''; ?>">
+                                        <?php echo ucfirst($user['role']); ?>
+                                    </span>
+                                </td>
+                                <td><?php echo $user['email']; ?></td>
+                                <td>
+                                    <button class="btn-edit">Modifier Statut (<?php echo $user['statut']; ?>)</button>
+                                    <button class="btn-edit" style="background-color: #777;">
+                                        <?php echo $user['est_bloque'] ? 'Débloquer' : 'Bloquer'; ?>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
