@@ -97,14 +97,19 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 6.5,
-        "statut": "A_PREPARER",
+        "statut": "LIVREE",
         "produits": [
             {
                 "id_plat": 2,
                 "nom": "Alloco",
                 "quantite": 1
             }
-        ]
+        ],
+        "note_livraison": 5,
+        "comment_livraison": "f",
+        "note_plats": 4,
+        "comment_plats": " ",
+        "note": 4.5
     },
     {
         "id_commande": "CMD177507283828",
@@ -113,13 +118,18 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 14,
-        "statut": "A_PREPARER",
+        "statut": "LIVREE",
         "produits": [
             {
                 "id_plat": 3,
                 "nom": "Butter chicken",
                 "quantite": 1
             }
-        ]
+        ],
+        "note_livraison": 5,
+        "comment_livraison": "comjfff&lt;",
+        "note_plats": 5,
+        "comment_plats": "f&lt;efefebfb",
+        "note": 5
     }
 ]
