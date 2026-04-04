@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // 5. Ajout et sauvegarde
         $utilisateurs[] = $nouvelUser;
         sauvegarderDonnees('utilisateurs.json', $utilisateurs);
-        
+
         // Redirection vers la connexion après succès
         header("Location: formulaire.php?success=1");
         exit();
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-   <?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="background">
         <div class="slide slide1"></div>
@@ -83,46 +83,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <section class="form-section">
         <h1>Inscription</h1>
 
-        <?php if($message != ""): ?>
+        <?php if ($message != ""): ?>
             <p style="color: red;"><?php echo $message; ?></p>
         <?php endif; ?>
 
-    <form action="inscription.php" method="post">
-        <div class="input-box">
-            <input type="text" name="nom" placeholder="Nom">
-            <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="input-box">
-            <input type="text" name="prenom" placeholder="Prénom">
-            <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="input-box">
-            <input type="text" name="email" placeholder="e-mail">
-            <i class="fa-solid fa-envelope"></i>
-        </div>
-        <div class="input-box">
-            <input type="text" name="address" placeholder="Adresse de livraison">
-            <i class="fa-solid fa-location-dot"></i>
-        </div>
-        <div class="input-box">
-            <input type="text" name="phone" placeholder="Numéro de téléphone">
-            <i class="fa-solid fa-phone"></i>
-        </div>
-        <div class="input-box">
-            <input type="password" name="password" placeholder="Mot de passe">
-            <i class="fa-solid fa-lock"></i>
-        </div>
-        <div class="remember-forgot">
-            <label>
-                <input type="checkbox"> J'accepte les termes et conditions
-            </label>
-        </div>
-        <button type="submit" class="login-btn">S'inscrire</button>
-        <div class=" register-link">
-            <p>Déjà un compte ? <a href="formulaire.html">Se connecter</a></p>
+        <form action="inscription.php" method="post">
+            <div class="input-box">
+                <input type="text" name="nom" placeholder="Nom">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" name="prenom" placeholder="Prénom">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" name="email" placeholder="e-mail">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" name="address" placeholder="Adresse de livraison">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" name="phone" placeholder="Numéro de téléphone">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Mot de passe">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> J'accepte les termes et conditions
+                </label>
+            </div>
+            <button type="submit" class="login-btn">S'inscrire</button>
+            <div class=" register-link">
+                <p>Déjà un compte ? <a href="formulaire.html">Se connecter</a></p>
             </div>
 
-
+        </form>
     </section>
 
 </body>

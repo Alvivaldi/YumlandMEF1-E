@@ -17,7 +17,7 @@
 </head>
 
 <body>
-   <?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="background">
         <div class="slide slide1"></div>
@@ -46,7 +46,7 @@
         </div>
         <button class="login-btn" onclick="window.location.href='index.html'">Se connecter</button>
         <div class="register-link">
-            <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+            <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
         </div>
 
 

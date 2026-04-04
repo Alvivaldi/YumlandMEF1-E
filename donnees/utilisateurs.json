@@ -1,75 +1,13 @@
 [
     {
-        "id": 1,
-        "login": "alex.terieur@manger.com",
-        "password": "tascapte6",
-        "role": "admin",
-        "nom": "Téreur",
-        "prenom": "Alex"
-    },
-    {
-        "id": 2,
-        "login": "chacha.steven@manger.com",
-        "password": "patesauxsaumons2026",
-        "role": "admin",
-        "nom": "Caissier",
-        "prenom": "Charmelle"
-    },
-    {
-        "id": 3,
-        "login": "sixseven.manger.com",
-        "password": "67secret",
+        "id": 1775035897,
+        "login": "",
+        "password": "$2y$10$6\/v5npvyZCs3AXxcWNhBGOtVjZETJd2MB2u\/0ZPkm6Cxk7WIbqNym",
         "role": "client",
-        "nom": "Six",
-        "prenom": "Seven"
+        "nom": "frejkfer",
+        "prenom": "frejkfer",
+        "adresse": null,
+        "telephone": null,
+        "date_inscription": "2026-04-01"
     }
-    {
-        "id": 4,
-        "login": "morgen.manger.com",
-        "password": "cheval67",
-        "role": "client",
-        "nom": "Chevalier",
-        "prenom": "Morgen"
-    },
-    {
-        "id": 5,
-        "login": "mohammed.manger.com",
-        "password": "zebinadri",
-        "role": "client",
-        "nom": "Moha",
-        "prenom": "Ali"
-    },
-    {
-        "id": 6,
-        "login": "jean.manger.com",
-        "password": "jeje54",
-        "role": "client",
-        "nom": "Richard",
-        "prenom": "Jean"
-    },
-    {
-        "id": 7,
-        "login": "momo.manger.com",
-        "password": "lili65",
-        "role": "client",
-        "nom": "Lerent",
-        "prenom": "Lucie"
-    },
-    {
-        "id": 8,
-        "login": "jelo.manger.com",
-        "password": "saumonjelo123",
-        "role": "Restaurateur",
-        "nom": "Jelo",
-        "prenom": "Cuisto"
-    },
-    {
-        "id": 9,
-        "login": "lasu.manger.com",
-        "password": "nandri4",
-        "role": "Livreur",
-        "nom": "Dib",
-        "prenom": "Lasu"
-    }
-
 ]

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-   <?php include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="header-carte">
         <h1 class="titre-carte">Notre Carte</h1>
