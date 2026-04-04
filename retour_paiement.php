@@ -6,7 +6,6 @@ include 'includes/getapikey.php';
 $vendeur = "MEF-1_E"; 
 $api_key = getAPIKey($vendeur);
 
-
 $transaction = $_GET['transaction'] ?? '';
 $montant = $_GET['montant'] ?? '';
 $vendeur_recu = $_GET['vendeur'] ?? '';
@@ -17,9 +16,8 @@ $control_recu = $_GET['control'] ?? '';
 $hash_verif = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur_recu . "#" . $statut_paiement . "#");
 
 if ($control_recu !== $hash_verif) {
-    die("<h1 style='color:red;'>ALERTE DE SÉCURITÉ</h1><p>Les données de paiement ont été modifiées en cours de route.</p>");
+    die("<h1 style='color:red; text-align:center;'>ALERTE DE SÉCURITÉ</h1><p style='text-align:center;'>Les données de paiement ont été modifiées en cours de route.</p>");
 }
-
 
 $titre = "";
 $message = "";
@@ -29,13 +27,14 @@ if ($statut_paiement === 'accepted') {
     $timing = $_SESSION['timing'] ?? 'immediat';
     $date_livraison = $_SESSION['date_livraison'] ?? '';
     
- 
     $plats = lireJSON('donnees/plats.json');
     $produits_commandes = [];
-    foreach ($_SESSION['panier'] as $id => $qte) {
-        foreach ($plats as $p) {
-            if ($p['id'] == $id) {
-                $produits_commandes[] = ["id_plat" => $id, "nom" => $p['nom'], "quantite" => $qte];
+    if (isset($_SESSION['panier'])) {
+        foreach ($_SESSION['panier'] as $id => $qte) {
+            foreach ($plats as $p) {
+                if ($p['id'] == $id) {
+                    $produits_commandes[] = ["id_plat" => $id, "nom" => $p['nom'], "quantite" => $qte];
+                }
             }
         }
     }
@@ -77,14 +76,25 @@ if ($statut_paiement === 'accepted') {
     <meta charset="UTF-8">
     <title><?= $titre ?></title>
     <link rel="stylesheet" href="css/carte.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap" rel="stylesheet" />
 </head>
-<body style="text-align: center; padding-top: 50px; font-family: sans-serif;">
+
+<body>
     <?php include 'includes/header.php'; ?>
-    <div style="margin: 40px auto; padding: 20px; max-width: 600px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <h1 style="color: <?= ($statut_paiement === 'accepted') ? 'green' : 'red' ?>;"><?= $titre ?></h1>
-        <p><?= $message ?></p>
-        <br>
-        <a href="profil.php" style="padding: 10px 20px; background: #fca311; color: white; text-decoration: none; border-radius: 5px;">Voir mon profil</a>
+    
+    <div style="text-align: center; margin: 80px auto 120px auto; padding: 40px; max-width: 600px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h1 style="color: <?= ($statut_paiement === 'accepted') ? 'green' : 'red' ?>; font-size: 50px; margin-bottom: 20px;"><?= $titre ?></h1>
+        
+        <p style="font-family: sans-serif; font-size: 1.2em; margin-bottom: 40px; color: #333;"><?= $message ?></p>
+        
+        <a href="profil.php" style="padding: 15px 30px; background: #fca311; color: white; text-decoration: none; border-radius: 5px; font-size: 25px; transition: 0.3s;">Voir mon profil</a>
     </div>
+
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

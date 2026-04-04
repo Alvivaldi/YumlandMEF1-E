@@ -131,5 +131,77 @@
         "note_plats": 5,
         "comment_plats": "f&lt;efefebfb",
         "note": 5
+    },
+    {
+        "id_commande": "CMD177530832326",
+        "id_client": 1,
+        "date_creation": "04\/04\/2026 15:12",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 37.5,
+        "statut": "A_PREPARER",
+        "produits": [
+            {
+                "id_plat": 1,
+                "nom": "Biryani",
+                "quantite": 1
+            },
+            {
+                "id_plat": 2,
+                "nom": "Alloco",
+                "quantite": 1
+            },
+            {
+                "id_plat": 11,
+                "nom": "Biryani",
+                "quantite": 1
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD177530832326",
+        "id_client": 1,
+        "date_creation": "04\/04\/2026 15:13",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 37.5,
+        "statut": "A_PREPARER",
+        "produits": []
+    },
+    {
+        "id_commande": "CMD177530832326",
+        "id_client": 1,
+        "date_creation": "04\/04\/2026 15:13",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 37.5,
+        "statut": "A_PREPARER",
+        "produits": []
+    },
+    {
+        "id_commande": "CMD177530843432",
+        "id_client": 1,
+        "date_creation": "04\/04\/2026 15:14",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 14,
+        "statut": "A_PREPARER",
+        "produits": [
+            {
+                "id_plat": 3,
+                "nom": "Butter chicken",
+                "quantite": 1
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD177530843432",
+        "id_client": 1,
+        "date_creation": "04\/04\/2026 15:18",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 14,
+        "statut": "A_PREPARER",
+        "produits": []
     }
 ]
