@@ -10,11 +10,11 @@
 body {
   font-family: "Chewy", cursive;
   background-color: #fffcfb;
-  /* C'est ICI que tu mets ton propre dessin de fond pour le panier ! */
-  background-image: url("../images/dessins/menud1.png"); 
+  background-image: url("../images/dessins/menud2.png"); 
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
+  background-position: calc(50% + 15px) 100px;
+  background-size: contain; 
+
 }
 
 h1, h2, h3 {
@@ -36,7 +36,11 @@ h1, h2, h3 {
 .nav-links a { text-decoration: none; color: #fffcfb; transition: color 0.3s ease; font-size: 30px; }
 .nav-links a:hover { color: #d23508; }
 
-.header-carte { text-align: center; margin-top: 40px; }
+.header-carte { 
+    text-align: center; 
+    margin-top: 40px; 
+    width: 100%; /* Force la boîte à prendre tout l'espace horizontal */
+}
 .titre-carte { color: #d23508; font-size: 50px; }
 
 /* =========================================
