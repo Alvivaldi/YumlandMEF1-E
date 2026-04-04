@@ -1,0 +1,46 @@
+
+.payment-container {
+    text-align: center;
+    margin: 80px auto 120px auto;
+    padding: 40px;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.payment-title {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+
+.status-success {
+    color: green;
+}
+
+.status-error {
+    color: red;
+}
+
+.payment-message {
+    font-family: sans-serif; 
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.btn-profil {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #fca311;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-profil:hover {
+    background-color: #e59400;
+}

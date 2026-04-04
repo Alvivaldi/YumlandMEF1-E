@@ -6,10 +6,10 @@
         <div class="footer-links">
             <h3>Plan du site</h3>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="carte.html">Menu</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="carte.php">Menu</a></li>
 
-                <li><a href="profil.html">Mon profil</a></li>
+                <li><a href="profil.php">Mon profil</a></li>
             </ul>
         </div>
 

@@ -114,7 +114,6 @@ h2 {
 }
 
 /* Footer */
-
 .footer {
   display: flex;
   justify-content: space-between;
@@ -165,4 +164,63 @@ h2 {
   margin: 5px 0;
   margin-bottom: 40px;
   font-size: 20px;
+}
+
+/* =========================================
+   AJOUTS POUR LE TABLEAU D'HISTORIQUE 
+   ========================================= */
+
+.success-msg {
+  color: green;
+  background-color: #e8f5e9;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info-note {
+  font-size: 0.8em;
+  color: gray;
+  margin-top: 10px;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.history-table thead tr {
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.btn-noter {
+  background-color: #fca311;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn-noter:hover {
+  background-color: #e59400;
+}
+
+.note-text {
+  color: #fca311;
+}
+
+.status-attente {
+  color: gray;
+  font-size: 0.9em;
 }
