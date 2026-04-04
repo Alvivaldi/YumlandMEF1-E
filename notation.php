@@ -14,18 +14,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $commandes = lireJSON('donnees/commandes.json');
     
     foreach ($commandes as $index => $cmd) {
-        if ($cmd['id_commande'] === $id_commande) {
-            // On sauvegarde la notation Livraison
+        // On utilise == au lieu de === pour éviter les petits bugs de format texte/chiffre
+        if ($cmd['id_commande'] == $id_commande) {
+            
+            // On sauvegarde la notation Livraison (avec ?? '' si c'est vide)
             $commandes[$index]['note_livraison'] = (int)$_POST['note_livraison'];
-            $commandes[$index]['comment_livraison'] = htmlspecialchars($_POST['comment_livraison']);
+            $commandes[$index]['comment_livraison'] = htmlspecialchars($_POST['comment_livraison'] ?? '');
             
             // On sauvegarde la notation Plats
             $commandes[$index]['note_plats'] = (int)$_POST['note_plats'];
-            $commandes[$index]['comment_plats'] = htmlspecialchars($_POST['comment_plats']);
+            $commandes[$index]['comment_plats'] = htmlspecialchars($_POST['comment_plats'] ?? '');
             
             // On fait une moyenne globale pour l'afficher sur la page profil !
             $commandes[$index]['note'] = ($commandes[$index]['note_livraison'] + $commandes[$index]['note_plats']) / 2;
-            break;
+            
+            // J'ai supprimé le "break;" ici ! 
+            // Ainsi, s'il y a des commandes en doublon suite à des bugs de test, elles seront toutes mises à jour.
         }
     }
     
@@ -49,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap" rel="stylesheet" />
     
     <style>
-        /* Un petit ajout CSS pour transformer tes radios en boutons clairs sans casser ton design */
         .choix-note label { margin-right: 15px; font-size: 1.2em; cursor: pointer; }
         .choix-note input { transform: scale(1.5); margin-right: 5px; cursor: pointer; }
     </style>
@@ -115,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
         </form>
-        </section>
+    </section>
 
     <?php include 'includes/footer.php'; ?>
 </body>

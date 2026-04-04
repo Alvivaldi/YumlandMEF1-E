@@ -12,9 +12,9 @@ $total = 0;
     <meta charset="UTF-8">
     <title>Mon Panier</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/carte.css" /> 
+   
     <link rel="stylesheet" type="text/css" href="css/panier.css" /> 
-    
+    <link rel="stylesheet" href="css/global.css?v=<?= time() ?>" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />

@@ -16,6 +16,7 @@ $control_recu = $_GET['control'] ?? '';
 $hash_verif = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur_recu . "#" . $statut_paiement . "#");
 
 if ($control_recu !== $hash_verif) {
+    // On garde le style en ligne ici car le die() empêche le chargement du CSS en dessous
     die("<h1 style='color:red; text-align:center;'>ALERTE DE SÉCURITÉ</h1><p style='text-align:center;'>Les données de paiement ont été modifiées en cours de route.</p>");
 }
 
@@ -68,6 +69,9 @@ if ($statut_paiement === 'accepted') {
     $titre = "Paiement refusé";
     $message = "La banque a refusé la transaction. Votre commande n'a pas été validée.";
 }
+
+// On définit la classe CSS selon le statut du paiement
+$classe_statut = ($statut_paiement === 'accepted') ? 'status-success' : 'status-error';
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +80,7 @@ if ($statut_paiement === 'accepted') {
     <meta charset="UTF-8">
     <title><?= $titre ?></title>
     <link rel="stylesheet" href="css/carte.css" />
+    <link rel="stylesheet" href="css/retour_paiement.css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
@@ -87,12 +92,14 @@ if ($statut_paiement === 'accepted') {
 <body>
     <?php include 'includes/header.php'; ?>
     
-    <div style="text-align: center; margin: 80px auto 120px auto; padding: 40px; max-width: 600px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <h1 style="color: <?= ($statut_paiement === 'accepted') ? 'green' : 'red' ?>; font-size: 50px; margin-bottom: 20px;"><?= $titre ?></h1>
+    <div class="payment-container">
         
-        <p style="font-family: sans-serif; font-size: 1.2em; margin-bottom: 40px; color: #333;"><?= $message ?></p>
+        <h1 class="payment-title <?= $classe_statut ?>"><?= $titre ?></h1>
         
-        <a href="profil.php" style="padding: 15px 30px; background: #fca311; color: white; text-decoration: none; border-radius: 5px; font-size: 25px; transition: 0.3s;">Voir mon profil</a>
+        <p class="payment-message"><?= $message ?></p>
+        
+        <a href="profil.php" class="btn-profil">Voir mon profil</a>
+        
     </div>
 
     <?php include 'includes/footer.php'; ?>
