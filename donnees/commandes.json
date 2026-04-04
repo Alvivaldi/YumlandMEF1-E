@@ -15,11 +15,10 @@
         "statut": "a_preparer",
         "heure": "12:30",
         "adresse_livraison": "10 rue Courbet",
-        "prix_total": 18.5,
-        "livreur_attribue": "Patoche"
+        "prix_total": 18.5
     },
     {
-        "id_commande": "Cmd-3",
+        "id_commande": "Cmd-28839",
         "client": "Jean Bon",
         "details": [
             {
@@ -30,9 +29,29 @@
         "statut": "en_livraison",
         "heure": "12:15",
         "adresse_livraison": "CY TECH, Cergy",
-        "prix_total": 16.5,
-        "livreur_attribue": "Lasugaa"
+        "prix_total": 16.5
     },
+    {
+        "id_commande": "Cmd-565678",
+        "client": "Noemie Pain",
+        "details": [
+            {
+                "produit": "Biryani",
+                "quantite": 1
+            },
+            {
+                "produit": "Alloco",
+                "quantite": 2
+            }
+        ],
+        "statut": "a_preparer",
+        "heure": "13:30",
+        "adresse_livraison": "CY TECH, Cergy",
+        "prix_total": 16.5
+    },
+    
+    
+    
     {
         "id_commande": "CMD177507148277",
         "id_client": 1,

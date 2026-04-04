@@ -1,37 +1,37 @@
 [
     {
         "id": 1,
-        "email": "alex.terieur@manger.com",
+        "login": "alex.terieur@manger.com",
         "password": "tascapte6",
         "role": "admin",
         "nom": "Téreur",
         "prenom": "Alex",
-        "statut": "Premium",
+        "statut": "Staff",
         "est_bloque": false
     },
     {
         "id": 2,
-        "email": "chacha.steven@manger.com",
+        "login": "chacha.steven@manger.com",
         "password": "patesauxsaumons2026",
         "role": "admin",
         "nom": "Caissier",
         "prenom": "Charmelle",
-        "statut": "Premium",
+        "statut": "Staff",
         "est_bloque": false
     },
     {
         "id": 3,
-        "email": "sixseven.manger.com",
+        "login": "sixseven.manger.com",
         "password": "67secret",
         "role": "client",
         "nom": "Six",
         "prenom": "Seven",
-        "statut": "Premium",
+        "statut": "VIP",
         "est_bloque": false
     },
     {
         "id": 4,
-        "email": "morgen.manger.com",
+        "login": "morgen.manger.com",
         "password": "cheval67",
         "role": "client",
         "nom": "Chevalier",
@@ -40,54 +40,33 @@
         "est_bloque": false
     },
     {
-        "id": 5,
-        "email": "mohammed.manger.com",
-        "password": "zebinadri",
-        "role": "client",
-        "nom": "Moha",
-        "prenom": "Ali",
-        "statut": "Premium",
-        "est_bloque": false
-    },
-    {
-        "id": 6,
-        "email": "jean.manger.com",
-        "password": "jeje54",
-        "role": "client",
-        "nom": "Richard",
-        "prenom": "Jean",
-        "statut": "Premium",
-        "est_bloque": false
-    },
-    {
-        "id": 7,
-        "email": "momo.manger.com",
-        "password": "lili65",
-        "role": "client",
-        "nom": "Lerent",
-        "prenom": "Lucie",
-        "statut": "Premium",
-        "est_bloque": false
-    },
-    {
         "id": 8,
-        "email": "jelo.manger.com",
+        "login": "jelo.manger.com",
         "password": "saumonjelo123",
         "role": "Restaurateur",
         "nom": "Jelo",
         "prenom": "Cuisto",
-        "statut": "Premium",
+        "statut": "Staff",
         "est_bloque": false
     },
     {
         "id": 9,
-        "email": "lasu.manger.com",
+        "login": "lasu.manger.com",
         "password": "nandri4",
         "role": "Livreur",
         "nom": "Dib",
         "prenom": "Lasu",
-        "statut": "Premium",
+        "statut": "Staff",
+        "est_bloque": false
+    },
+    {
+        "id": 10,
+        "login": "lusa.foot.com",
+        "password": "foot.psg",
+        "role": "Livreur",
+        "nom": "Dab",
+        "prenom": "Lusa",
+        "statut": "Staff",
         "est_bloque": false
     }
-
 ]

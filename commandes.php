@@ -44,24 +44,53 @@ $utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
             <section class="column-prepa">
                 <h2 class="entree">🔥 À Préparer</h2>
 
-                    <?php foreach ($commandes_donnees as $cmd): ?>
-                        <?php if ($cmd['statut'] === 'a_preparer'): ?>
-                            <div class="box-commande">
-                                <div class="commande-header">
-                                    <span class="num-commande">#<?php echo $cmd['id_commande']; ?></span>
-                                    <span class="heure"><?php echo $cmd['heure']; ?></span>
-                                </div>
-                                <div class="commande-details">
-                                    <ul>
-                                        <?php foreach ($cmd['details'] as $article): ?>
-                                            <li><?php echo $article['quantite']; ?>x <?php echo $article['produit']; ?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                                <button class="btn-action-status">Lancer la préparation</button>
+                <?php foreach ($commandes_donnees as $cmd): ?>
+                    <?php if ($cmd['statut'] === 'a_preparer' || $cmd['statut'] === 'en_preparation'): ?>
+                        <div class="box-commande">
+                            <div class="commande-header">
+                                <span class="num-commande">#<?php echo $cmd['id_commande']; ?></span>
+                                <span class="heure"><?php echo $cmd['heure']; ?></span>
                             </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+
+                            <div class="commande-details">
+                                <ul>
+                                    <?php foreach ($cmd['details'] as $article): ?>
+                                        <li><?php echo $article['quantite']; ?>x <?php echo $article['produit']; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+
+                            <div class="commande-infos-sup">
+                                <p><strong>Client :</strong> <?php echo $cmd['client']; ?></p>
+                                <p><strong>Adresse :</strong> <?php echo $cmd['adresse_livraison']; ?></p>
+                                <p><strong>Montant :</strong> <?php echo $cmd['prix_total']; ?> €</p>
+                            </div>
+
+                            <div class="gestion-statut">
+                                <label>Statut :</label>
+                                <select class="select-admin">
+                                    <option value="a_preparer" <?php echo ($cmd['statut'] == 'a_preparer') ? 'selected' : ''; ?>>À préparer</option>
+                                    <option value="en_preparation" <?php echo ($cmd['statut'] == 'en_preparation') ? 'selected' : ''; ?>>En préparation</option>
+                                </select>
+                            </div>
+
+                            <div class="gestion-livreur">
+                                <label>Livreur :</label>
+                                <select class="select-admin">
+                                    <option value="">-- Choisir un livreur --</option>
+                                    <?php foreach ($utilisateurs_donnees as $u): ?>
+                                        <?php if (strtolower($u['role']) === 'livreur'): ?>
+                                            <option value="<?php echo $u['id']; ?>">
+                                                <?php echo $u['prenom'] . " " . $u['nom']; ?>
+                                            </option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <button class="btn-action-status" style="margin-top:10px;">Lancer la préparation</button>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </section>
 
             <section class="column-livraison">
@@ -72,22 +101,21 @@ $utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
                         <div class="box-commande delivery-mode">
                             <div class="commande-header">
                                 <span class="num-commande">#<?php echo $cmd['id_commande']; ?></span>
-                                <span class="badge livreur">
-                                    Livreur : <?php echo $cmd['livreur_attribue'] ?? 'Non assigné'; ?>
-                                </span>
+                                <span class="badge livreur">Livreur : <?php echo $cmd['livreur_attribue'] ?? 'Lasu'; ?></span>
                             </div>
                             <div class="commande-details">
-                                <p>Destination : <?php echo $cmd['adresse_livraison']; ?></p>
-                                <p>Montant : <?php echo $cmd['prix_total']; ?> €</p>
+                                <p><strong>Client :</strong> <?php echo $cmd['client']; ?></p>
+                                <p><strong>Destination :</strong> <?php echo $cmd['adresse_livraison']; ?></p>
+                                <p><strong>Montant :</strong> <?php echo $cmd['prix_total']; ?> €</p>
                             </div>
-                            <button class="btn-secondary" disabled>En attente de remise...</button>
+                            <button class="btn-secondary" disabled>En cours de livraison...</button>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </section>
         </div>
     </main>
-    
+
 </body>
 
 </html>
