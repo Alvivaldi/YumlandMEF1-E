@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 $all_commandes = lireJSON('donnees/commandes.json');
 foreach ($all_commandes as $cmd) {
   // On utilise strtolower pour être sûr de trouver "en livraison" peu importe la casse
-  if (isset($cmd['id_livreur']) && $cmd['id_livreur'] == $id_livreur && strtolower($cmd['statut'] ?? '') === 'en livraison') {
+  if (isset($cmd['id_livreur']) && $cmd['id_livreur'] == $id_livreur && strtolower($cmd['statut'] ?? '') === 'EN_LIVRAISON') {
     $mes_commandes[] = $cmd;
   }
 }
