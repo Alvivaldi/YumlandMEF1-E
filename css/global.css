@@ -1,8 +1,4 @@
-/* css/global.css */
 
-/* =========================================
-   1. RESET GLOBAL & POLICES
-   ========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,9 +14,7 @@ body {
   background-color: #fffcfb;
 }
 
-/* =========================================
-   2. HEADER (BARRE DE NAVIGATION)
-   ========================================= */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -33,9 +27,7 @@ body {
 .nav-links a { text-decoration: none; color: #fffcfb; transition: color 0.3s ease; font-size: 30px; }
 .nav-links a:hover { color: #d23508; }
 
-/* =========================================
-   3. FOOTER (PIED DE PAGE)
-   ========================================= */
+
 .footer {
   display: flex;
   justify-content: space-between;

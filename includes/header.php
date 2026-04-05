@@ -9,7 +9,7 @@
         <li><a href="carte.php">Menu</a></li>
         
         <?php 
-        // SI L'UTILISATEUR EST CONNECTÉ
+      
         if (isset($_SESSION['user'])): 
         ?>
             <li><a href="panier.php"><i class="fa-solid fa-basket-shopping"></i> Mon Panier</a></li>
@@ -26,7 +26,7 @@
             <li><a href="deconnexion.php" style="color: #d23508; font-weight: bold;">Déconnexion</a></li>
             
         <?php 
-        // SI L'UTILISATEUR N'EST PAS CONNECTÉ
+       
         else: 
         ?>
             <li><a href="formulaire.php">Se Connecter</a></li>

@@ -2,34 +2,33 @@
 session_start();
 include 'includes/fonctions.php';
 
-// Vérifier qu'on sait quelle commande on note
+
 if (!isset($_GET['id']) && !isset($_POST['id_commande'])) {
     header('Location: profil.php');
     exit;
 }
 $id_commande = $_GET['id'] ?? $_POST['id_commande'];
 
-// TRAITEMENT : Quand le client clique sur "Soumettre"
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $commandes = lireJSON('donnees/commandes.json');
     
     foreach ($commandes as $index => $cmd) {
-        // On utilise == au lieu de === pour éviter les petits bugs de format texte/chiffre
+
         if ($cmd['id_commande'] == $id_commande) {
             
-            // On sauvegarde la notation Livraison (avec ?? '' si c'est vide)
+
             $commandes[$index]['note_livraison'] = (int)$_POST['note_livraison'];
             $commandes[$index]['comment_livraison'] = htmlspecialchars($_POST['comment_livraison'] ?? '');
             
-            // On sauvegarde la notation Plats
+
             $commandes[$index]['note_plats'] = (int)$_POST['note_plats'];
             $commandes[$index]['comment_plats'] = htmlspecialchars($_POST['comment_plats'] ?? '');
             
-            // On fait une moyenne globale pour l'afficher sur la page profil !
+
             $commandes[$index]['note'] = ($commandes[$index]['note_livraison'] + $commandes[$index]['note_plats']) / 2;
             
-            // J'ai supprimé le "break;" ici ! 
-            // Ainsi, s'il y a des commandes en doublon suite à des bugs de test, elles seront toutes mises à jour.
+
         }
     }
     
