@@ -16,7 +16,6 @@ $control_recu = $_GET['control'] ?? '';
 $hash_verif = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur_recu . "#" . $statut_paiement . "#");
 
 if ($control_recu !== $hash_verif) {
-    // On garde le style en ligne ici car le die() empêche le chargement du CSS en dessous
     die("<h1 style='color:red; text-align:center;'>ALERTE DE SÉCURITÉ</h1><p style='text-align:center;'>Les données de paiement ont été modifiées en cours de route.</p>");
 }
 
@@ -27,6 +26,10 @@ if ($statut_paiement === 'accepted') {
 
     $timing = $_SESSION['timing'] ?? 'immediat';
     $date_livraison = $_SESSION['date_livraison'] ?? '';
+    
+    // --- CORRECTION MAJEURE : On récupère le vrai ID du client connecté ---
+    // Si l'utilisateur n'est pas connecté par erreur, on met 0 par défaut pour éviter un crash
+    $id_du_client = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 0;
     
     $plats = lireJSON('donnees/plats.json');
     $produits_commandes = [];
@@ -40,9 +43,10 @@ if ($statut_paiement === 'accepted') {
         }
     }
 
+    // Création de la commande avec le bon ID
     $nouvelle_commande = [
         "id_commande" => $transaction,
-        "id_client" => 1, 
+        "id_client" => $id_du_client, // <--- C'EST ICI QUE CA CHANGE !
         "date_creation" => date('d/m/Y H:i'),
         "timing" => $timing,
         "date_livraison_prevue" => ($timing === 'plus_tard') ? $date_livraison : "Immédiate",
@@ -93,13 +97,9 @@ $classe_statut = ($statut_paiement === 'accepted') ? 'status-success' : 'status-
     <?php include 'includes/header.php'; ?>
     
     <div class="payment-container">
-        
         <h1 class="payment-title <?= $classe_statut ?>"><?= $titre ?></h1>
-        
         <p class="payment-message"><?= $message ?></p>
-        
         <a href="profil.php" class="btn-profil">Voir mon profil</a>
-        
     </div>
 
     <?php include 'includes/footer.php'; ?>

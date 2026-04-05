@@ -1,13 +1,13 @@
 [
     {
-        "id": 1775388942,
-        "login": "lasu@manger.com",
-        "password": "$2y$10$MwZBdGFLsr8Im7nsU\/vS.eMaWrcPeQ\/EH7bTw\/3DKAs7S6fN1eX.i",
+        "id": 1775394134,
+        "login": "a@a",
+        "password": "$2y$10$G3sYagv18.dPrrTb68.d2uLBHgqxsh6V5HHEUts4bD.4a.EByGskW",
         "role": "client",
-        "nom": "Foot",
-        "prenom": "Lasu",
-        "adresse": "",
-        "telephone": "",
+        "nom": "a",
+        "prenom": "a",
+        "adresse": "cy tech",
+        "telephone": "1232",
         "date_inscription": "2026-04-05"
     }
 ]
