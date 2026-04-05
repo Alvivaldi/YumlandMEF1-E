@@ -1,3 +1,28 @@
+<?php
+session_start();
+require_once 'includes/fonctions.php';
+
+$erreur = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $utilisateurs = lireDonnees('donnees/utilisateurs.json');
+
+    foreach ($utilisateurs as $user) {
+        if ($user['login'] === $email && password_verify($password, $user['password'])) {
+            // Connexion réussie : on stocke les infos en session
+            $_SESSION['user'] = $user;
+            header("Location: index.php");
+            exit();
+        }
+    }
+    $erreur = "Identifiants incorrects.";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,29 +51,30 @@
     </div>
 
     <section class="form-section">
-        <span class="close-btn" onclick="window.location.href='index.html'">
+        <span class="close-btn" onclick="window.location.href='index.php'">
             <i class="fa-solid fa-xmark"></i>
         </span>
         <h1>Connexion</h1>
-        <div class="input-box">
-            <input type="text" placeholder="Nom d'utilisateur">
-            <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="input-box">
-            <input type="password" placeholder="Mot de passe">
-            <i class="fa-solid fa-lock"></i>
-        </div>
-        <div class="remember-forgot">
-            <label>
-                <input type="checkbox"> Se souvenir de moi
-            </label>
-            <a href="#">Mot de passe oublié ?</a>
-        </div>
-        <button class="login-btn" onclick="window.location.href='index.html'">Se connecter</button>
-        <div class="register-link">
-            <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
-        </div>
-
+        <form action="formulaire.php" method="post">
+            <div class="input-box">
+                <input type="text" name="email" placeholder="E-mail">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Mot de passe">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> Se souvenir de moi
+                </label>
+                <a href="#">Mot de passe oublié ?</a>
+            </div>
+            <button type="submit" class="login-btn">Se connecter</button>
+            <div class="register-link">
+                <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
+            </div>
+        </form>
 
     </section>
 </body>

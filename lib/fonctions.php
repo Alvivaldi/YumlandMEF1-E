@@ -1,6 +1,7 @@
 <?php
 
-function lireDonnees($nomFichier) {
+function lireDonnees($nomFichier)
+{
     // Chemin vers le dossier data 
     $chemin = "donnees/" . $nomFichier;
 
@@ -19,7 +20,8 @@ function lireDonnees($nomFichier) {
     return $tableau ?? []; // Retourne le tableau ou un tableau vide si le JSON est invalide
 }
 
-function sauvegarderDonnees($nomFichier, $donnees) {
+function sauvegarderDonnees($nomFichier, $donnees)
+{
     $chemin = "donnees/" . $nomFichier;
 
     // 1. Transformer le tableau PHP en chaîne de caractères au format JSON
@@ -30,5 +32,3 @@ function sauvegarderDonnees($nomFichier, $donnees) {
     // Si le fichier n'existe pas, PHP le créera automatiquement
     return file_put_contents($chemin, $json);
 }
-
-?>

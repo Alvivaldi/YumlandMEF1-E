@@ -1,6 +1,6 @@
 <?php
 // On inclut la bibliothèque de fonctions créée à l'étape 1
-include 'lib/fonctions.php';
+include 'includes/fonctions.php';
 
 $message = ""; // Pour afficher des erreurs ou succès à l'utilisateur
 
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // 2. Chargement des utilisateurs existants
-    $utilisateurs = lireDonnees('utilisateurs.json');
+    $utilisateurs = lireDonnees('donnees/utilisateurs.json');
 
     // 3. Vérification si l'email existe déjà
     $existe = false;
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // 5. Ajout et sauvegarde
         $utilisateurs[] = $nouvelUser;
-        sauvegarderDonnees('utilisateurs.json', $utilisateurs);
+        sauvegarderDonnees('donnees/utilisateurs.json', $utilisateurs);
 
         // Redirection vers la connexion après succès
         header("Location: formulaire.php?success=1");
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Inscription</h1>
 
         <?php if ($message != ""): ?>
-            <p style="color: red;"><?php echo $message; ?></p>
+        <p style="color: red;"><?php echo $message; ?></p>
         <?php endif; ?>
 
         <form action="inscription.php" method="post">
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="login-btn">S'inscrire</button>
             <div class=" register-link">
-                <p>Déjà un compte ? <a href="formulaire.html">Se connecter</a></p>
+                <p>Déjà un compte ? <a href="formulaire.php">Se connecter</a></p>
             </div>
 
         </form>
