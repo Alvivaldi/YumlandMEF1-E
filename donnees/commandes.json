@@ -42,12 +42,12 @@
     },
     {
         "id_commande": "CMD177531049099",
-        "id_client": 1,
+        "id_client": 1775394082,
         "date_creation": "04\/04\/2026 15:48",
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 14,
-        "statut": "A_PREPARER",
+        "statut": "en livraison",
         "produits": [
             {
                 "id_plat": 3,
