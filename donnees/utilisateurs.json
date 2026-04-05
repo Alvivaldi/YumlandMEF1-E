@@ -1,8 +1,34 @@
 [
     {
+<<<<<<< HEAD
         "id": 1775345085,
         "login": "",
         "password": "$2y$10$3PeF8rcyYOdJ\/vScZs0Zq.QVUNJnTfi6VCV2Z9KKmCGnR9EsyVkFe",
+=======
+        "id": 1,
+        "login": "alex.terieur@manger.com",
+        "password": "tascapte6",
+        "role": "admin",
+        "nom": "Téreur",
+        "prenom": "Alex",
+        "statut": "Personnel",
+        "est_bloque": false
+    },
+    {
+        "id": 2,
+        "login": "chacha.steven@manger.com",
+        "password": "patesauxsaumons2026",
+        "role": "admin",
+        "nom": "Caissier",
+        "prenom": "Charmelle",
+        "statut": "Personnel",
+        "est_bloque": false
+    },
+    {
+        "id": 3,
+        "login": "sixseven.manger.com",
+        "password": "67secret",
+>>>>>>> 9c9da4346b698f187512e98c83c278a55cb4b0b0
         "role": "client",
         "nom": "frejkfer",
         "prenom": "frejkfer",
@@ -44,6 +70,7 @@
         "date_inscription": "2026-04-05"
     },
     {
+<<<<<<< HEAD
         "id": 1775355373,
         "login": "mohammed@manger.com",
         "password": "$2y$10$tFkK\/nj33G\/e7Re22SYiB.cfrac20gsIaX1g.OgOFy7IPkn7ESDRK",
@@ -64,5 +91,35 @@
         "adresse": "",
         "telephone": null,
         "date_inscription": "2026-04-05"
+=======
+        "id": 8,
+        "login": "jelo.manger.com",
+        "password": "saumonjelo123",
+        "role": "Restaurateur",
+        "nom": "Jelo",
+        "prenom": "Cuisto",
+        "statut": "Personnel",
+        "est_bloque": false
+    },
+    {
+        "id": 9,
+        "login": "lasu.manger.com",
+        "password": "nandri4",
+        "role": "Livreur",
+        "nom": "Dib",
+        "prenom": "Lasu",
+        "statut": "Personnel",
+        "est_bloque": false
+    },
+    {
+        "id": 10,
+        "login": "lusa.foot.com",
+        "password": "foot.psg",
+        "role": "Livreur",
+        "nom": "Dab",
+        "prenom": "Lusa",
+        "statut": "Personnel",
+        "est_bloque": false
+>>>>>>> 9c9da4346b698f187512e98c83c278a55cb4b0b0
     }
 ]
