@@ -7,13 +7,13 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'livreur') {
   exit();
 }
 
-// --- INITIALISATION CRUCIALE ---
+
 $id_livreur = $_SESSION['user']['id'];
 $message_status = "";
-$mes_commandes = []; // On initialise le tableau vide ICI pour éviter le Warning
+$mes_commandes = []; 
 $client_info = null;
 
-// 2. Traitement des actions
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
   $id_cmd_a_modifier = $_POST['id_commande'];
   $nouveau_statut = ($_POST['action'] === 'terminer') ? 'LIVREE' : 'ABANDONNEE';
@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
   $message_status = "La commande $id_cmd_a_modifier a été marquée comme $nouveau_statut.";
 }
 
-// 3. Récupération
+
 $all_commandes = lireJSON('donnees/commandes.json');
 foreach ($all_commandes as $cmd) {
-  // On utilise strtolower pour être sûr de trouver "en livraison" peu importe la casse
+
   if (isset($cmd['id_livreur']) && $cmd['id_livreur'] == $id_livreur && strtolower($cmd['statut'] ?? '') === 'EN_LIVRAISON') {
     $mes_commandes[] = $cmd;
   }
@@ -67,7 +67,7 @@ foreach ($all_commandes as $cmd) {
       <?php
       $utilisateurs = lireJSON('donnees/utilisateurs.json');
       foreach ($mes_commandes as $ma_commande):
-        // On cherche les infos du client pour CETTE commande
+
         $client_info = null;
         foreach ($utilisateurs as $u) {
           if ($u['id'] == $ma_commande['id_client']) {

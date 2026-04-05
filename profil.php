@@ -1,25 +1,23 @@
 <?php
-session_start(); // OBLIGATOIRE : Permet d'accéder à la mémoire du serveur
+session_start(); 
 include 'includes/fonctions.php';
 
-// 1. VÉRIFICATION DE SÉCURITÉ
-// Si l'utilisateur essaie d'aller sur profil.php sans être connecté, on le vire !
+
 if (!isset($_SESSION['user'])) {
     header('Location: formulaire.php');
     exit();
 }
 
-// 2. RÉCUPÉRATION DU VRAI CLIENT
-// On remplace le faux utilisateur par celui qui s'est connecté
+
 $user_connecte = $_SESSION['user'];
 
-// 3. CHARGEMENT DE SES COMMANDES
+
 $commandes = lireJSON('donnees/commandes.json');
 if (!is_array($commandes)) { 
     $commandes = []; 
 }
 
-// On filtre pour ne garder que les commandes de CE client (grâce à son ID)
+
 $mes_commandes = [];
 foreach ($commandes as $cmd) {
     if (isset($cmd['id_client']) && $cmd['id_client'] == $user_connecte['id']) {
@@ -58,26 +56,26 @@ foreach ($commandes as $cmd) {
       
       <div class="field">
         <span>Nom : <?= htmlspecialchars($user_connecte['nom']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
+        <span class="edit" title="">✏️</span>
       </div>
       
       <div class="field">
         <span>Prénom : <?= htmlspecialchars($user_connecte['prenom']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
+        <span class="edit" title="">✏️</span>
       </div>
       
       <div class="field">
         <span>Email : <?= htmlspecialchars($user_connecte['login']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
+        <span class="edit" title="">✏️</span>
       </div>
       
       <div class="field">
         <span>Téléphone : <?= htmlspecialchars($user_connecte['telephone']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
+        <span class="edit" title="">✏️</span>
       </div>
       
       <p class="info-note">
-        * La modification des informations sera disponible lors de la phase 3.
+        * modifiable plus tard
       </p>
     </section>
 

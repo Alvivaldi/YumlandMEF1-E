@@ -10,29 +10,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $utilisateurs = lireJSON('donnees/utilisateurs.json');
     
-    // LA CORRECTION EST ICI : Si le JSON est vide ou mal lu, on force un tableau vide !
+
     if (!is_array($utilisateurs)) { 
         $utilisateurs = []; 
     }
 
     $connecte = false;
     foreach ($utilisateurs as $user) {
-        // On vérifie que 'login' existe bien pour cet utilisateur avant de comparer
+      
         if (isset($user['login']) && $user['login'] === $email) {
-            // Vérification du mot de passe haché
+          
             if (password_verify($password, $user['password'])) {
-                // Connexion réussie : on stocke les infos en session
+               
                 $_SESSION['user'] = $user;
                 $connecte = true;
                 
-                // On redirige vers le profil
+              
                 header("Location: profil.php");
                 exit();
             }
         }
     }
     
-    // Si la boucle est terminée et qu'on n'est pas connecté
+  
     if (!$connecte) {
         $erreur = "Identifiants ou mot de passe incorrects.";
     }

@@ -1,4 +1,4 @@
-/* spécialité du moment */
+
 
 .header-carte {
     position: relative; 
@@ -9,14 +9,14 @@
     padding: 40px 0;
 }
 
-/*titre*/
+
 
 .titre-carte {
     font-size: 3rem;         
     color: #d23508;          
     text-align: center;
     font-weight: bold;
-    /*bordure en bas*/
+
     border-bottom: 3px solid #d23508; 
     padding-bottom: 10px;
 }
@@ -61,7 +61,7 @@
     box-sizing:border-box;
 }
 
-/* Corps du site*/
+
 body {
     font-family: 'Chewy', cursive;
     background-color: #fffcfb;
@@ -72,7 +72,7 @@ body {
 
 }
 
-/* Titres */
+
 h1, h2, h3 {
     font-family: 'Mogra', cursive;
 }
@@ -99,7 +99,7 @@ h1, h2, h3 {
     text-decoration: none;
     color: #fffcfb;
     transition: color 0.3s ease;
-    font-size: 30px; /* taille du texte */
+    font-size: 30px; 
 }
 
 .nav-links a:hover {
@@ -107,7 +107,7 @@ h1, h2, h3 {
 }
 
 
-/* Filtres */
+
 
 .margFiltre{
     margin-top: 20px;
@@ -145,7 +145,7 @@ h1, h2, h3 {
     min-width: 52px; 
     color: #0065FC; 
     background-color: #deebff;
-    display: flex; /* flexcentre*/
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
@@ -169,10 +169,10 @@ h1, h2, h3 {
 
 
 
-/* Specialite du moment */
+
 
 .specialite {
-    /*font-family: "Montserrat", sans-serif;  a voir pour les autres aussi mais ne set à rien*/
+    
     font-weight: 800;
     font-size: 1rem;
     width: 100%;
@@ -185,7 +185,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: row;     
     justify-content: center;   
-    gap: 25px;                /* L'espace entre les images */
+    gap: 25px;          
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -194,7 +194,7 @@ h1, h2, h3 {
 
 .box {
     flex: 0 0 22%;            
-    max-width: 450px;         /* largeur boite */
+    max-width: 450px;     
     background-color: #d23508; 
     border-radius: 20px;
     overflow: hidden;
@@ -206,10 +206,10 @@ h1, h2, h3 {
 .box img {
     width: 100%;
     height: 200px;            
-    object-fit: cover;        /* Recadre la photo */
+    object-fit: cover;    
 }
 
-/* LE TEXTE DANS LA BOITE */
+
 .box-content {
     padding: 30px;
     text-align: center;
@@ -254,7 +254,7 @@ h1, h2, h3 {
     object-fit: cover;        
 }
 
-/* LE TEXTE DANS LA BOITE */
+
 .box-content {
     padding: 30px;
     text-align: center;
@@ -298,7 +298,7 @@ h1, h2, h3 {
     object-fit: cover;        
 }
 
-/* LE TEXTE DANS LA BOITE */
+
 .box1-content {
     padding: 30px;
     text-align: center;
@@ -343,7 +343,7 @@ h1, h2, h3 {
     object-fit: cover;        
 }
 
-/* LE TEXTE DANS LA BOITE */
+
 .box1-content {
     padding: 30px;
     text-align: center;
@@ -364,7 +364,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: row;     
     justify-content: center;   
-    gap: 25px;                /* L'espace entre les images */
+    gap: 25px;               
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -373,7 +373,7 @@ h1, h2, h3 {
 
 .box2 {
     flex: 0 0 22%;            
-    max-width: 450px;         /* largeur boite */
+    max-width: 450px;        
     background-color: #d23508; 
     border-radius: 20px;
     overflow: hidden;
@@ -385,29 +385,28 @@ h1, h2, h3 {
 .box2 img {
     width: 100%;
     height: 280px;            
-    object-fit: cover;        /* Recadre proprement la photo */
+    object-fit: cover;      
 }
 
-/* LE TEXTE DANS LA BOITE */
 .box2-content {
     padding: 30px;
     text-align: center;
     color: white;
 }
 
-/* toutes les boites de plats en même temps */
+
 .box, .box1, .box2 {
-    transition: all 0.3s ease; /* changement fluide */
+    transition: all 0.3s ease; 
     cursor: pointer;
     border-radius: 15px; 
     overflow: hidden;
 }
 
-/* Changement de couleur au survol */
+
 .box:hover, .box1:hover, .box2:hover {
     background-color: #f29376; 
     transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* ombrée */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .box:hover h3, .box1:hover h3, .box2:hover h3 {
@@ -422,7 +421,7 @@ section {
 html {
     scroll-behavior: smooth;
 }
-/*survol sur les cartes des plats */
+
 .box, .box1, .box2 {
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
@@ -431,7 +430,6 @@ html {
 
 
 
-/* Footer */
 
 .footer {
   display: flex;

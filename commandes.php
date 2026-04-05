@@ -2,7 +2,7 @@
 session_start();
 require_once 'includes/fonctions.php';
 
-// Sécurité : Seul le restaurateur (ou l'admin) peut accéder à cette page
+
 if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] !== 'restaurateur' && $_SESSION['user']['role'] !== 'admin')) {
     header("Location: formulaire.php");
     exit();
@@ -18,7 +18,7 @@ if (!is_array($utilisateurs_donnees)) {
     $utilisateurs_donnees = [];
 }
 
-// --- LOGIQUE DE MISE À JOUR (NOUVEAU) ---
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_commande'])) {
     $id_cmd_to_update = $_POST['id_commande_hidden'];
     $nouveau_statut = $_POST['nouveau_statut'];
@@ -28,18 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_commande'])) {
         if ($cmd['id_commande'] === $id_cmd_to_update) {
             $cmd['statut'] = $nouveau_statut;
             if (!empty($id_livreur)) {
-                $cmd['id_livreur'] = $id_livreur; // On enregistre l'ID numérique pour ton code de livraison
+                $cmd['id_livreur'] = $id_livreur; 
             }
             break;
         }
     }
     ecrireJSON('donnees/commandes.json', $commandes_donnees);
-    // Rafraîchir pour voir les changements
+
     header("Location: commandes.php");
     exit();
 }
 
-// Création d'un dictionnaire pour retrouver facilement les infos du client
+
 $users_lookup = [];
 foreach ($utilisateurs_donnees as $u) {
     if (isset($u['id'])) {

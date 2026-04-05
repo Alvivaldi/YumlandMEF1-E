@@ -42,11 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $utilisateurs[] = $nouvelUser;
         
-        // Petit test de sécurité pour vérifier les droits d'écriture
+     
         $ecriture_reussie = ecrireJSON('donnees/utilisateurs.json', $utilisateurs);
         
         if ($ecriture_reussie === false) {
-             // Si ça passe par ici sur l'autre PC, c'est un problème de droits !
+          
              $message = "Erreur serveur : Impossible d'écrire dans le fichier. Vérifiez les permissions du dossier 'donnees'.";
         } else {
              header("Location: formulaire.php?success=1");
