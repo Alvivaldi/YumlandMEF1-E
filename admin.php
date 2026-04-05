@@ -69,7 +69,7 @@ $utilisateurs = lireJSON('donnees/utilisateurs.json');
                                 </td>
                                 <td><?php echo $user['email']; ?></td>
                                 <td>
-                                    <button class="btn-edit"> Statut (<?php echo $user['statut']; ?>)</button>
+                                    <button class="btn-edit">Statut - <?php echo $user['statut']; ?></button>
                                     <button class="btn-edit" style="background-color: #777;">
                                         <?php echo $user['est_bloque'] ? 'Débloquer' : 'Bloquer'; ?>
                                     </button>
