@@ -1,2 +1,2 @@
 # YumlandMEF1-E
-[phase#2] DEBUT
+[phase#2] FIN
