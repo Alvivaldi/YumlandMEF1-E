@@ -1,26 +1,31 @@
-<?php 
-session_start();
+<?php
+session_start(); // OBLIGATOIRE : Permet d'accéder à la mémoire du serveur
 include 'includes/fonctions.php';
 
-// On simule un client connecté pour pouvoir tester ta page !
-$user_connecte = [
-    "id" => 1, // C'est l'ID de test qu'on a utilisé dans le paiement CYBank
-    "nom" => "Térieur",
-    "prenom" => "Alex",
-    "email" => "alex.terieur@manger.com",
-    "telephone" => "06 12 34 56 78"
-];
-
-// Lecture de l'historique des commandes
-$toutes_les_commandes = lireJSON('donnees/commandes.json');
-if (!is_array($toutes_les_commandes)) {
-    $toutes_les_commandes = [];
+// 1. VÉRIFICATION DE SÉCURITÉ
+// Si l'utilisateur essaie d'aller sur profil.php sans être connecté, on le vire !
+if (!isset($_SESSION['user'])) {
+    header('Location: formulaire.php');
+    exit();
 }
 
-// On filtre pour ne garder que les commandes de CE client (ID = 1)
-$mes_commandes = array_filter($toutes_les_commandes, function($cmd) use ($user_connecte) {
-    return isset($cmd['id_client']) && $cmd['id_client'] == $user_connecte['id'];
-});
+// 2. RÉCUPÉRATION DU VRAI CLIENT
+// On remplace le faux utilisateur par celui qui s'est connecté
+$user_connecte = $_SESSION['user'];
+
+// 3. CHARGEMENT DE SES COMMANDES
+$commandes = lireJSON('donnees/commandes.json');
+if (!is_array($commandes)) { 
+    $commandes = []; 
+}
+
+// On filtre pour ne garder que les commandes de CE client (grâce à son ID)
+$mes_commandes = [];
+foreach ($commandes as $cmd) {
+    if (isset($cmd['id_client']) && $cmd['id_client'] == $user_connecte['id']) {
+        $mes_commandes[] = $cmd;
+    }
+}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -62,7 +67,7 @@ $mes_commandes = array_filter($toutes_les_commandes, function($cmd) use ($user_c
       </div>
       
       <div class="field">
-        <span>Email : <?= htmlspecialchars($user_connecte['email']) ?></span>
+        <span>Email : <?= htmlspecialchars($user_connecte['login']) ?></span>
         <span class="edit" title="Bientôt modifiable !">✏️</span>
       </div>
       
