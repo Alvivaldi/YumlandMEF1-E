@@ -1,125 +1,35 @@
 [
     {
-<<<<<<< HEAD
-        "id": 1775345085,
-        "login": "",
-        "password": "$2y$10$3PeF8rcyYOdJ\/vScZs0Zq.QVUNJnTfi6VCV2Z9KKmCGnR9EsyVkFe",
-=======
-        "id": 1,
-        "login": "alex.terieur@manger.com",
-        "password": "tascapte6",
-        "role": "admin",
-        "nom": "Téreur",
-        "prenom": "Alex",
-        "statut": "Personnel",
-        "est_bloque": false
-    },
-    {
-        "id": 2,
-        "login": "chacha.steven@manger.com",
-        "password": "patesauxsaumons2026",
-        "role": "admin",
-        "nom": "Caissier",
-        "prenom": "Charmelle",
-        "statut": "Personnel",
-        "est_bloque": false
-    },
-    {
-        "id": 3,
-        "login": "sixseven.manger.com",
-        "password": "67secret",
->>>>>>> 9c9da4346b698f187512e98c83c278a55cb4b0b0
+        "id": 1775392592,
+        "login": "b@b",
+        "password": "$2y$10$JsF1LUJwf\/kwQQAkYrcR.uJ\/gWkkNYnX71RGucjEqG3mpMy6rwQHy",
         "role": "client",
-        "nom": "frejkfer",
-        "prenom": "frejkfer",
-        "adresse": null,
-        "telephone": null,
+        "nom": "a",
+        "prenom": "a",
+        "adresse": "a",
+        "telephone": "151",
         "date_inscription": "2026-04-05"
     },
     {
-        "id": 1775345136,
-        "login": "test@test.com",
-        "password": "$2y$10$sqF4VT9.UBxoWIemL7S55e3esbEOOXezm.9AJ4TcKOCndQBjOMBwa",
+        "id": 1775392620,
+        "login": "n@n",
+        "password": "$2y$10$3Z\/Yl7r4YLRX3resbR6LEO4YKWqfnzImgf1Yr0QSR4mOg\/509rz42",
+        "role": "client",
+        "nom": "a",
+        "prenom": "a",
+        "adresse": "a",
+        "telephone": "4515",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775393046,
+        "login": "v@v",
+        "password": "$2y$10$\/oBg3O4Z5OMlWQjxQn\/z\/OQNHGVaIXnfj\/NiUhGW33yWQyrEAYOKa",
         "role": "client",
         "nom": "test",
-        "prenom": "nomtest",
-        "adresse": null,
-        "telephone": null,
+        "prenom": "a",
+        "adresse": "6651",
+        "telephone": "9455165",
         "date_inscription": "2026-04-05"
-    },
-    {
-        "id": 1775354908,
-        "login": "sixseven@manger.com",
-        "password": "$2y$10$dmxx0n6.MwrahcqCKQSw3e4.sMQewrsdQ0MRv\/8Mj0BcYOqb5wPfK",
-        "role": "admin",
-        "nom": "",
-        "prenom": "",
-        "adresse": "",
-        "telephone": null,
-        "date_inscription": "2026-04-05"
-    },
-    {
-        "id": 1775355108,
-        "login": "morgen@manger.com",
-        "password": "$2y$10$VwCPlNicr.AMeVQ1ecJFSednCrsK1JbWQjRa6layfMHf1VRxE44MC",
-        "role": "client",
-        "nom": "Chevalier",
-        "prenom": "Morgen",
-        "adresse": "",
-        "telephone": null,
-        "date_inscription": "2026-04-05"
-    },
-    {
-<<<<<<< HEAD
-        "id": 1775355373,
-        "login": "mohammed@manger.com",
-        "password": "$2y$10$tFkK\/nj33G\/e7Re22SYiB.cfrac20gsIaX1g.OgOFy7IPkn7ESDRK",
-        "role": "client",
-        "nom": "Moha",
-        "prenom": "Ali",
-        "adresse": "",
-        "telephone": null,
-        "date_inscription": "2026-04-05"
-    },
-    {
-        "id": 1775356127,
-        "login": "lucie@manger.com",
-        "password": "$2y$10$pSgLS.FaHZkjyn\/eDUh9buv27yP6u9M.bwap4sCF.WsuTMo47eE9u",
-        "role": "client",
-        "nom": "Lorent",
-        "prenom": "Lucie",
-        "adresse": "",
-        "telephone": null,
-        "date_inscription": "2026-04-05"
-=======
-        "id": 8,
-        "login": "jelo.manger.com",
-        "password": "saumonjelo123",
-        "role": "Restaurateur",
-        "nom": "Jelo",
-        "prenom": "Cuisto",
-        "statut": "Personnel",
-        "est_bloque": false
-    },
-    {
-        "id": 9,
-        "login": "lasu.manger.com",
-        "password": "nandri4",
-        "role": "Livreur",
-        "nom": "Dib",
-        "prenom": "Lasu",
-        "statut": "Personnel",
-        "est_bloque": false
-    },
-    {
-        "id": 10,
-        "login": "lusa.foot.com",
-        "password": "foot.psg",
-        "role": "Livreur",
-        "nom": "Dab",
-        "prenom": "Lusa",
-        "statut": "Personnel",
-        "est_bloque": false
->>>>>>> 9c9da4346b698f187512e98c83c278a55cb4b0b0
     }
 ]

@@ -1,12 +1,10 @@
 <?php
-// On inclut la bibliothèque de fonctions créée à l'étape 1
+session_start(); 
 include 'includes/fonctions.php';
 
-$message = ""; // Pour afficher des erreurs ou succès à l'utilisateur
+$message = ""; 
 
-// Vérifie si le formulaire a été envoyé
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. Récupération des données du formulaire (en utilisant les BONS noms)
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $nom = $_POST['nom'] ?? '';
@@ -14,11 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $adresse = $_POST['adresse'] ?? '';
     $telephone = $_POST['telephone'] ?? '';
 
-    // 2. Chargement des utilisateurs existants
     $utilisateurs = lireJSON('donnees/utilisateurs.json');
     if (!is_array($utilisateurs)) { $utilisateurs = []; }
 
-    // 3. Vérification si l'email existe déjà
     $existe = false;
     foreach ($utilisateurs as $user) {
         if (isset($user['login']) && $user['login'] === $email) {
@@ -30,26 +26,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($existe) {
         $message = "Cet email est déjà utilisé.";
     } else {
-        // 4. Création du nouvel utilisateur avec mot de passe haché
         $nouvelUser = [
-            "id" => time(), // Génère un ID unique simple basé sur l'heure
+            "id" => time(), 
             "login" => $email,
-            "password" => password_hash($password, PASSWORD_DEFAULT), // Sécurité obligatoire
-            "role" => "client", // Par défaut, un inscrit est un client 
+            "password" => password_hash($password, PASSWORD_DEFAULT),
+            "role" => "client", 
             "nom" => $nom,
             "prenom" => $prenom,
             "adresse" => $adresse,
-            "telephone" => $telephone, // CORRECTION : C'était $tel avant !
+            "telephone" => $telephone,
             "date_inscription" => date("Y-m-d")
         ];
 
-        // 5. Ajout et sauvegarde
         $utilisateurs[] = $nouvelUser;
-        ecrireJSON('donnees/utilisateurs.json', $utilisateurs);
-
-        // Redirection vers la connexion après succès
-        header("Location: formulaire.php?success=1");
-        exit();
+        
+        // Petit test de sécurité pour vérifier les droits d'écriture
+        $ecriture_reussie = ecrireJSON('donnees/utilisateurs.json', $utilisateurs);
+        
+        if ($ecriture_reussie === false) {
+             // Si ça passe par ici sur l'autre PC, c'est un problème de droits !
+             $message = "Erreur serveur : Impossible d'écrire dans le fichier. Vérifiez les permissions du dossier 'donnees'.";
+        } else {
+             header("Location: formulaire.php?success=1");
+             exit();
+        }
     }
 }
 ?>
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Inscription</h1>
 
         <?php if ($message != ""): ?>
-            <p style="color: red; text-align: center; font-weight: bold;"><?php echo $message; ?></p>
+            <p style="color: red; text-align: center; font-weight: bold; background: white; padding: 5px; border-radius: 5px;"><?php echo $message; ?></p>
         <?php endif; ?>
 
         <form action="inscription.php" method="post">
