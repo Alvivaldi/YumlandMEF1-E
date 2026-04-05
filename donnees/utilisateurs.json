@@ -20,5 +20,49 @@
         "adresse": null,
         "telephone": null,
         "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775354908,
+        "login": "sixseven@manger.com",
+        "password": "$2y$10$dmxx0n6.MwrahcqCKQSw3e4.sMQewrsdQ0MRv\/8Mj0BcYOqb5wPfK",
+        "role": "admin",
+        "nom": "",
+        "prenom": "",
+        "adresse": "",
+        "telephone": null,
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775355108,
+        "login": "morgen@manger.com",
+        "password": "$2y$10$VwCPlNicr.AMeVQ1ecJFSednCrsK1JbWQjRa6layfMHf1VRxE44MC",
+        "role": "client",
+        "nom": "Chevalier",
+        "prenom": "Morgen",
+        "adresse": "",
+        "telephone": null,
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775355373,
+        "login": "mohammed@manger.com",
+        "password": "$2y$10$tFkK\/nj33G\/e7Re22SYiB.cfrac20gsIaX1g.OgOFy7IPkn7ESDRK",
+        "role": "client",
+        "nom": "Moha",
+        "prenom": "Ali",
+        "adresse": "",
+        "telephone": null,
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775356127,
+        "login": "lucie@manger.com",
+        "password": "$2y$10$pSgLS.FaHZkjyn\/eDUh9buv27yP6u9M.bwap4sCF.WsuTMo47eE9u",
+        "role": "client",
+        "nom": "Lorent",
+        "prenom": "Lucie",
+        "adresse": "",
+        "telephone": null,
+        "date_inscription": "2026-04-05"
     }
 ]

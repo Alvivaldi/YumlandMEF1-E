@@ -7,15 +7,15 @@ $message = ""; // Pour afficher des erreurs ou succès à l'utilisateur
 // Vérifie si le formulaire a été envoyé
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 1. Récupération des données du formulaire
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-    $adresse = $_POST['adresse'];
-    $tel = $_POST['telephone'];
-    $password = $_POST['password'];
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $nom = $_POST['nom'] ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $adresse = $_POST['adresse'] ?? '';
+    $telephone = $_POST['telephone'] ?? '';
 
     // 2. Chargement des utilisateurs existants
-    $utilisateurs = lireDonnees('donnees/utilisateurs.json');
+    $utilisateurs = lireJSON('donnees/utilisateurs.json');
 
     // 3. Vérification si l'email existe déjà
     $existe = false;
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // 5. Ajout et sauvegarde
         $utilisateurs[] = $nouvelUser;
-        sauvegarderDonnees('donnees/utilisateurs.json', $utilisateurs);
+        ecrireJSON('donnees/utilisateurs.json', $utilisateurs);
 
         // Redirection vers la connexion après succès
         header("Location: formulaire.php?success=1");
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Inscription</h1>
 
         <?php if ($message != ""): ?>
-        <p style="color: red;"><?php echo $message; ?></p>
+            <p style="color: red;"><?php echo $message; ?></p>
         <?php endif; ?>
 
         <form action="inscription.php" method="post">

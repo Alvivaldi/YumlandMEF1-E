@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $utilisateurs = lireDonnees('donnees/utilisateurs.json');
+    $utilisateurs = lireJSON('donnees/utilisateurs.json');
 
     foreach ($utilisateurs as $user) {
         if ($user['login'] === $email && password_verify($password, $user['password'])) {
