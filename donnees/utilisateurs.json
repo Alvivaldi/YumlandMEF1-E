@@ -42,5 +42,104 @@
         "adresse": "cy tech",
         "telephone": "12369",
         "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414379,
+        "login": "client1@manger.com",
+        "password": "$2y$10$K\/sv7FAXFduGEkQVT04eo.wc9PvZ8BOewD3iEhcadTjildvanCqpO",
+        "role": "client",
+        "nom": "nom1",
+        "prenom": "client1",
+        "adresse": "cy tech, cergy",
+        "telephone": "0614253987",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414414,
+        "login": "client2@manger.com",
+        "password": "$2y$10$0rTIxMTt3mHHR5CR4bqFDOiKkrgQcBFTTh9ZWdYXwtGgZQ\/HZfcAe",
+        "role": "client",
+        "nom": "nom2",
+        "prenom": "client2",
+        "adresse": "cy tech, cergy",
+        "telephone": "06142539785",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414452,
+        "login": "client3@manger.com",
+        "password": "$2y$10$Aj7ElB7aukr6uhx7FY5nfuv\/YozqnzTIdoMZtikPxhCMye0ukfq1q",
+        "role": "client",
+        "nom": "nom3",
+        "prenom": "client3",
+        "adresse": "cy tech, cergy",
+        "telephone": "0687442365",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414482,
+        "login": "client4@manger.com",
+        "password": "$2y$10$5yBuIeRC.\/Eod\/czMJexze5C6C\/6eujN6BveodJSCiVO36FV\/a.aa",
+        "role": "client",
+        "nom": "nom4",
+        "prenom": "client4",
+        "adresse": "cy tech, cergy",
+        "telephone": "0687413694",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414517,
+        "login": "client5@manger.com",
+        "password": "$2y$10$wk6j4WqY9mjjurPmMZbeaO9AGAgv\/Vp8id\/uatNHoIjH2kCAYZNO2",
+        "role": "client",
+        "nom": "nom5",
+        "prenom": "client3",
+        "adresse": "cy tech, cergy",
+        "telephone": "0687413694",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414559,
+        "login": "admin1@manger.com",
+        "password": "$2y$10$1slUS.VWA\/WHwt3t.9EI\/.lsncc4eIAN30o0wgdjDxz8XXwCVdILK",
+        "role": "client",
+        "nom": "nom6",
+        "prenom": "admin1",
+        "adresse": "cy tech, cergy",
+        "telephone": "0658741355",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414595,
+        "login": "admin2@manger.com",
+        "password": "$2y$10$366ZoYqHFjgBbAr6ngFRXOm5WAgCvU8AsW0wLmPg3CIGuVYsq9Xlq",
+        "role": "client",
+        "nom": "nom7",
+        "prenom": "admin2",
+        "adresse": "cy tech, cergy",
+        "telephone": "0687455252",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414647,
+        "login": "restau@manger.com",
+        "password": "$2y$10$Q.L6DGjkXLO6d\/wSc1LuuONV3JFtL7Sx1QeczlDl07GJXkDZ\/HB.S",
+        "role": "client",
+        "nom": "nom8",
+        "prenom": "restau",
+        "adresse": "cy tech, cergy",
+        "telephone": " 0658741323",
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775414679,
+        "login": "livreur@manger.com",
+        "password": "$2y$10$1Sn9vx8wUmg9SqylYTIhSOdOkTP9lN1Ixj7P5ONwj5c8nrENNsl1a",
+        "role": "client",
+        "nom": "nom9",
+        "prenom": "livreur",
+        "adresse": "cy tech, cergy",
+        "telephone": "0658741354",
+        "date_inscription": "2026-04-05"
     }
 ]
