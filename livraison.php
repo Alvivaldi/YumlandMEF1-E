@@ -2,52 +2,39 @@
 session_start();
 require_once 'includes/fonctions.php';
 
-// 1. Vérification du rôle de l'utilisateur connecté
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'livreur') {
   header("Location: formulaire.php");
   exit();
 }
 
+// --- INITIALISATION CRUCIALE ---
 $id_livreur = $_SESSION['user']['id'];
-$message = "";
+$message_status = "";
+$mes_commandes = []; // On initialise le tableau vide ICI pour éviter le Warning
+$client_info = null;
 
-// 2. Traitement de la mise à jour du statut (Action du bouton)
+// 2. Traitement des actions
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
-  $id_cmd = $_POST['id_commande'];
-  $nouveau_statut = ($_POST['action'] === 'terminer') ? 'livrée' : 'abandonnée';
+  $id_cmd_a_modifier = $_POST['id_commande'];
+  $nouveau_statut = ($_POST['action'] === 'terminer') ? 'LIVREE' : 'ABANDONNEE';
 
   $commandes = lireJSON('donnees/commandes.json');
   foreach ($commandes as &$cmd) {
-    if ($cmd['id'] == $id_cmd) {
+    if ($cmd['id_commande'] == $id_cmd_a_modifier) {
       $cmd['statut'] = $nouveau_statut;
       break;
     }
   }
   ecrireJSON('donnees/commandes.json', $commandes);
-  $message_status = "La commande a été marquée comme " . $nouveau_statut . ".";
-
-  // 3. Récupération de la commande attribuée à ce livreur
-  $commandes = lireJSON('donnees/commandes.json');
-  $ma_commande = null;
-
-  foreach ($commandes as $cmd) {
-    // On cherche une commande "en livraison" pour ce livreur spécifique
-    if ($cmd['id_livreur'] == $id_livreur_connecte && $cmd['statut'] === 'en livraison') {
-      $ma_commande = $cmd;
-      break;
-    }
-  }
+  $message_status = "La commande $id_cmd_a_modifier a été marquée comme $nouveau_statut.";
 }
 
-// 4. Récupération des infos du client pour l'adresse
-$client_info = null;
-if ($ma_commande) {
-  $utilisateurs = lireJSON('donnees/utilisateurs.json');
-  foreach ($utilisateurs as $u) {
-    if ($u['id'] == $ma_commande['id_client']) {
-      $client_info = $u;
-      break;
-    }
+// 3. Récupération
+$all_commandes = lireJSON('donnees/commandes.json');
+foreach ($all_commandes as $cmd) {
+  // On utilise strtolower pour être sûr de trouver "en livraison" peu importe la casse
+  if (isset($cmd['id_livreur']) && $cmd['id_livreur'] == $id_livreur && strtolower($cmd['statut'] ?? '') === 'en livraison') {
+    $mes_commandes[] = $cmd;
   }
 }
 ?>
@@ -74,47 +61,60 @@ if ($ma_commande) {
   <?php include 'includes/header.php'; ?>
 
   <div class="livraison-container">
-    <h1>Détails de livraison</h1>
+    <h1>Mes livraisons en cours</h1>
 
-    <?php if ($ma_commande && $client_info): ?>
-      <div class="info-livraison">
-        <div class="field">
-          <span>Client :</span>
-          <span><?php echo $client_info['prenom'] . " " . $client_info['nom']; ?></span>
-        </div>
-        <div class="field">
-          <span>Adresse :</span>
-          <span><?php echo $client_info['adresse']; ?></span>
-        </div>
-        <div class="field">
-          <span>Commentaires :</span>
-          <span><?php echo $ma_commande['commentaires'] ?? 'Aucun'; ?></span>
-        </div>
-        <div class="field">
-          <span>Téléphone :</span>
-          <span><a
-              href="tel:<?php echo $client_info['telephone']; ?>"><?php echo $client_info['telephone']; ?></a></span>
-        </div>
-      </div>
+    <?php if (!empty($mes_commandes)): ?>
+      <?php
+      $utilisateurs = lireJSON('donnees/utilisateurs.json');
+      foreach ($mes_commandes as $ma_commande):
+        // On cherche les infos du client pour CETTE commande
+        $client_info = null;
+        foreach ($utilisateurs as $u) {
+          if ($u['id'] == $ma_commande['id_client']) {
+            $client_info = $u;
+            break;
+          }
+        }
+      ?>
+        <div class="info-livraison"
+          style="border: 2px solid #f39c12; border-radius: 10px; padding: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.1);">
+          <h3 style="color: #f39c12;">Commande #<?php echo $ma_commande['id_commande']; ?></h3>
 
-      <div class="actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($client_info['adresse']); ?>"
-          target="_blank" class="btn nav-btn">Ouvrir dans Maps</a>
+          <div class="field">
+            <span>Client :</span>
+            <span><?php echo $client_info['prenom'] . " " . $client_info['nom']; ?></span>
+          </div>
+          <div class="field">
+            <span>Adresse :</span>
+            <span><?php echo $client_info['adresse']; ?></span>
+          </div>
+          <div class="field">
+            <span>Téléphone :</span>
+            <span><a
+                href="tel:<?php echo $client_info['telephone']; ?>"><?php echo $client_info['telephone']; ?></a></span>
+          </div>
 
-        <form method="POST" style="display: inline;">
-          <input type="hidden" name="id_commande" value="<?php echo $ma_commande['id']; ?>">
-          <button type="submit" name="action" value="terminer" class="btn complete-btn">Livraison
-            terminée</button>
-          <button type="submit" name="action" value="abandonner" class="btn complete-btn"
-            style="background-color: #e74c3c; margin-top: 10px;">Abandonner la livraison</button>
-        </form>
-      </div>
+          <div class="actions" style="margin-top: 15px;">
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($client_info['adresse']); ?>"
+              target="_blank" class="btn nav-btn"
+              style="display: block; margin-bottom: 10px; text-align: center;">Voir sur Maps</a>
+
+            <form method="POST" style="display: flex; gap: 10px;">
+              <input type="hidden" name="id_commande" value="<?php echo $ma_commande['id_commande']; ?>">
+              <button type="submit" name="action" value="terminer" class="btn complete-btn"
+                style="flex: 1;">Livrée</button>
+              <button type="submit" name="action" value="abandonner" class="btn complete-btn"
+                style="flex: 1; background-color: #e74c3c;">Abandonner</button>
+            </form>
+          </div>
+        </div>
+      <?php endforeach; ?>
 
     <?php else: ?>
       <p style="text-align: center; font-family: 'Chewy';">Aucune livraison en cours pour vous actuellement.</p>
     <?php endif; ?>
 
-    <?php if ($message_status): ?>
+    <?php if (!empty($message_status)): ?>
       <p style="color: green; text-align: center; margin-top: 20px;"><?php echo $message_status; ?></p>
     <?php endif; ?>
   </div>
