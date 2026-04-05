@@ -1,58 +1,5 @@
 [
     {
-        "id_commande": "Cmd-1",
-        "client": "Alex T\u00e9rieur",
-        "details": [
-            {
-                "produit": "Menu Naanfant",
-                "quantite": 1
-            },
-            {
-                "produit": "Coca-Cola",
-                "quantite": 2
-            }
-        ],
-        "statut": "a_preparer",
-        "heure": "12:30",
-        "adresse_livraison": "10 rue Courbet",
-        "prix_total": 18.5
-    },
-    {
-        "id_commande": "Cmd-28839",
-        "client": "Jean Bon",
-        "details": [
-            {
-                "produit": "Pastels",
-                "quantite": 5
-            }
-        ],
-        "statut": "en_livraison",
-        "heure": "12:15",
-        "adresse_livraison": "CY TECH, Cergy",
-        "prix_total": 16.5
-    },
-    {
-        "id_commande": "Cmd-565678",
-        "client": "Noemie Pain",
-        "details": [
-            {
-                "produit": "Biryani",
-                "quantite": 1
-            },
-            {
-                "produit": "Alloco",
-                "quantite": 2
-            }
-        ],
-        "statut": "a_preparer",
-        "heure": "13:30",
-        "adresse_livraison": "CY TECH, Cergy",
-        "prix_total": 16.5
-    },
-    
-    
-    
-    {
         "id_commande": "CMD177507148277",
         "id_client": 1,
         "date_creation": "04\/04\/2026 15:42",
@@ -105,6 +52,58 @@
             {
                 "id_plat": 3,
                 "nom": "Butter chicken",
+                "quantite": 1
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD177537465651",
+        "id_client": 1,
+        "date_creation": "05\/04\/2026 09:38",
+        "timing": "plus_tard",
+        "date_livraison_prevue": "",
+        "prix_total": 40.5,
+        "statut": "EN_ATTENTE",
+        "produits": [
+            {
+                "id_plat": 2,
+                "nom": "Alloco",
+                "quantite": 2
+            },
+            {
+                "id_plat": 3,
+                "nom": "Butter chicken",
+                "quantite": 1
+            },
+            {
+                "id_plat": 4,
+                "nom": "Cr\u00e8me Brul\u00e9e",
+                "quantite": 1
+            },
+            {
+                "id_plat": 6,
+                "nom": "Alloco",
+                "quantite": 1
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD177537553892",
+        "id_client": 1,
+        "date_creation": "05\/04\/2026 09:52",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 17.5,
+        "statut": "A_PREPARER",
+        "produits": [
+            {
+                "id_plat": 7,
+                "nom": "Brick",
+                "quantite": 1
+            },
+            {
+                "id_plat": 13,
+                "nom": "Masala Dosa",
                 "quantite": 1
             }
         ]
