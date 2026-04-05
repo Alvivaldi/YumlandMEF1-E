@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+// SÉCURITÉ : On vérifie que le client est bien connecté avant d'aller à la banque
+if (!isset($_SESSION['user'])) {
+    // S'il n'est pas connecté, on le renvoie à la page de connexion
+    header("Location: formulaire.php");
+    exit();
+}
+
 include 'includes/fonctions.php';
 include 'includes/getapikey.php'; 
 
