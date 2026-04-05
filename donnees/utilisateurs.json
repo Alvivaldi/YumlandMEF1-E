@@ -31,5 +31,16 @@
         "adresse": "6651",
         "telephone": "9455165",
         "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775394082,
+        "login": "e@e",
+        "password": "$2y$10$XY1DRCfsJN0rVYZK0mXBG.0.FaNBHFzYBV4kAar\/SPxcXu1IoaZaa",
+        "role": "client",
+        "nom": "f",
+        "prenom": "v",
+        "adresse": "c",
+        "telephone": "v",
+        "date_inscription": "2026-04-05"
     }
 ]
