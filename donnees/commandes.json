@@ -94,7 +94,7 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 17.5,
-        "statut": "A_PREPARER",
+        "statut": "en livraison",
         "produits": [
             {
                 "id_plat": 7,
