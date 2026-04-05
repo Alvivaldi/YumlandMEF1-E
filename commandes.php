@@ -1,3 +1,10 @@
+<?php
+include 'includes/fonctions.php';
+$commandes_donnees = lireJSON('donnees/commandes.json');
+$utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -29,7 +36,7 @@
             </div>
             <div class="box1-content admin-card" style="background-color: #d23508;">
                 <h2 class="entree" style="color: white;">🚚 En cours de préparation...</h2>
-                <p class="stat-number entree" style="color: white;">3</p>
+                <p class="stat-number entree" style="color: white;">2</p>
             </div>
         </div>
 
@@ -37,51 +44,46 @@
             <section class="column-prepa">
                 <h2 class="entree">🔥 À Préparer</h2>
 
-                <div class="box-commande">
-                    <div class="commande-header">
-                        <span class="num-commande">#Cmd-1</span>
-                        <span class="heure">heure...</span>
-                    </div>
-                    <div class="commande-details">
-                        <ul>
-                            <li>1x Menu Naanfant</li>
-                            <li>2x Pastels</li>
-                            <li>3x Coca-Cola</li>
-                        </ul>
-                        <p class="note-client"><em>Note : ...</em></p>
-                    </div>
-                    <button class="btn-action-status">Prêt : Lancer Livraison</button>
-                </div>
-
-                <div class="box-commande">
-                    <div class="commande-header">
-                        <span class="num-commande">#Cmd-2</span>
-                        <span class="heure">heure...</span>
-                    </div>
-                    <div class="commande-details">
-                        <ul>
-                            <li>1x Biryani</li>
-                            <li>1x Rose Milk</li>
-                        </ul>
-                    </div>
-                    <button class="btn-action-status">Prêt : Lancer Livraison</button>
-                </div>
+                    <?php foreach ($commandes_donnees as $cmd): ?>
+                        <?php if ($cmd['statut'] === 'a_preparer'): ?>
+                            <div class="box-commande">
+                                <div class="commande-header">
+                                    <span class="num-commande">#<?php echo $cmd['id_commande']; ?></span>
+                                    <span class="heure"><?php echo $cmd['heure']; ?></span>
+                                </div>
+                                <div class="commande-details">
+                                    <ul>
+                                        <?php foreach ($cmd['details'] as $article): ?>
+                                            <li><?php echo $article['quantite']; ?>x <?php echo $article['produit']; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <button class="btn-action-status">Lancer la préparation</button>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
             </section>
 
             <section class="column-livraison">
                 <h2 class="entree" style="color: #010000;">🚚 En cours de livraison</h2>
 
-                <div class="box-commande delivery-mode">
-                    <div class="commande-header">
-                        <span class="num-commande">#Cmd-3</span>
-                        <span class="badge livreur">Livreuse : Lasugaa</span>
-                    </div>
-                    <div class="commande-details">
-                        <p>Destination : CY TECH, Cergy</p>
-                        <p>Montant : ...€</p>
-                    </div>
-                    <button class="btn-secondary" disabled>En attente de remise...</button>
-                </div>
+                <?php foreach ($commandes_donnees as $cmd): ?>
+                    <?php if ($cmd['statut'] === 'en_livraison'): ?>
+                        <div class="box-commande delivery-mode">
+                            <div class="commande-header">
+                                <span class="num-commande">#<?php echo $cmd['id_commande']; ?></span>
+                                <span class="badge livreur">
+                                    Livreur : <?php echo $cmd['livreur_attribue'] ?? 'Non assigné'; ?>
+                                </span>
+                            </div>
+                            <div class="commande-details">
+                                <p>Destination : <?php echo $cmd['adresse_livraison']; ?></p>
+                                <p>Montant : <?php echo $cmd['prix_total']; ?> €</p>
+                            </div>
+                            <button class="btn-secondary" disabled>En attente de remise...</button>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </section>
         </div>
     </main>

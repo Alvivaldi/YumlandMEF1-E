@@ -1,13 +1,24 @@
 [
     {
-        "id": 1775035897,
+        "id": 1775345085,
         "login": "",
-        "password": "$2y$10$6\/v5npvyZCs3AXxcWNhBGOtVjZETJd2MB2u\/0ZPkm6Cxk7WIbqNym",
+        "password": "$2y$10$3PeF8rcyYOdJ\/vScZs0Zq.QVUNJnTfi6VCV2Z9KKmCGnR9EsyVkFe",
         "role": "client",
         "nom": "frejkfer",
         "prenom": "frejkfer",
         "adresse": null,
         "telephone": null,
-        "date_inscription": "2026-04-01"
+        "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775345136,
+        "login": "test@test.com",
+        "password": "$2y$10$sqF4VT9.UBxoWIemL7S55e3esbEOOXezm.9AJ4TcKOCndQBjOMBwa",
+        "role": "client",
+        "nom": "test",
+        "prenom": "nomtest",
+        "adresse": null,
+        "telephone": null,
+        "date_inscription": "2026-04-05"
     }
 ]
