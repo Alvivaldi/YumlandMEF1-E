@@ -20,5 +20,16 @@
         "adresse": "c",
         "telephone": "v",
         "date_inscription": "2026-04-05"
+    },
+    {
+        "id": 1775395057,
+        "login": "b@b",
+        "password": "$2y$10$cossz2sEXQF1DnqycWY3HeEEYo7rE.im.iU6\/26heaUG2XlHtZsZ6",
+        "role": "client",
+        "nom": "b",
+        "prenom": "b",
+        "adresse": "cy tech",
+        "telephone": "147885",
+        "date_inscription": "2026-04-05"
     }
 ]
