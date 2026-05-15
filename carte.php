@@ -44,7 +44,70 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
         </section>
     </div>
     
-    <?php /* <div class="barre-outils">
+    <?php 
+        </div> <div class="barre-outils">
+        <div class="filtre margFiltre">
+            <div class="margFiltreTitre">
+                <h2>Filtres : </h2>
+            </div>
+            
+            <select id="sel-categorie" onchange="filtrerEtCharger()" class="select-filtre">
+                <option value="tous">Toutes les catégories</option>
+                <option value="specialite">Spécialités</option>
+                <option value="entree">Entrées</option>
+                <option value="plat">Plats</option>
+                <option value="dessert">Desserts</option>
+                <option value="boisson">Boissons</option>
+            </select>
+
+            <select id="sel-regime" onchange="filtrerEtCharger()" class="select-filtre">
+                <option value="tous">Tous les régimes</option>
+                <option value="végétarien">Végétarien</option>
+                <option value="vegan">Vegan</option>
+                <option value="halal">Halal</option>
+                <option value="sans gluten">Sans Gluten</option>
+            </select>
+
+            <select id="sel-saveur" onchange="filtrerEtCharger()" class="select-filtre">
+                <option value="tous">Toutes les saveurs</option>
+                <option value="salé">Salé</option>
+                <option value="sucré">Sucré</option>
+                <option value="épicé">Épicé</option>
+            </select>
+
+            <select id="sel-allergene" onchange="filtrerEtCharger()" class="select-filtre">
+                <option value="tous">Aucun allergène à éviter</option>
+                <option value="gluten">Sans Gluten</option>
+                <option value="lactose">Sans Lactose</option>
+            </select>
+
+            <div class="margFiltreTitre" style="margin-top: 20px;">
+                <h2>Tri : </h2>
+            </div>
+            <select id="sel-tri" onchange="appliquerTriLocal()" class="select-filtre">
+                <option value="nom">Nom (A-Z)</option>
+                <option value="prix-croissant">Prix croissant</option>
+                <option value="prix-decroissant">Prix décroissant</option>
+            </select>
+        </div>
+
+        <main class="affichage-produits">
+            <div id="zone-plats" class="grille-plats-dynamique">
+                </div>
+        </main>
+
+        <?php include 'includes/footer.php'; ?>
+    </div>
+
+    <script src="js/carte.js"></script>
+</body>
+</html>
+
+    
+    
+    
+   
+    /* <div class="barre-outils">
         <div class="filtre margFiltre">
             <div class="margFiltreTitre">
                 <h2>Filtres : </h2>
@@ -191,9 +254,3 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
             </div>
         </section>
 */ ?>
-        <?php include 'includes/footer.php'; ?>
-    </div>
-    <script src="js/carte.js"></script>
-</body>
-
-</html>
