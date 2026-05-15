@@ -14,30 +14,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'] ?? '';
 
     $utilisateurs = lireJSON('donnees/utilisateurs.json');
-    
 
-    if (!is_array($utilisateurs)) { 
-        $utilisateurs = []; 
+
+    if (!is_array($utilisateurs)) {
+        $utilisateurs = [];
     }
 
     $connecte = false;
     foreach ($utilisateurs as $user) {
-      
+
         if (isset($user['login']) && $user['login'] === $email) {
-          
+
             if (password_verify($password, $user['password'])) {
-               
+
                 $_SESSION['user'] = $user;
                 $connecte = true;
-                
-              
+
+
                 header("Location: profil.php");
                 exit();
             }
         }
     }
-    
-  
+
+
     if (!$connecte) {
         $erreur = "Identifiants ou mot de passe incorrects.";
     }
@@ -79,12 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Connexion</h1>
 
         <?php if ($erreur != ""): ?>
-        <p style="color: red; text-align: center; font-weight: bold; margin-bottom: 15px;"><?php echo $erreur; ?></p>
+            <p style="color: red; text-align: center; font-weight: bold; margin-bottom: 15px;"><?php echo $erreur; ?></p>
         <?php endif; ?>
 
-        <?php if(isset($_GET['success'])): ?>
-        <p style="color: #2ecc71; text-align: center; font-weight: bold; margin-bottom: 15px;">Inscription réussie !
-            Connectez-vous.</p>
+        <?php if (isset($_GET['success'])): ?>
+            <p style="color: #2ecc71; text-align: center; font-weight: bold; margin-bottom: 15px;">Inscription réussie !
+                Connectez-vous.</p>
         <?php endif; ?>
 
         <form action="formulaire.php" method="post">
@@ -109,6 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
     </section>
+    <script src="js/validation.js"></script>
 </body>
 
 </html>

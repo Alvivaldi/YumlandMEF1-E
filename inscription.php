@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include 'includes/fonctions.php';
@@ -20,7 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone = $_POST['telephone'] ?? '';
 
     $utilisateurs = lireJSON('donnees/utilisateurs.json');
-    if (!is_array($utilisateurs)) { $utilisateurs = []; }
+    if (!is_array($utilisateurs)) {
+        $utilisateurs = [];
+    }
 
     $existe = false;
     foreach ($utilisateurs as $user) {
@@ -34,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Cet email est déjà utilisé.";
     } else {
         $nouvelUser = [
-            "id" => time(), 
+            "id" => time(),
             "login" => $email,
             "password" => password_hash($password, PASSWORD_DEFAULT),
-            "role" => "client", 
+            "role" => "client",
             "nom" => $nom,
             "prenom" => $prenom,
             "adresse" => $adresse,
@@ -46,16 +48,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
 
         $utilisateurs[] = $nouvelUser;
-        
-     
+
+
         $ecriture_reussie = ecrireJSON('donnees/utilisateurs.json', $utilisateurs);
-        
+
         if ($ecriture_reussie === false) {
-          
-             $message = "Erreur serveur : Impossible d'écrire dans le fichier. Vérifiez les permissions du dossier 'donnees'.";
+
+            $message = "Erreur serveur : Impossible d'écrire dans le fichier. Vérifiez les permissions du dossier 'donnees'.";
         } else {
-             header("Location: formulaire.php?success=1");
-             exit();
+            header("Location: formulaire.php?success=1");
+            exit();
         }
     }
 }
@@ -91,23 +93,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Inscription</h1>
 
         <?php if ($message != ""): ?>
-        <p
-            style="color: red; text-align: center; font-weight: bold; background: white; padding: 5px; border-radius: 5px;">
-            <?php echo $message; ?></p>
+            <p
+                style="color: red; text-align: center; font-weight: bold; background: white; padding: 5px; border-radius: 5px;">
+                <?php echo $message; ?></p>
         <?php endif; ?>
 
         <form action="inscription.php" method="post">
             <div class="input-box">
                 <input type="text" name="nom" placeholder="Nom" required>
                 <i class="fa-solid fa-user"></i>
+                <span class="error-msg" id="err-nom"></span>
             </div>
             <div class="input-box">
-                <input type="text" name="prenom" placeholder="Prénom" required>
+                <input type="text" name="prenom" id="reg-prenom" placeholder="Prénom" required>
                 <i class="fa-solid fa-user"></i>
+                <span class="error-msg" id="err-prenom"></span>
                 <small class="char-counter"><span id="count-nom">0</span>/30</small>
             </div>
             <div class="input-box">
-                <input type="email" name="email" placeholder="e-mail" required>
+                <input type="email" name="email" id="reg-email" placeholder="e-mail" required>
                 <i class="fa-solid fa-envelope"></i>
                 <span class="error-msg" id="err-email"></span>
             </div>
@@ -118,11 +122,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="input-box">
                 <input type="text" name="telephone" placeholder="Numéro de téléphone" required>
                 <i class="fa-solid fa-phone"></i>
+                <span class="error-msg" id="err-telephone"></span>
             </div>
             <div class="input-box">
                 <input type="password" name="password" id="reg-password" placeholder="Mot de passe" required>
                 <i class="fa-solid fa-lock"></i>
-                <i class="fa-solid fa-eye" id="togglePassword"
+                <i class="fa-solid fa-eye toggle-password" data-target="reg-password"
                     style="cursor: pointer; position: absolute; right: 40px; top: 15px;"></i>
                 <small class="char-counter"><span id="count-password">0</span>/20</small>
                 <span class="error-msg" id="err-password"></span>
