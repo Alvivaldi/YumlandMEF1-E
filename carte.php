@@ -38,7 +38,8 @@ $plats = lireJSON('donnees/plats.json');
             </form>
         </section>
     </div>
-    <div class="barre-outils">
+    
+    <?php /* <div class="barre-outils">
         <div class="filtre margFiltre">
             <div class="margFiltreTitre">
                 <h2>Filtres : </h2>
@@ -65,7 +66,7 @@ $plats = lireJSON('donnees/plats.json');
             </div>
         </div>
 
-        <section id="specialites" class="specialite">
+       <section id="specialites" class="specialite">
             <h1>Specialité du moment </h1>
             <div class="specialite-list">
                 <?php foreach ($plats as $plat): ?>
@@ -179,7 +180,7 @@ $plats = lireJSON('donnees/plats.json');
                 <?php endforeach; ?>
             </div>
         </section>
-
+*/ ?>
         <?php include 'includes/footer.php'; ?>
     </div>
 </body>

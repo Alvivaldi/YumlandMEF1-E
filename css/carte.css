@@ -27,7 +27,7 @@
     top: 200px;
 }
 
-.search-bar {
+/*.search-bar {
     display: flex;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -60,7 +60,7 @@
     padding: 0;
     box-sizing:border-box;
 }
-
+*/
 /* Corps du site*/
 body {
     font-family: 'Chewy', cursive;
