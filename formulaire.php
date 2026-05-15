@@ -4,6 +4,11 @@ include 'includes/fonctions.php';
 
 $erreur = "";
 
+// Validation du cookie thème
+$valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
+$cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
+$theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -46,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
+    <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
     <link rel="stylesheet" href="css/formulaire.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -71,13 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <i class="fa-solid fa-xmark"></i>
         </span>
         <h1>Connexion</h1>
-        
+
         <?php if ($erreur != ""): ?>
-            <p style="color: red; text-align: center; font-weight: bold; margin-bottom: 15px;"><?php echo $erreur; ?></p>
+        <p style="color: red; text-align: center; font-weight: bold; margin-bottom: 15px;"><?php echo $erreur; ?></p>
         <?php endif; ?>
-        
+
         <?php if(isset($_GET['success'])): ?>
-            <p style="color: #2ecc71; text-align: center; font-weight: bold; margin-bottom: 15px;">Inscription réussie ! Connectez-vous.</p>
+        <p style="color: #2ecc71; text-align: center; font-weight: bold; margin-bottom: 15px;">Inscription réussie !
+            Connectez-vous.</p>
         <?php endif; ?>
 
         <form action="formulaire.php" method="post">

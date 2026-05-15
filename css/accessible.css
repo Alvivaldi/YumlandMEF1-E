@@ -1,0 +1,70 @@
+/* css/accessible.css — Mode Accessible (malvoyants) */
+:root {
+    /* Couleurs haute visibilité */
+    --main-bg: #181818e9;
+    --text-white: #e9e8e8;
+    /* jaune vif sur fond noir */
+    --accent-orange: #b90101;
+    --nav-footer-bg: #231f20;
+
+    /* Polices */
+    --font-body: "Chewy", cursive;
+    --font-title: "Mogra", cursive;
+
+    /* Tailles de texte agrandies */
+    --base-font-size: 28px;
+    /* au lieu de 20px */
+    --nav-font-size: 42px;
+    /* au lieu de 30px */
+    --footer-title-size: 45px;
+    /* au lieu de 30px */
+    --footer-text-size: 28px;
+    /* au lieu de 20px */
+
+    /* Couleurs menu-box — fond clair, texte noir lisible */
+    --menu-box-bg: #ebedf5eb;
+    --menu-box-text: #1c1c1c;
+
+    /* Logos agrandis */
+    --logo-nav-height: 130px;
+    /* au lieu de 100px */
+    --logo-footer-height: 190px;
+    /* au lieu de 150px */
+}
+
+/* Fond et texte globaux */
+
+body {
+    background-color: var(--main-bg) !important;
+    color: var(--text-white) !important;
+}
+
+
+
+/* Assombrissement des images de fond (ex : page inscription) */
+.background .slide {
+    filter: brightness(0.2) grayscale(1);
+}
+
+.nav-links a,
+.footer,
+.footer-links ul li a {
+    color: #fafafa !important;
+    /* jaune uniquement pour nav/footer */
+}
+
+/* Filtres de la page carte en mode accessible */
+.filtreTexteIcons {
+    color: #ece9e9 !important;
+    border: 2px solid #ffffff !important;
+    background-color: transparent !important;
+}
+
+.filtreTexte {
+    color: #e3e1e1 !important;
+}
+
+.filtreIcons {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #e70606 !important;
+}

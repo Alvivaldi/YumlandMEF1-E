@@ -4,7 +4,12 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include 'includes/fonctions.php';
 
-$message = ""; 
+$message = "";
+
+// Validation du cookie thème
+$valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
+$cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
+$theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
@@ -63,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
     <link rel="stylesheet" href="css/formulaire.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -85,7 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Inscription</h1>
 
         <?php if ($message != ""): ?>
-            <p style="color: red; text-align: center; font-weight: bold; background: white; padding: 5px; border-radius: 5px;"><?php echo $message; ?></p>
+        <p
+            style="color: red; text-align: center; font-weight: bold; background: white; padding: 5px; border-radius: 5px;">
+            <?php echo $message; ?></p>
         <?php endif; ?>
 
         <form action="inscription.php" method="post">
@@ -96,10 +104,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="input-box">
                 <input type="text" name="prenom" placeholder="Prénom" required>
                 <i class="fa-solid fa-user"></i>
+                <small class="char-counter"><span id="count-nom">0</span>/30</small>
             </div>
             <div class="input-box">
                 <input type="email" name="email" placeholder="e-mail" required>
                 <i class="fa-solid fa-envelope"></i>
+                <span class="error-msg" id="err-email"></span>
             </div>
             <div class="input-box">
                 <input type="text" name="adresse" placeholder="Adresse de livraison" required>
@@ -110,8 +120,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <i class="fa-solid fa-phone"></i>
             </div>
             <div class="input-box">
-                <input type="password" name="password" placeholder="Mot de passe" required>
+                <input type="password" name="password" id="reg-password" placeholder="Mot de passe" required>
                 <i class="fa-solid fa-lock"></i>
+                <i class="fa-solid fa-eye" id="togglePassword"
+                    style="cursor: pointer; position: absolute; right: 40px; top: 15px;"></i>
+                <small class="char-counter"><span id="count-password">0</span>/20</small>
+                <span class="error-msg" id="err-password"></span>
             </div>
             <div class="remember-forgot">
                 <label>
@@ -126,4 +140,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 
 </body>
+
 </html>
+<script src="js/validation.js"></script>
