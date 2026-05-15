@@ -5,7 +5,10 @@
     "description": "Riz savoureux aux épices douces et à la viande.",
     "prix": 15.50,
     "image": "images/biryani.jpeg",
-    "categorie": "specialite"
+    "categorie": "specialite",
+    "regime": "halal",
+    "saveur": "épicé",
+    "allergene": "aucun"
   },
   {
     "id": 2,
@@ -13,7 +16,10 @@
     "description": "Bananes plantains frites, croustillantes à l'extérieur, fondantes à l'intérieur.",
     "prix": 6.50,
     "image": "images/alloco.jpg",
-    "categorie": "specialite"
+    "categorie": "specialite",
+    "regime": "vegan",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 3,
@@ -21,7 +27,10 @@
     "description": "Poulet mariné dans une sauce crémeuse à la tomate et au beurre.",
     "prix": 14.00,
     "image": "images/butter.jpg",
-    "categorie": "specialite"
+    "categorie": "specialite",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 4,
@@ -29,7 +38,10 @@
     "description": "Délicieuse crème vanillée recouverte d'une fine couche de caramel croquant.",
     "prix": 7.00,
     "image": "images/creme.jpg",
-    "categorie": "specialite"
+    "categorie": "specialite",
+    "regime": "sans gluten",
+    "saveur": "sucré",
+    "allergene": "lactose"
   },
   {
     "id": 5,
@@ -37,7 +49,10 @@
     "description": "Petits chaussons frits farcis au thon ou à la viande, servis avec une sauce piquante.",
     "prix": 5.50,
     "image": "images/pastel1.jpg",
-    "categorie": "entree"
+    "categorie": "entree",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 6,
@@ -45,7 +60,10 @@
     "description": "Portion classique de bananes plantains frites.",
     "prix": 6.50,
     "image": "images/alloco.jpg",
-    "categorie": "entree"
+    "categorie": "entree",
+    "regime": "vegan",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 7,
@@ -53,7 +71,10 @@
     "description": "Feuille de brick croustillante garnie d'œuf, thon et herbes fraîches.",
     "prix": 6.00,
     "image": "images/brick.jpg",
-    "categorie": "entree"
+    "categorie": "entree",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 8,
@@ -61,7 +82,10 @@
     "description": "Salade fraîcheur de saison avec vinaigrette maison.",
     "prix": 5.00,
     "image": "images/salade.avif",
-    "categorie": "entree"
+    "categorie": "entree",
+    "regime": "végétarien",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 9,
@@ -69,7 +93,10 @@
     "description": "Beignets africains sucrés et moelleux, parfaits pour commencer.",
     "prix": 4.50,
     "image": "images/beignet.webp",
-    "categorie": "entree"
+    "categorie": "entree",
+    "regime": "vegan",
+    "saveur": "salé",
+    "allergene": "gluten"
   },
   {
     "id": 10,
@@ -77,7 +104,10 @@
     "description": "Notre plat signature : poulet fondant et sauce onctueuse.",
     "prix": 14.00,
     "image": "images/butter.jpg",
-    "categorie": "plat"
+    "categorie": "plat",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 11,
@@ -85,7 +115,10 @@
     "description": "Plat traditionnel complet, un voyage pour les papilles.",
     "prix": 15.50,
     "image": "images/biryani.jpeg",
-    "categorie": "plat"
+    "categorie": "plat",
+    "regime": "halal",
+    "saveur": "épicé",
+    "allergene": "aucun"
   },
   {
     "id": 12,
@@ -93,7 +126,10 @@
     "description": "Nouilles sautées aux légumes croquants et sauce soja.",
     "prix": 12.00,
     "image": "images/nouille.jpg",
-    "categorie": "plat"
+    "categorie": "plat",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 13,
@@ -101,7 +137,10 @@
     "description": "Crêpe indienne croustillante farcie de pommes de terre épicées.",
     "prix": 11.50,
     "image": "images/masala.webp",
-    "categorie": "plat"
+    "categorie": "plat",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 14,
@@ -109,7 +148,10 @@
     "description": "Chou-fleur frit enrobé d'une sauce aigre-douce parfumée.",
     "prix": 13.00,
     "image": "images/gobi.jpg",
-    "categorie": "plat"
+    "categorie": "plat",
+    "regime": "halal",
+    "saveur": "salé",
+    "allergene": "aucun"
   },
   {
     "id": 15,
@@ -117,7 +159,10 @@
     "description": "L'incontournable dessert fondant et croquant.",
     "prix": 7.00,
     "image": "images/creme.jpg",
-    "categorie": "dessert"
+    "categorie": "dessert",
+    "regime": "sans gluten",
+    "saveur": "sucré",
+    "allergene": "lactose"
   },
   {
     "id": 16,
@@ -125,7 +170,10 @@
     "description": "Pâte à choux garnie de crème pâtissière, glaçage chocolat ou café.",
     "prix": 4.50,
     "image": "images/eclair.webp",
-    "categorie": "dessert"
+    "categorie": "dessert",
+    "regime": "végétarien",
+    "saveur": "sucré",
+    "allergene": "aucun"
   },
   {
     "id": 17,
@@ -133,7 +181,10 @@
     "description": "Gâteau au chocolat intense avec son cœur coulant.",
     "prix": 6.50,
     "image": "images/fondant.jpg",
-    "categorie": "dessert"
+    "categorie": "dessert",
+    "regime": "végétarien",
+    "saveur": "sucré",
+    "allergene": "aucun"
   },
   {
     "id": 18,
@@ -141,7 +192,10 @@
     "description": "Mousse légère et aérienne au chocolat noir.",
     "prix": 5.50,
     "image": "images/mousse.webp",
-    "categorie": "dessert"
+    "categorie": "dessert",
+    "regime": "végétarien",
+    "saveur": "sucré",
+    "allergene": "aucun"
   },
   {
     "id": 19,
@@ -149,7 +203,10 @@
     "description": "Tarte renversée aux pommes caramélisées, servie tiède.",
     "prix": 6.00,
     "image": "images/tarte.webp",
-    "categorie": "dessert"
+    "categorie": "dessert",
+    "regime": "végétarien",
+    "saveur": "sucréé",
+    "allergene": "aucun"
   },
   {
     "id": 20,
@@ -157,7 +214,10 @@
     "description": "Boisson rafraîchissante au lait parfumé au sirop de rose.",
     "prix": 3.50,
     "image": "images/rose_milk.jpg",
-    "categorie": "boisson"
+    "categorie": "boisson",
+    "regime": "vegan",
+    "saveur": "sucré",
+    "allergene": "aucun"
   },
   {
     "id": 21,
@@ -165,7 +225,11 @@
     "description": "Infusion de fleurs d'hibiscus, servie bien fraîche.",
     "prix": 3.00,
     "image": "images/bissap.jpg",
-    "categorie": "boisson"
+    "categorie": "boisson",
+    "regime": "vegan",
+    "saveur": "sucré",
+    "allergene": "aucun"
+
   },
   {
     "id": 22,
@@ -173,7 +237,10 @@
     "description": "Boisson onctueuse à base de yaourt et de pulpe de mangue.",
     "prix": 4.50,
     "image": "images/mango.jpg",
-    "categorie": "boisson"
+    "categorie": "boisson",
+    "regime": "vegan",
+    "saveur": "sucré",
+    "allergene": "aucun"
   },
   {
     "id": 23,
@@ -181,6 +248,8 @@
     "description": "Sélection de sodas classiques (Coca-Cola, Sprite, etc.).",
     "prix": 2.50,
     "image": "images/soda.jpg",
-    "categorie": "boisson"
+    "categorie": "boisson",
+    "saveur": "sucré"
   }
 ]
+

@@ -1,6 +1,4 @@
-/* =========================================
-   1. RESET GLOBAL & FOND D'ÉCRAN
-   ========================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -21,9 +19,7 @@ h1, h2, h3 {
   font-family: "Mogra", cursive;
 }
 
-/* =========================================
-   2. HEADER & TITRE
-   ========================================= */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -39,13 +35,11 @@ h1, h2, h3 {
 .header-carte { 
     text-align: center; 
     margin-top: 40px; 
-    width: 100%; /* Force la boîte à prendre tout l'espace horizontal */
+    width: 100%; 
 }
 .titre-carte { color: #d23508; font-size: 50px; }
 
-/* =========================================
-   3. FOOTER (PIED DE PAGE)
-   ========================================= */
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -68,12 +62,10 @@ h1, h2, h3 {
 .footer-links ul li a:hover { color: #d23508; }
 .footer-contact p { margin: 5px 0; margin-bottom: 40px; font-size: 20px; }
 
-/* =========================================
-   4. DESIGN DE TON PANIER (Ton code d'origine)
-   ========================================= */
+
 .panier-container {
     max-width: 900px;
-    margin: 40px auto 120px auto; /* Ajout d'une marge en bas pour décoller du footer */
+    margin: 40px auto 120px auto; 
     padding: 20px;
     background: white;
     border-radius: 10px;
@@ -104,7 +96,7 @@ h1, h2, h3 {
     background-color: #e59400;
 }
 
-/* Tableau du panier */
+
 .table-panier {
     width: 100%;
     border-collapse: collapse;
@@ -155,7 +147,7 @@ h1, h2, h3 {
     border-radius: 8px;
 }
 
-/* Formulaire de paiement */
+
 .form-paiement {
     margin-top: 30px;
     border-top: 2px solid #eee;

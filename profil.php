@@ -1,25 +1,23 @@
 <?php
-session_start(); // OBLIGATOIRE : Permet d'accéder à la mémoire du serveur
+session_start(); 
 include 'includes/fonctions.php';
 
-// 1. VÉRIFICATION DE SÉCURITÉ
-// Si l'utilisateur essaie d'aller sur profil.php sans être connecté, on le vire !
+
 if (!isset($_SESSION['user'])) {
     header('Location: formulaire.php');
     exit();
 }
 
-// 2. RÉCUPÉRATION DU VRAI CLIENT
-// On remplace le faux utilisateur par celui qui s'est connecté
+
 $user_connecte = $_SESSION['user'];
 
-// 3. CHARGEMENT DE SES COMMANDES
+
 $commandes = lireJSON('donnees/commandes.json');
 if (!is_array($commandes)) { 
     $commandes = []; 
 }
 
-// On filtre pour ne garder que les commandes de CE client (grâce à son ID)
+
 $mes_commandes = [];
 foreach ($commandes as $cmd) {
     if (isset($cmd['id_client']) && $cmd['id_client'] == $user_connecte['id']) {
@@ -56,29 +54,44 @@ foreach ($commandes as $cmd) {
    <section class="info-user">
       <h2>Informations personnelles</h2>
       
-      <div class="field">
-        <span>Nom : <?= htmlspecialchars($user_connecte['nom']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
-      </div>
-      
-      <div class="field">
-        <span>Prénom : <?= htmlspecialchars($user_connecte['prenom']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
-      </div>
-      
-      <div class="field">
-        <span>Email : <?= htmlspecialchars($user_connecte['login']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
-      </div>
-      
-      <div class="field">
-        <span>Téléphone : <?= htmlspecialchars($user_connecte['telephone']) ?></span>
-        <span class="edit" title="Bientôt modifiable !">✏️</span>
-      </div>
-      
-      <p class="info-note">
-        * La modification des informations sera disponible lors de la phase 3.
-      </p>
+      <p id="msg-profil" style="color: green; font-weight: bold; display: none;"></p>
+
+      <form id="form-profil">
+          <div class="field">
+            <label>Nom : </label>
+            <span class="display-val"><?= htmlspecialchars($user_connecte['nom']) ?></span>
+            <input type="text" name="nom" class="input-val" value="<?= htmlspecialchars($user_connecte['nom']) ?>" style="display:none;" required>
+            <span class="edit">✏️</span>
+          </div>
+          
+          <div class="field">
+            <label>Prénom : </label>
+            <span class="display-val"><?= htmlspecialchars($user_connecte['prenom']) ?></span>
+            <input type="text" name="prenom" class="input-val" value="<?= htmlspecialchars($user_connecte['prenom']) ?>" style="display:none;" required>
+            <span class="edit">✏️</span>
+          </div>
+          
+          <div class="field">
+            <label>Téléphone : </label>
+            <span class="display-val"><?= htmlspecialchars($user_connecte['telephone']) ?></span>
+            <input type="text" name="telephone" class="input-val" value="<?= htmlspecialchars($user_connecte['telephone']) ?>" style="display:none;" required>
+            <span class="edit">✏️</span>
+          </div>
+
+          <div class="field">
+            <label>Adresse : </label>
+            <span class="display-val"><?= htmlspecialchars($user_connecte['adresse'] ?? '') ?></span>
+            <input type="text" name="adresse" class="input-val" value="<?= htmlspecialchars($user_connecte['adresse'] ?? '') ?>" style="display:none;" required>
+            <span class="edit">✏️</span>
+          </div>
+
+          <div class="field">
+            <label>Email : </label>
+            <span><?= htmlspecialchars($user_connecte['login']) ?></span>
+          </div>
+          
+          <button type="submit" id="btn-save" style="display: none; margin-top: 15px; padding: 10px; background-color: #d23508; color: white; border: none; border-radius: 5px; cursor: pointer;">Valider les modifications</button>
+      </form>
     </section>
 
     <section class="past-orders">
@@ -111,8 +124,14 @@ foreach ($commandes as $cmd) {
                             <?php elseif (isset($cmd['note'])): ?>
                                 <span class="note-text"><i class="fa-solid fa-star"></i> <?= htmlspecialchars($cmd['note']) ?>/5</span>
                             
+                            <?php elseif (in_array(strtoupper($cmd['statut']), ['A_PREPARER', 'EN_ATTENTE'])): ?>
+                                <span class="status-attente" style="display:block; margin-bottom:5px;">En attente...</span>
+                                <a href="modifier_commande.php?id=<?= $cmd['id_commande'] ?>" style="color: #fca311; text-decoration: none; font-weight: bold; border: 1px solid #fca311; padding: 3px 8px; border-radius: 5px;">
+                                    <i class="fa-solid fa-pen"></i> Modifier
+                                </a>
+
                             <?php else: ?>
-                                <span class="status-attente">En attente...</span>
+                                <span class="status-attente"><?= htmlspecialchars($cmd['statut']) ?></span>
                             <?php endif; ?>
                         </td>
                     </tr>
@@ -129,5 +148,59 @@ foreach ($commandes as $cmd) {
   </div>
 
   <?php include 'includes/footer.php'; ?>
+  <script>
+// 1. Gérer l'affichage des champs de modification au clic sur les crayons
+document.querySelectorAll('.edit').forEach(btn => {
+    btn.addEventListener('click', function() {
+        let fieldDiv = this.closest('.field');
+        fieldDiv.querySelector('.display-val').style.display = 'none'; // Cache le texte
+        fieldDiv.querySelector('.input-val').style.display = 'inline-block'; // Affiche l'input
+        this.style.display = 'none'; // Cache le crayon
+        document.getElementById('btn-save').style.display = 'block'; // Affiche le bouton valider
+    });
+});
+
+// 2. Envoyer les données en asynchrone (AJAX / Fetch)
+document.getElementById('form-profil').addEventListener('submit', function(e) {
+    e.preventDefault(); // Empêche le rechargement de la page !
+
+    // On récupère toutes les données du formulaire
+    let formData = new FormData(this);
+
+    // On envoie les données à notre fichier PHP en arrière-plan
+    fetch('api_update_profil.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            // On met à jour l'affichage avec les nouvelles valeurs
+            document.querySelectorAll('.field').forEach(fieldDiv => {
+                let input = fieldDiv.querySelector('.input-val');
+                let display = fieldDiv.querySelector('.display-val');
+                let editBtn = fieldDiv.querySelector('.edit');
+                
+                if(input && display) {
+                    display.innerText = input.value; // Met à jour le texte
+                    input.style.display = 'none'; // Recache l'input
+                    display.style.display = 'inline-block'; // Réaffiche le texte
+                    editBtn.style.display = 'inline-block'; // Remet le crayon
+                }
+            });
+            document.getElementById('btn-save').style.display = 'none'; // Cache le bouton Valider
+            
+            // Afficher le message de succès
+            let msgBox = document.getElementById('msg-profil');
+            msgBox.innerText = "Profil mis à jour avec succès !";
+            msgBox.style.display = 'block';
+            setTimeout(() => msgBox.style.display = 'none', 3000); // Fait disparaître après 3s
+        } else {
+            alert("Erreur lors de la mise à jour.");
+        }
+    })
+    .catch(error => console.error('Erreur:', error));
+});
+</script>
 </body>
 </html>

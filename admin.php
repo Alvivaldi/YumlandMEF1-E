@@ -1,6 +1,28 @@
 <?php
+session_start();
 include 'includes/fonctions.php';
+
+// 1. SÉCURITÉ : Vérifier si l'utilisateur est connecté ET s'il est admin
+if (!isset($_SESSION['user'])) {
+    // S'il n'est pas connecté, on l'envoie vers la connexion
+    header("Location: formulaire.php");
+    exit();
+}
+
+// On récupère son rôle en minuscules (pour éviter les bugs avec "Admin" ou "ADMIN")
+$role_user = strtolower($_SESSION['user']['role'] ?? '');
+
+if ($role_user !== 'admin') {
+    // Si c'est un client ou un livreur qui essaie de tricher en tapant admin.php dans l'URL
+    header("Location: index.php");
+    exit();
+}
+
+// 2. Chargement des données pour l'affichage de la page
 $utilisateurs = lireJSON('donnees/utilisateurs.json');
+if (!is_array($utilisateurs)) { 
+    $utilisateurs = []; 
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +32,7 @@ $utilisateurs = lireJSON('donnees/utilisateurs.json');
     <meta charset="UTF-8">
     <title>Administration</title>
     <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    <link rel="stylesheet" href="css/global.css">
 
 
 
@@ -22,6 +45,7 @@ $utilisateurs = lireJSON('donnees/utilisateurs.json');
 </head>
 
 <body class="admin-body">
+    <?php include 'includes/header.php'; ?>
     <header>
 
         <h1 class="big-title">Page Administrateur</h1>

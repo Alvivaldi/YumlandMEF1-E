@@ -14,8 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Chewy', cursive;
-    background-color: #fffcfb;
-    
+    background-color: var(--main-bg);
 }
 
 h1,
@@ -32,12 +31,12 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #231f20;
+    background-color: var(--nav-footer-bg);
     padding: 3px 40px;
 }
 
 .logo img {
-    height: 100px; 
+    height: var(--logo-nav-height);
 }
 
 .nav-links {
@@ -48,13 +47,13 @@ h3 {
 
 .nav-links a {
     text-decoration: none;
-    color: #fffcfb;
+    color: var(--text-white);
     transition: color 0.3s ease;
-    font-size: 30px;
+    font-size: var(--nav-font-size);
 }
 
 .nav-links a:hover {
-    color: #d23508;
+    color: var(--accent-orange);
 }
 
 .background {
@@ -217,3 +216,27 @@ section h1{
     text-decoration: underline ;
 }
 
+.error-msg {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+    font-family: 'Arial', sans-serif; /* Plus lisible pour les alertes */
+}
+input.invalid {
+    border: 2px solid #e74c3c !important;
+}
+.char-counter {
+    display: block;
+    text-align: right;
+    font-size: 0.75rem;
+    color: #7f8c8d;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+/* On peut changer la couleur si on approche de la limite */
+.char-counter.limit-reached {
+    color: #e74c3c;
+    font-weight: bold;
+}

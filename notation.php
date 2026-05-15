@@ -2,124 +2,110 @@
 session_start();
 include 'includes/fonctions.php';
 
-// Vérifier qu'on sait quelle commande on note
+// 1. SÉCURITÉ : Vérifier si l'utilisateur est bien connecté
+if (!isset($_SESSION['user'])) {
+    header('Location: formulaire.php');
+    exit;
+}
+
+// Vérifier qu'on a bien un ID de commande dans l'URL (ou le formulaire)
 if (!isset($_GET['id']) && !isset($_POST['id_commande'])) {
     header('Location: profil.php');
     exit;
 }
-$id_commande = $_GET['id'] ?? $_POST['id_commande'];
 
-// TRAITEMENT : Quand le client clique sur "Soumettre"
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $commandes = lireJSON('donnees/commandes.json');
-    
-    foreach ($commandes as $index => $cmd) {
-        // On utilise == au lieu de === pour éviter les petits bugs de format texte/chiffre
-        if ($cmd['id_commande'] == $id_commande) {
-            
-            // On sauvegarde la notation Livraison (avec ?? '' si c'est vide)
-            $commandes[$index]['note_livraison'] = (int)$_POST['note_livraison'];
-            $commandes[$index]['comment_livraison'] = htmlspecialchars($_POST['comment_livraison'] ?? '');
-            
-            // On sauvegarde la notation Plats
-            $commandes[$index]['note_plats'] = (int)$_POST['note_plats'];
-            $commandes[$index]['comment_plats'] = htmlspecialchars($_POST['comment_plats'] ?? '');
-            
-            // On fait une moyenne globale pour l'afficher sur la page profil !
-            $commandes[$index]['note'] = ($commandes[$index]['note_livraison'] + $commandes[$index]['note_plats']) / 2;
-            
-            // J'ai supprimé le "break;" ici ! 
-            // Ainsi, s'il y a des commandes en doublon suite à des bugs de test, elles seront toutes mises à jour.
-        }
+$id_commande = $_GET['id'] ?? $_POST['id_commande'];
+$commandes = lireJSON('donnees/commandes.json');
+
+// 2. RECHERCHE DE LA COMMANDE
+$ma_commande = null;
+$index_commande = -1;
+
+foreach ($commandes as $index => $cmd) {
+    if ($cmd['id_commande'] == $id_commande && $cmd['id_client'] == $_SESSION['user']['id']) {
+        $ma_commande = $cmd;
+        $index_commande = $index;
+        break;
     }
+}
+
+// 3. VÉRIFICATIONS AVANT D'AFFICHER LA PAGE
+if (!$ma_commande) {
+    die("<h1 style='color:red; text-align:center; margin-top:50px;'>Erreur : Commande introuvable ou vous n'avez pas le droit de la voir.</h1><p style='text-align:center;'><a href='profil.php'>Retour au profil</a></p>");
+}
+
+if (isset($ma_commande['note'])) {
+    die("<h1 style='color:red; text-align:center; margin-top:50px;'>Erreur : Vous avez déjà noté cette commande.</h1><p style='text-align:center;'><a href='profil.php'>Retour au profil</a></p>");
+}
+
+// 4. TRAITEMENT LORS DU CLIC SUR "VALIDER"
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Enregistrement des notes
+    $commandes[$index_commande]['note_livraison'] = (int)$_POST['note_livraison'];
+    $commandes[$index_commande]['comment_livraison'] = htmlspecialchars($_POST['comment_livraison'] ?? '');
+    
+    $commandes[$index_commande]['note_plats'] = (int)$_POST['note_plats'];
+    $commandes[$index_commande]['comment_plats'] = htmlspecialchars($_POST['comment_plats'] ?? '');
+    
+    // Moyenne des deux notes
+    $commandes[$index_commande]['note'] = ($commandes[$index_commande]['note_livraison'] + $commandes[$index_commande]['note_plats']) / 2;
     
     ecrireJSON('donnees/commandes.json', $commandes);
+    
+    // On redirige vers le profil une fois noté
     header('Location: profil.php?success=notation');
     exit;
 }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notation</title>
-    <link rel="stylesheet" href="css/notation.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <title>Noter ma commande</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/notation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap" rel="stylesheet" />
     
-    <style>
-        .choix-note label { margin-right: 15px; font-size: 1.2em; cursor: pointer; }
-        .choix-note input { transform: scale(1.5); margin-right: 5px; cursor: pointer; }
-    </style>
 </head>
-
 <body>
-   <?php include 'includes/header.php'; ?>
-   
-    <section>
-        <div class="tete-notation">
-            <h1>NOTATION</h1>
-            <h2>Donnez nous votre avis !</h2>
-            <p>Commande N° <strong><?= htmlspecialchars($id_commande) ?></strong></p>
-        </div>
-    </section>
 
-    <section class="notation">
-        <form action="notation.php" method="POST">
+    <?php include 'includes/header.php'; ?>
+
+    <div class="notation-container">
+        <h1><i class="fa-solid fa-star"></i> Noter la commande #<?= htmlspecialchars($id_commande) ?></h1>
+        
+        <form method="POST" action="notation.php">
             <input type="hidden" name="id_commande" value="<?= htmlspecialchars($id_commande) ?>">
 
-            <h3>LIVRAISON</h3>
-            <h4>Comment évalueriez-vous la qualité de notre service de livraison ?</h4>
-            <div class="notation-container">
-                <div class="notation-item">
-                    <h3>Note:</h3>
-                    <div class="choix-note">
-                        <label><input type="radio" name="note_livraison" value="1" required> 1 ★</label>
-                        <label><input type="radio" name="note_livraison" value="2"> 2 ★</label>
-                        <label><input type="radio" name="note_livraison" value="3"> 3 ★</label>
-                        <label><input type="radio" name="note_livraison" value="4"> 4 ★</label>
-                        <label><input type="radio" name="note_livraison" value="5"> 5 ★</label>
-                    </div>
+            <div style="border-bottom: 2px dashed #eee; margin-bottom: 20px; padding-bottom: 20px;">
+                <h3 style="color: #fca311;">🚚 La Livraison</h3>
+                <div class="form-group">
+                    <label>Note (sur 5) :</label>
+                    <input type="number" name="note_livraison" min="1" max="5" required placeholder="Ex: 4">
                 </div>
-                <div class="notation-item">
-                    <h5>Commentaire:</h5>
-                    <textarea name="comment_livraison" placeholder="Laissez votre commentaire ici..."></textarea>
+                <div class="form-group">
+                    <label>Commentaire pour le livreur :</label>
+                    <textarea name="comment_livraison" rows="3" placeholder="Livreur ponctuel et souriant..."></textarea>
                 </div>
             </div>
 
-            <p>_____________________________________________________</p>
-
-            <h3>QUALITÉ DES PLATS</h3>
-            <h4>Comment évalueriez-vous la qualité de nos plats ?</h4>
-            <div class="notation-container">
-                <div class="notation-item">
-                    <h3>Note:</h3>
-                    <div class="choix-note">
-                        <label><input type="radio" name="note_plats" value="1" required> 1 ★</label>
-                        <label><input type="radio" name="note_plats" value="2"> 2 ★</label>
-                        <label><input type="radio" name="note_plats" value="3"> 3 ★</label>
-                        <label><input type="radio" name="note_plats" value="4"> 4 ★</label>
-                        <label><input type="radio" name="note_plats" value="5"> 5 ★</label>
-                    </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #fca311;">🍔 Les Plats</h3>
+                <div class="form-group">
+                    <label>Note (sur 5) :</label>
+                    <input type="number" name="note_plats" min="1" max="5" required placeholder="Ex: 5">
                 </div>
-                <div class="notation-item">
-                    <h5>Commentaire:</h5>
-                    <textarea name="comment_plats" placeholder="Laissez votre commentaire ici..."></textarea>
+                <div class="form-group">
+                    <label>Commentaire sur le repas :</label>
+                    <textarea name="comment_plats" rows="3" placeholder="C'était délicieux !"></textarea>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 30px;">
-                <button type="submit" class="submit-btn" style="padding: 15px 40px; font-size: 1.2em; cursor: pointer;">Soumettre mon avis global</button>
-            </div>
-
+            <button type="submit" class="btn-submit">Valider mes notes</button>
         </form>
-    </section>
+    </div>
 
-    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

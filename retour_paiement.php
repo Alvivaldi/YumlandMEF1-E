@@ -27,8 +27,7 @@ if ($statut_paiement === 'accepted') {
     $timing = $_SESSION['timing'] ?? 'immediat';
     $date_livraison = $_SESSION['date_livraison'] ?? '';
     
-    // --- CORRECTION MAJEURE : On récupère le vrai ID du client connecté ---
-    // Si l'utilisateur n'est pas connecté par erreur, on met 0 par défaut pour éviter un crash
+
     $id_du_client = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 0;
     
     $plats = lireJSON('donnees/plats.json');
@@ -43,10 +42,10 @@ if ($statut_paiement === 'accepted') {
         }
     }
 
-    // Création de la commande avec le bon ID
+
     $nouvelle_commande = [
         "id_commande" => $transaction,
-        "id_client" => $id_du_client, // <--- C'EST ICI QUE CA CHANGE !
+        "id_client" => $id_du_client,
         "date_creation" => date('d/m/Y H:i'),
         "timing" => $timing,
         "date_livraison_prevue" => ($timing === 'plus_tard') ? $date_livraison : "Immédiate",
@@ -61,7 +60,7 @@ if ($statut_paiement === 'accepted') {
     $toutes_les_commandes[] = $nouvelle_commande;
     ecrireJSON($chemin_commandes, $toutes_les_commandes);
 
-    // On vide le panier !
+
     unset($_SESSION['panier']);
     unset($_SESSION['timing']);
     unset($_SESSION['date_livraison']);
@@ -69,12 +68,12 @@ if ($statut_paiement === 'accepted') {
     $titre = "Paiement réussi !";
     $message = "Merci ! Votre commande n°$transaction d'un montant de $montant € a bien été validée.";
 } else {
-    // Échec du paiement
+
     $titre = "Paiement refusé";
     $message = "La banque a refusé la transaction. Votre commande n'a pas été validée.";
 }
 
-// On définit la classe CSS selon le statut du paiement
+
 $classe_statut = ($statut_paiement === 'accepted') ? 'status-success' : 'status-error';
 ?>
 

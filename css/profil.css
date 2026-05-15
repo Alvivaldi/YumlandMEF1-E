@@ -1,11 +1,11 @@
-/* 1. Reset global */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corps du site : Chewy */
+
 body {
   font-family: "Chewy", cursive;
   background-color: #fffcfb;
@@ -15,7 +15,7 @@ body {
   background-size: 2000px;
 }
 
-/* Titres : Mogra */
+
 h1,
 h2,
 h3 {
@@ -31,7 +31,7 @@ h3 {
 }
 
 .logo img {
-  height: 100px; /* taille du logo */
+  height: 100px; 
 }
 
 .nav-links {
@@ -44,7 +44,7 @@ h3 {
   text-decoration: none;
   color: #fffcfb;
   transition: color 0.3s ease;
-  font-size: 30px; /* taille du texte */
+  font-size: 30px; 
 }
 
 .nav-links a:hover {
@@ -113,7 +113,6 @@ h2 {
   font-weight: bold;
 }
 
-/* Footer */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -166,9 +165,7 @@ h2 {
   font-size: 20px;
 }
 
-/* =========================================
-   AJOUTS POUR LE TABLEAU D'HISTORIQUE 
-   ========================================= */
+
 
 .success-msg {
   color: green;
