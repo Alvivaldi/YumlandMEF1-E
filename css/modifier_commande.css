@@ -1,0 +1,92 @@
+/* css/modifier_commande.css */
+.modif-container {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.catalogue {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.panier-live {
+    flex: 1;
+    background: #fffcfb;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #d23508;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.plat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.btn-add {
+    background: #fca311;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.qte-controls button {
+    background: #d23508;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.totals {
+    margin-top: 20px;
+    border-top: 2px dashed #d23508;
+    padding-top: 10px;
+    font-size: 18px;
+}
+
+.diff-plus {
+    color: red;
+    font-weight: bold;
+}
+
+.diff-moins {
+    color: green;
+    font-weight: bold;
+}
+
+.btn-valider {
+    width: 100%;
+    padding: 15px;
+    background: #d23508;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Mogra';
+}

@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 $all_commandes = lireJSON('donnees/commandes.json');
 foreach ($all_commandes as $cmd) {
 
-  if (isset($cmd['id_livreur']) && $cmd['id_livreur'] == $id_livreur && strtolower($cmd['statut'] ?? '') === 'EN_LIVRAISON') {
+  if (isset($cmd['id_livreur']) && $cmd['id_livreur'] == $id_livreur && strtolower($cmd['statut'] ?? '') === 'en_livraison') {
     $mes_commandes[] = $cmd;
   }
 }
