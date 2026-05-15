@@ -144,7 +144,7 @@ foreach ($utilisateurs_donnees as $u) {
             <section class="column-livraison">
                 <h2 class="entree" style="color: #d23508;">🚚 Suivi des Livreurs</h2>
                 <?php foreach ($commandes_donnees as $cmd):
-                    if (strtolower($cmd['statut'] ?? '') === 'EN_LIVRAISON'):
+                    if (strtolower($cmd['statut'] ?? '') === 'en_livraison'):
                 ?>
                         <div class="box-commande delivery-mode">
                             <div class="commande-header">
