@@ -193,6 +193,7 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
 */ ?>
         <?php include 'includes/footer.php'; ?>
     </div>
+    <script src="js/carte.js"></script>
 </body>
 
 </html>
