@@ -26,29 +26,31 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #231f20;
+  background-color: var(--nav-footer-bg);
   padding: 3px 40px;
 }
 
 .logo img {
-  height: 100px; 
+  height: var(--logo-nav-height);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 150px;
+  gap: clamp(200px, 20vw, 200px);
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #fffcfb;
+  color: var(--text-white);
   transition: color 0.3s ease;
-  font-size: 30px; 
+  font-size: var(--nav-font-size); 
 }
 
 .nav-links a:hover {
-  color: #d23508;
+  color: var(--accent-orange);
 }
 
 .profile-container {
@@ -220,4 +222,32 @@ h2 {
 .status-attente {
   color: gray;
   font-size: 0.9em;
+}
+
+.profile-container h2,
+.profile-container label,
+.profile-container .field,
+.profile-container p,
+.profile-container span,
+.history-table th,
+.history-table td {
+    color: #292929 !important;
+}
+
+/* Tailles de police agrandies en mode accessible */
+.profile-container,
+.profile-container .field,
+.profile-container label,
+.profile-container span,
+.profile-container p {
+    font-size: var(--base-font-size);
+}
+
+.profile-container h2 {
+    font-size: var(--footer-title-size);
+}
+
+.history-table th,
+.history-table td {
+    font-size: var(--base-font-size);
 }
