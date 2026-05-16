@@ -53,6 +53,18 @@ body {
     /* jaune uniquement pour nav/footer */
 }
 
+/* Navbar en mode accessible : gap réduit pour éviter le débordement */
+.nav-links {
+    gap: clamp(50px, 10vw, 60px) !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+}
+
+.navbar {
+    flex-wrap: wrap;
+    padding: 8px 20px;
+}
+
 /* Filtres de la page carte en mode accessible */
 .filtreTexteIcons {
     color: #ece9e9 !important;

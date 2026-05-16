@@ -45,9 +45,9 @@
             $cookie_val = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
             $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
             ?>
-            <button id="theme-switch"
-                style="background: none; border: 1px solid white; color: white; cursor: pointer;
-                       padding: 8px 12px; border-radius: 5px; font-family: 'Chewy', cursive; font-size: var(--nav-font-size);">
+            <button id="theme-switch" style="background: none; border: 1px solid white; color: white; cursor: pointer;
+                       padding: 8px 12px; border-radius: 5px; font-family: 'Chewy', cursive;
+                       font-size: clamp(16px, 1.5vw, 22px); white-space: nowrap; flex-shrink: 0;">
                 <?php echo ($theme_actif === 'css/accessible.css') ? '☀️ Mode Clair' : '🌓 Mode Accessible'; ?>
             </button>
         </li>

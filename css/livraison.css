@@ -1,124 +1,191 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 body {
-  font-family: "Chewy", cursive;
-  background-color: #fffcfb;
-  background-image: url("../images/dessins/profild1.png");
-  background-repeat: no-repeat;
-  background-position: center -100px;
-  background-size: 2000px;
+    font-family: var(--font-body, "Chewy", cursive);
+    background-color: var(--main-bg, #fffcfb);
+    background-image: url("../images/dessins/profild1.png");
+    background-repeat: no-repeat;
+    background-position: center -100px;
+    background-size: 2000px;
 }
 
-
-h1,
-h2,
-h3 {
-  font-family: "Mogra", cursive;
+h1, h2, h3 {
+    font-family: var(--font-title, "Mogra", cursive);
 }
 
+/* Navbar — variables pour le thème */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #231f20;
-  padding: 3px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-footer-bg, #231f20);
+    padding: 3px 40px;
 }
+.logo img        { height: var(--logo-nav-height, 100px); }
+.nav-links       { list-style: none; display: flex; gap: clamp(110px, 5vw, 150px); }
+.nav-links a     { text-decoration: none; color: var(--text-white, #fffcfb); transition: color 0.3s ease; font-size: var(--nav-font-size, 30px); }
+.nav-links a:hover { color: var(--accent-orange, #d23508); }
 
-.logo img {
-  height: 100px;
-
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 150px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #fffcfb;
-  transition: color 0.3s ease;
-  font-size: 30px;
-
-}
-
-.nav-links a:hover {
-  color: #d23508;
-}
-
+/* Container principal */
 .livraison-container {
-  max-width: 800px;
-  margin: auto;
-  background-color: #faebe4;
-  margin-top: 80px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  font-size: 25px;
-  line-height: 1.5;
+    max-width: 860px;
+    margin: 80px auto 60px;
+    padding: 20px;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #d23508;
+.livraison-container > h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--accent-orange, #d23508);
+    font-size: 2.5rem;
 }
 
+/* Message de confirmation */
+.message-status {
+    text-align: center;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+/* Carte de livraison */
+.carte-livraison {
+    background-color: #faebe4;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.carte-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d23508;
+    color: white;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+}
+
+.carte-header .cmd-id { font-weight: bold; }
+.carte-header .cmd-date { font-size: 0.95rem; opacity: 0.9; }
+
+/* Infos client */
+.info-livraison {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
 
 .info-livraison .field {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  padding: 10px;
-  background-color: #fffcfb;
-  border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: #fffcfb;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #000000 !important;
+}
+
+.info-livraison .field i {
+    margin-right: 8px;
+    color: #d23508;
+}
+
+.info-livraison a {
+    color: #d23508;
+    text-decoration: none;
+    font-weight: bold;
+}
+.info-livraison a:hover { text-decoration: underline; }
+
+/* Liste des produits */
+.produits-list {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-size: 1rem;
+    color: #000000;
+}
+
+.produits-list ul {
+    list-style: none;
+    margin: 10px 0;
+    padding-left: 10px;
 }
 
 
-a {
-  color: #231f20;
-  text-decoration: none;
+.produits-list ul li {
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(31, 31, 31, 0.1);
+}
+ 
+.produits-list ul li::before {
+    content: "• ";
+    font-size: 25px;
+    color: #d23508;
 }
 
+.prix-total {
+    margin-top: 10px;
+    text-align: right;
+    font-size: 1.1rem;
+    color: #d23508;
+}
+
+/* Actions */
 .actions {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px 20px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex: 1;
 }
 
 .btn {
-  height: 60px;
-  font-size: 20px;
-  text-align: center;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-family: var(--font-body, "Chewy", cursive);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: filter 0.2s, transform 0.1s;
 }
 
-.nav-btn {
-  background-color: #d23508;
-}
+.btn:hover   { filter: brightness(1.1); transform: translateY(-2px); }
+.btn:active  { transform: translateY(0); }
 
-.nav-btn:hover {
-  background-color: darkred;
-}
+.nav-btn      { background-color: #231f20; color: white; flex: 1; }
+.complete-btn { background-color: #27ae60; color: white; flex: 1; }
+.abandon-btn  { background-color: #e74c3c; color: white; flex: 1; }
 
-.complete-btn {
-  background-color: green;
-  color: #fffcfb;
-  border: none;
-}
+.complete-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-.complete-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
 }
+.empty-state i   { margin-bottom: 20px; color: #d23508; opacity: 0.5; }
+.empty-state p   { font-size: 1.2rem; }

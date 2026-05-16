@@ -56,7 +56,9 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 150px;
+  gap: clamp(15px, 3vw, 150px);
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-links a {
@@ -76,7 +78,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   background-color: var(--nav-footer-bg);
-  color: var(--text-white);
+  color: #fff;
   padding: 70px;
   flex-wrap: wrap;
   gap: 30px;
@@ -107,7 +109,7 @@ body {
 }
 
 .footer-links ul li a {
-  color: var(--text-white);
+  color: #fff;
   text-decoration: none;
   transition: color 0.3s;
 }
