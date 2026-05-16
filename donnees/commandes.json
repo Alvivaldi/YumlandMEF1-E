@@ -181,5 +181,36 @@
                 "quantite": 1
             }
         ]
+    },
+    {
+        "id_commande": "CMD177896130738",
+        "id_client": 1775414379,
+        "date_creation": "16\/05\/2026 21:58",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 22,
+        "statut": "A_PREPARER",
+        "produits": [
+            {
+                "id_plat": 2,
+                "nom": "Alloco",
+                "quantite": 1
+            },
+            {
+                "id_plat": 1,
+                "nom": "Biryani",
+                "quantite": 1
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD177896130738",
+        "id_client": 1775414379,
+        "date_creation": "16\/05\/2026 22:00",
+        "timing": "immediat",
+        "date_livraison_prevue": "Imm\u00e9diate",
+        "prix_total": 22,
+        "statut": "A_PREPARER",
+        "produits": []
     }
 ]
