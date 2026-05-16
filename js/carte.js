@@ -1,28 +1,48 @@
 let platsEnMemoire = [];
 
 async function filtrerEtCharger() {
-    const cat = document.getElementById('sel-categorie').value;
-    const reg = document.getElementById('sel-regime').value;
-    const sav = document.getElementById('sel-saveur').value;
-    const alg = document.getElementById('sel-allergene').value;
+    const elCat = document.getElementById('sel-categorie');
+    const elReg = document.getElementById('sel-regime');
+    const elSav = document.getElementById('sel-saveur');
+    const elAlg = document.getElementById('sel-allergene');
+    const elZone = document.getElementById('zone-plats');
+
+    if (!elCat || !elReg || !elSav || !elAlg || !elZone) return;
+
+    const cat = elCat.value;
+    const reg = elReg.value;
+    const sav = elSav.value;
+    const alg = elAlg.value;
 
     try {
-        const url = `recuperer_plats.php?categorie=${cat}&regime=${reg}&saveur=${sav}&allergene=${alg}`;
+        const url = `recup_plats.php?categorie=${cat}&regime=${reg}&saveur=${sav}&allergene=${alg}`;
         const response = await fetch(url);
         
-        if (!response.ok) throw new Error('Erreur de chargement réseau');
+        if (!response.ok) throw new Error(`Erreur réseau: ${response.status}`);
         
         platsEnMemoire = await response.json();
         appliquerTriLocal();
     } catch (error) {
-        console.error("Erreur :", error);
-        document.getElementById('zone-plats').innerHTML = "<p style='color:red; font-weight:bold;'>Erreur lors de la récupération des plats.</p>";
+        console.error("Erreur critique :", error);
+        elZone.innerHTML = "<p style='color:red; font-weight:bold; text-align:center; grid-column:1/-1;'>Erreur lors de la récupération des données.</p>";
     }
 }
 
 function appliquerTriLocal() {
-    const tri = document.getElementById('sel-tri').value;
+    const elTri = document.getElementById('sel-tri');
+    const searchInput = document.getElementById('search-input');
+    if (!elTri) return;
+
+    const tri = elTri.value;
     let copiesPlats = [...platsEnMemoire];
+
+    if (searchInput && searchInput.value.trim() !== "") {
+        const motCle = searchInput.value.toLowerCase();
+        copiesPlats = copiesPlats.filter(plat => 
+            (plat.nom && plat.nom.toLowerCase().includes(motCle)) || 
+            (plat.description && plat.description.toLowerCase().includes(motCle))
+        );
+    }
 
     if (tri === 'prix-croissant') {
         copiesPlats.sort((a, b) => a.prix - b.prix);
@@ -37,30 +57,36 @@ function appliquerTriLocal() {
 
 function genererAffichage(liste) {
     const container = document.getElementById('zone-plats');
+    if (!container) return;
+
     container.innerHTML = '';
 
     if (liste.length === 0) {
-        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center; font-weight:bold;">Aucun produit ne correspond à ces filtres.</p>';
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center; font-weight:bold; color:#14213d; padding:40px;">Aucun produit ne correspond à vos critères.</p>';
         return;
     }
 
     liste.forEach(plat => {
+        const prixFixe = plat.prix ? parseFloat(plat.prix).toFixed(2) : "0.00";
+        const imagePlat = plat.image ? plat.image : "images/logo.png";
+        const descPlat = plat.description ? plat.description : "Aucune description disponible.";
+
+        // Génération HTML en bandes horizontales box1
         container.innerHTML += `
             <div class="box1">
-                <img src="${plat.image}" alt="${plat.nom}" style="width:100%; height:200px; object-fit:cover;">
-                <div class="box-content" style="padding:15px;">
-                    <h3 style="font-family:'Mogra', cursive; color:#14213d;">${plat.nom}</h3>
-                    <p style="font-size:0.9rem; color:#666; margin:10px 0;">${plat.description}</p>
-                    <span style="font-weight:bold; color:#fca311; font-size:1.2rem;">${plat.prix.toFixed(2)} €</span>
-                    <form action="ajout_panier.php" method="POST" style="margin-top: 10px;">
+                <img src="${imagePlat}" alt="${plat.nom}">
+                <div class="box-content">
+                    <h3>${plat.nom}</h3>
+                    <p>${descPlat}</p>
+                    <span>${prixFixe} €</span>
+                    <form action="ajout_panier.php" method="POST">
                         <input type="hidden" name="id_plat" value="${plat.id}">
-                        <input type="number" name="quantite" value="1" min="1" style="width: 50px; padding:3px;">
-                        <button type="submit" style="cursor:pointer; background-color: #fca311; border: none; padding: 5px 10px; border-radius: 5px; color:white; font-weight:bold;">Ajouter</button>
+                        <input type="number" name="quantite" value="1" min="1">
+                        <button type="submit">Ajouter</button>
                     </form>
                 </div>
             </div>`;
     });
 }
 
-// Lancement automatique au chargement
-window.onload = filtrerEtCharger;
+window.addEventListener('DOMContentLoaded', filtrerEtCharger);

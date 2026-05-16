@@ -205,7 +205,7 @@
     "image": "images/tarte.webp",
     "categorie": "dessert",
     "regime": "végétarien",
-    "saveur": "sucréé",
+    "saveur": "sucré",
     "allergene": "aucun"
   },
   {
@@ -215,7 +215,7 @@
     "prix": 3.50,
     "image": "images/rose_milk.jpg",
     "categorie": "boisson",
-    "regime": "vegan",
+    "regime": "végétarien",
     "saveur": "sucré",
     "allergene": "aucun"
   },
@@ -238,7 +238,7 @@
     "prix": 4.50,
     "image": "images/mango.jpg",
     "categorie": "boisson",
-    "regime": "vegan",
+    "regime": "végétarien",
     "saveur": "sucré",
     "allergene": "aucun"
   },
