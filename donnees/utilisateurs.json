@@ -144,9 +144,13 @@
     },
     {
         "id": 999,
+        "login": "test@test.com",
+        "password": "test",
+        "role": "restaurateur",
         "nom": "Restaurateur Test",
-        "email": "test@test.com",
-        "mot_de_passe": "test",
-        "role": "restaurateur"
+        "prenom": "testtttt",
+        "adresse": "cy tech, cergy",
+        "telephone": "0658741354",
+        "date_inscription": "2026-04-05"
       }
 ]
