@@ -84,28 +84,28 @@ if (!is_array($utilisateurs)) {
                     </thead>
                     <tbody>
                         <?php foreach ($utilisateurs as $user): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars(($user['prenom'] ?? '') . " " . ($user['nom'] ?? 'Utilisateur')); ?>
-                                </td>
+                        <tr>
+                            <td><?php echo htmlspecialchars(($user['prenom'] ?? '') . " " . ($user['nom'] ?? 'Utilisateur')); ?>
+                            </td>
 
-                                <td>
-                                    <span class="badge <?php echo htmlspecialchars($user['role'] ?? 'client'); ?>">
-                                        <?php echo ucfirst(htmlspecialchars($user['role'] ?? 'client')); ?>
-                                    </span>
-                                </td>
+                            <td>
+                                <span class="badge <?php echo htmlspecialchars($user['role'] ?? 'client'); ?>">
+                                    <?php echo ucfirst(htmlspecialchars($user['role'] ?? 'client')); ?>
+                                </span>
+                            </td>
 
-                                <td><?php echo htmlspecialchars($user['login'] ?? $user['email'] ?? 'Non renseigné'); ?>
-                                </td>
+                            <td><?php echo htmlspecialchars($user['login'] ?? $user['email'] ?? 'Non renseigné'); ?>
+                            </td>
 
-                                <td>
-                                    <button class="btn-edit">Statut -
-                                        <?php echo htmlspecialchars($user['statut'] ?? 'Membre'); ?></button>
+                            <td>
+                                <button class="btn-edit">Statut -
+                                    <?php echo htmlspecialchars($user['statut'] ?? 'Membre'); ?></button>
 
-                                    <button class="btn-edit" style="background-color: #777;">
-                                        <?php echo ($user['est_bloque'] ?? false) ? 'Débloquer' : 'Bloquer'; ?>
-                                    </button>
-                                </td>
-                            </tr>
+                                <button class="btn-edit" style="background-color: #777;">
+                                    <?php echo ($user['est_bloque'] ?? false) ? 'Débloquer' : 'Bloquer'; ?>
+                                </button>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

@@ -1,20 +1,23 @@
 /* css/notation.css */
+
 .notation-container {
     max-width: 600px;
     margin: 50px auto;
-    background: white;
+    background: var(--menu-box-bg, #ffffff);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .notation-container h1 {
-    color: #d23508;
+    color: var(--accent-orange);
     text-align: center;
+    font-size: var(--footer-title-size, 30px);
 }
 
 .notation-container h3 {
     color: #fca311;
+    font-size: var(--base-font-size, 20px);
 }
 
 .form-group {
@@ -25,16 +28,21 @@
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+    color: #1c1c1c;
+    font-size: var(--base-font-size, 20px);
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-family: sans-serif;
-    box-sizing: border-box; /* Évite que l'input dépasse */
+    font-family: var(--font-body, "Chewy", cursive);
+    font-size: var(--base-font-size, 18px);
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #1c1c1c;
 }
 
 .btn-submit {
@@ -44,13 +52,14 @@
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: var(--base-font-size, 18px);
     font-weight: bold;
     cursor: pointer;
+    font-family: var(--font-body, "Chewy", cursive);
 }
 
 .btn-submit:hover {
-    background-color: #d23508;
+    background-color: var(--accent-orange, #d23508);
 }
 
 .section-notation {
@@ -58,3 +67,52 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+
+/* Texte lisible sur fond clair */
+.notation-container,
+.notation-container p,
+.notation-container label {
+    color: #1c1c1c;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-footer-bg, #231f20);
+    padding: 3px 40px;
+}
+ 
+.logo img {
+    height: var(--logo-nav-height, 100px);
+}
+ 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: clamp(15px, 2vw, 80px);
+    flex-wrap: nowrap;
+    align-items: center;
+}
+ 
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white, #fffcfb);
+    transition: color 0.3s ease;
+    font-size: var(--nav-font-size, 30px);
+}
+ 
+.nav-links a:hover {
+    color: var(--accent-orange, #d23508);
+}
+ 
+h1, h2, h3 {
+    font-family: var(--font-title, "Mogra", cursive);
+}
+ 
+body {
+    font-family: var(--font-body, "Chewy", cursive);
+    background-color: var(--main-bg, #fffcfb);
+    margin: 0;
+}
+ 
