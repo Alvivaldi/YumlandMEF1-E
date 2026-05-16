@@ -25,7 +25,7 @@
     top: 200px;
 }
 
-.search-bar {
+/*.search-bar {
     display: flex;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -57,8 +57,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+}*/
 
+/* Corps du site*/
 
 body {
     font-family: var(--font-body);
@@ -106,69 +107,6 @@ h3 {
 .nav-links a:hover {
     color: var(--accent-orange);
 }
-
-
-
-
-.margFiltre {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.filtre {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.margFiltreTitre {
-    margin-right: 40px;
-    padding-left: 15px;
-}
-
-.filtreTexteIcons {
-    border: 2px solid rgba(23, 23, 23, 0.4);
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    border-radius: 40px;
-    margin-right: 20px;
-    padding-right: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: #0a0a0a;
-}
-
-.filtreIcons {
-    margin-left: -2px;
-    border-radius: 50%;
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-    color: #0065FC;
-    background-color: #deebff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.filtreTexteIcons:hover>.filtreTexte {
-    color: var(--accent-orange);
-}
-
-.filtreTexteIcons:hover>.filtreIcons {
-    color: var(--text-white);
-    background-color: var(--accent-orange);
-}
-
-.filtreTexte {
-    padding-left: 15px;
-    padding-right: 5px;
-    font-weight: bold;
-
-}
-
 
 
 
@@ -438,7 +376,59 @@ html {
     cursor: pointer;
 }
 
+/* filtre */
+/* Style pour les nouveaux menus de filtres déroulants */
+.select-filtre {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 8px;
+    border: 2px solid #fca311;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #14213d;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
 
+.select-filtre:hover {
+    background-color: #fca311;
+    color: #ffffff;
+}
+
+/* Organisation de la zone d'affichage à droite des filtres */
+.affichage-produits {
+    flex: 1;
+    padding: 20px;
+    min-height: 500px;
+}
+
+/* La grille dynamique de produits */
+.grille-plats-dynamique {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* On s'assure que les cartes de tes camarades gardent leur design */
+.grille-plats-dynamique .box1 {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.grille-plats-dynamique .box1:hover {
+    transform: translateY(-5px);
+}
 
 
 
