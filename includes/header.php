@@ -17,10 +17,14 @@
     </div>
     <ul class="nav-links">
         <li><a href="index.php">Accueil</a></li>
+        <?php if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'livreur'): ?>
         <li><a href="carte.php">Menu</a></li>
+        <?php endif; ?>
 
         <?php if (isset($_SESSION['user'])): ?>
+        <?php if ($_SESSION['user']['role'] !== 'livreur'): ?>
         <li><a href="panier.php"><i class="fa-solid fa-basket-shopping"></i> Mon Panier</a></li>
+        <?php endif; ?>
         <li><a href="profil.php">Mon profil</a></li>
 
         <?php if ($_SESSION['user']['role'] === 'admin'): ?>

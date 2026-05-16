@@ -31,7 +31,9 @@ h3 {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 150px;
+  gap: clamp(15px, 2vw, 80px)
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .nav-links a {
