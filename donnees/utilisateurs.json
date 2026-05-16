@@ -141,5 +141,12 @@
         "adresse": "cy tech, cergy",
         "telephone": "0658741354",
         "date_inscription": "2026-04-05"
-    }
+    },
+    {
+        "id": 999,
+        "nom": "Restaurateur Test",
+        "email": "test@test.com",
+        "mot_de_passe": "test",
+        "role": "restaurateur"
+      }
 ]
