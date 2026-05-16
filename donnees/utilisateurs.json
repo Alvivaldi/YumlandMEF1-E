@@ -145,7 +145,7 @@
     {
         "id": 999,
         "login": "test@test.com",
-        "password": "test",
+        "password": "$2y$10$7rK1gS91C4B5P3dF3hX1e.CgHkR/tGq.Wb0M2O1PzQxRyS.K2uTuC",
         "role": "restaurateur",
         "nom": "Restaurateur Test",
         "prenom": "testtttt",
