@@ -37,7 +37,7 @@ h3 {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: clamp(200px, 20vw, 200px);
+  gap: clamp(10px, 20vw, 100px);
   flex-wrap: nowrap;
   align-items: center;
 }
@@ -234,20 +234,3 @@ h2 {
     color: #292929 !important;
 }
 
-/* Tailles de police agrandies en mode accessible */
-.profile-container,
-.profile-container .field,
-.profile-container label,
-.profile-container span,
-.profile-container p {
-    font-size: var(--base-font-size);
-}
-
-.profile-container h2 {
-    font-size: var(--footer-title-size);
-}
-
-.history-table th,
-.history-table td {
-    font-size: var(--base-font-size);
-}

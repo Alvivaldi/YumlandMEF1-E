@@ -55,7 +55,7 @@ body {
 
 /* Navbar en mode accessible : gap réduit pour éviter le débordement */
 .nav-links {
-    gap: clamp(120px, 10vw, 170px) !important;
+    gap: clamp(100px, 10vw, 15px) !important;
     flex-wrap: wrap !important;
     justify-content: flex-end !important;
 }
