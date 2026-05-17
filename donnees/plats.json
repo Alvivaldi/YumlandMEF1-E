@@ -5,9 +5,9 @@
     "description": "Riz savoureux aux épices douces et à la viande.",
     "prix": 15.50,
     "image": "images/biryani.jpeg",
-    "categorie": "specialite",
-    "regime": "halal",
-    "saveur": "épicé",
+    "categorie": "plat, specialite",
+    "regime": "halal, sans gluten",
+    "saveur": "salé, épicé",
     "allergene": "aucun"
   },
   {
@@ -16,8 +16,8 @@
     "description": "Bananes plantains frites, croustillantes à l'extérieur, fondantes à l'intérieur.",
     "prix": 6.50,
     "image": "images/alloco.jpg",
-    "categorie": "specialite",
-    "regime": "vegan",
+    "categorie": "entree, specialite",
+    "regime": "vegan, végétarien, sans gluten",
     "saveur": "salé",
     "allergene": "aucun"
   },
@@ -27,10 +27,10 @@
     "description": "Poulet mariné dans une sauce crémeuse à la tomate et au beurre.",
     "prix": 14.00,
     "image": "images/butter.jpg",
-    "categorie": "specialite",
-    "regime": "halal",
-    "saveur": "salé",
-    "allergene": "aucun"
+    "categorie": "plat, specialite",
+    "regime": "halal, sans gluten",
+    "saveur": "salé, épicé",
+    "allergene": "lactose"
   },
   {
     "id": 4,
@@ -38,8 +38,8 @@
     "description": "Délicieuse crème vanillée recouverte d'une fine couche de caramel croquant.",
     "prix": 7.00,
     "image": "images/creme.jpg",
-    "categorie": "specialite",
-    "regime": "sans gluten",
+    "categorie": "dessert",
+    "regime": "végétarien, sans gluten",
     "saveur": "sucré",
     "allergene": "lactose"
   },
@@ -52,18 +52,7 @@
     "categorie": "entree",
     "regime": "halal",
     "saveur": "salé",
-    "allergene": "aucun"
-  },
-  {
-    "id": 6,
-    "nom": "Alloco",
-    "description": "Portion classique de bananes plantains frites.",
-    "prix": 6.50,
-    "image": "images/alloco.jpg",
-    "categorie": "entree",
-    "regime": "vegan",
-    "saveur": "salé",
-    "allergene": "aucun"
+    "allergene": "gluten"
   },
   {
     "id": 7,
@@ -74,7 +63,7 @@
     "categorie": "entree",
     "regime": "halal",
     "saveur": "salé",
-    "allergene": "aucun"
+    "allergene": "gluten"
   },
   {
     "id": 8,
@@ -83,7 +72,7 @@
     "prix": 5.00,
     "image": "images/salade.avif",
     "categorie": "entree",
-    "regime": "végétarien",
+    "regime": "vegan, végétarien, sans gluten",
     "saveur": "salé",
     "allergene": "aucun"
   },
@@ -93,32 +82,10 @@
     "description": "Beignets africains sucrés et moelleux, parfaits pour commencer.",
     "prix": 4.50,
     "image": "images/beignet.webp",
-    "categorie": "entree",
-    "regime": "vegan",
-    "saveur": "salé",
+    "categorie": "entree, dessert",
+    "regime": "vegan, végétarien",
+    "saveur": "sucré",
     "allergene": "gluten"
-  },
-  {
-    "id": 10,
-    "nom": "Butter chicken",
-    "description": "Notre plat signature : poulet fondant et sauce onctueuse.",
-    "prix": 14.00,
-    "image": "images/butter.jpg",
-    "categorie": "plat",
-    "regime": "halal",
-    "saveur": "salé",
-    "allergene": "aucun"
-  },
-  {
-    "id": 11,
-    "nom": "Biryani",
-    "description": "Plat traditionnel complet, un voyage pour les papilles.",
-    "prix": 15.50,
-    "image": "images/biryani.jpeg",
-    "categorie": "plat",
-    "regime": "halal",
-    "saveur": "épicé",
-    "allergene": "aucun"
   },
   {
     "id": 12,
@@ -127,9 +94,9 @@
     "prix": 12.00,
     "image": "images/nouille.jpg",
     "categorie": "plat",
-    "regime": "halal",
+    "regime": "vegan, végétarien",
     "saveur": "salé",
-    "allergene": "aucun"
+    "allergene": "gluten"
   },
   {
     "id": 13,
@@ -137,9 +104,9 @@
     "description": "Crêpe indienne croustillante farcie de pommes de terre épicées.",
     "prix": 11.50,
     "image": "images/masala.webp",
-    "categorie": "plat",
-    "regime": "halal",
-    "saveur": "salé",
+    "categorie": "plat, specialite",
+    "regime": "vegan, végétarien, sans gluten",
+    "saveur": "salé, épicé",
     "allergene": "aucun"
   },
   {
@@ -149,20 +116,9 @@
     "prix": 13.00,
     "image": "images/gobi.jpg",
     "categorie": "plat",
-    "regime": "halal",
-    "saveur": "salé",
-    "allergene": "aucun"
-  },
-  {
-    "id": 15,
-    "nom": "Crème Brulée",
-    "description": "L'incontournable dessert fondant et croquant.",
-    "prix": 7.00,
-    "image": "images/creme.jpg",
-    "categorie": "dessert",
-    "regime": "sans gluten",
-    "saveur": "sucré",
-    "allergene": "lactose"
+    "regime": "vegan, végétarien",
+    "saveur": "salé, épicé",
+    "allergene": "gluten"
   },
   {
     "id": 16,
@@ -173,7 +129,7 @@
     "categorie": "dessert",
     "regime": "végétarien",
     "saveur": "sucré",
-    "allergene": "aucun"
+    "allergene": "gluten, lactose"
   },
   {
     "id": 17,
@@ -184,7 +140,7 @@
     "categorie": "dessert",
     "regime": "végétarien",
     "saveur": "sucré",
-    "allergene": "aucun"
+    "allergene": "gluten, lactose"
   },
   {
     "id": 18,
@@ -193,9 +149,9 @@
     "prix": 5.50,
     "image": "images/mousse.webp",
     "categorie": "dessert",
-    "regime": "végétarien",
+    "regime": "végétarien, sans gluten",
     "saveur": "sucré",
-    "allergene": "aucun"
+    "allergene": "lactose"
   },
   {
     "id": 19,
@@ -206,7 +162,7 @@
     "categorie": "dessert",
     "regime": "végétarien",
     "saveur": "sucré",
-    "allergene": "aucun"
+    "allergene": "gluten, lactose"
   },
   {
     "id": 20,
@@ -215,9 +171,9 @@
     "prix": 3.50,
     "image": "images/rose_milk.jpg",
     "categorie": "boisson",
-    "regime": "végétarien",
+    "regime": "végétarien, sans gluten",
     "saveur": "sucré",
-    "allergene": "aucun"
+    "allergene": "lactose"
   },
   {
     "id": 21,
@@ -225,11 +181,10 @@
     "description": "Infusion de fleurs d'hibiscus, servie bien fraîche.",
     "prix": 3.00,
     "image": "images/bissap.jpg",
-    "categorie": "boisson",
-    "regime": "vegan",
+    "categorie": "boisson, specialite",
+    "regime": "vegan, végétarien, sans gluten",
     "saveur": "sucré",
     "allergene": "aucun"
-
   },
   {
     "id": 22,
@@ -237,10 +192,10 @@
     "description": "Boisson onctueuse à base de yaourt et de pulpe de mangue.",
     "prix": 4.50,
     "image": "images/mango.jpg",
-    "categorie": "boisson",
-    "regime": "végétarien",
+    "categorie": "boisson, specialite",
+    "regime": "végétarien, sans gluten",
     "saveur": "sucré",
-    "allergene": "aucun"
+    "allergene": "lactose"
   },
   {
     "id": 23,
@@ -249,7 +204,8 @@
     "prix": 2.50,
     "image": "images/soda.jpg",
     "categorie": "boisson",
-    "saveur": "sucré"
+    "regime": "vegan, végétarien, sans gluten",
+    "saveur": "sucré",
+    "allergene": "aucun"
   }
 ]
-

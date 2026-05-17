@@ -20,7 +20,15 @@ async function filtrerEtCharger() {
         
         if (!response.ok) throw new Error(`Erreur réseau: ${response.status}`);
         
-        platsEnMemoire = await response.json();
+        let dataBrute = await response.json();
+        
+        // ASTUCE ANTI-DOUBLONS : On filtre le tableau pour ne garder qu'une seule fois chaque ID de plat
+        platsEnMemoire = dataBrute.filter((plat, index, self) =>
+            index === self.findIndex((p) => (
+                p.id === plat.id
+            ))
+        );
+
         appliquerTriLocal();
     } catch (error) {
         console.error("Erreur critique :", error);
@@ -59,34 +67,84 @@ function genererAffichage(liste) {
     const container = document.getElementById('zone-plats');
     if (!container) return;
 
+    // On vide la zone d'affichage
     container.innerHTML = '';
 
     if (liste.length === 0) {
-        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center; font-weight:bold; color:#14213d; padding:40px;">Aucun produit ne correspond à vos critères.</p>';
+        container.innerHTML = '<p style="text-align:center; font-weight:bold; color:#14213d; padding:40px; width:100%;">Aucun produit ne correspond à vos critères.</p>';
         return;
     }
 
-    liste.forEach(plat => {
-        const prixFixe = plat.prix ? parseFloat(plat.prix).toFixed(2) : "0.00";
-        const imagePlat = plat.image ? plat.image : "images/logo.png";
-        const descPlat = plat.description ? plat.description : "Aucune description disponible.";
+    // 1. Définir l'ordre d'affichage des catégories et leurs titres propres
+    const ordresCategories = {
+        'specialite': 'Nos Spécialités',
+        'entree': 'Nos Entrées',
+        'plat': 'Nos Plats',
+        'dessert': 'Nos Desserts',
+        'formule': 'Nos Formules',
+        'boisson': 'Nos Boissons'
+    };
 
-        // Génération HTML en bandes horizontales box1
-        container.innerHTML += `
-            <div class="box1">
-                <img src="${imagePlat}" alt="${plat.nom}">
-                <div class="box-content">
-                    <h3>${plat.nom}</h3>
-                    <p>${descPlat}</p>
-                    <span>${prixFixe} €</span>
-                    <form action="ajout_panier.php" method="POST">
-                        <input type="hidden" name="id_plat" value="${plat.id}">
-                        <input type="number" name="quantite" value="1" min="1">
-                        <button type="submit">Ajouter</button>
-                    </form>
-                </div>
-            </div>`;
+    // 2. Regrouper les plats de la liste par catégories courantes
+    const groupePlats = {
+        'specialite': [],
+        'entree': [],
+        'plat': [],
+        'dessert': [],
+        'formule': [],
+        'boisson': []
+    };
+
+    liste.forEach(plat => {
+        if (plat.categorie) {
+            const categoriesDuPlat = plat.categorie.toLowerCase();
+            Object.keys(groupePlats).forEach(catKey => {
+                if (categoriesDuPlat.includes(catKey)) {
+                    groupePlats[catKey].push(plat);
+                }
+            });
+        }
+    });
+
+    // 3. Parcourir les catégories dans le bon ordre pour fabriquer le HTML
+    Object.keys(ordresCategories).forEach(catKey => {
+        const listePlatsDeLaCat = groupePlats[catKey];
+
+        if (listePlatsDeLaCat && listePlatsDeLaCat.length > 0) {
+            
+            const titreSection = document.createElement('h2');
+            titreSection.className = 'titre-categorie-carte';
+            titreSection.innerText = ordresCategories[catKey];
+            container.appendChild(titreSection);
+
+            const grilleFlex = document.createElement('div');
+            grilleFlex.className = 'grille-categorie-flex';
+
+            listePlatsDeLaCat.forEach(plat => {
+                const prixFixe = plat.prix ? parseFloat(plat.prix).toFixed(2) : "0.00";
+                const imagePlat = plat.image ? plat.image : "images/logo.png";
+                const descPlat = plat.description ? plat.description : "Aucune description disponible.";
+
+                grilleFlex.innerHTML += `
+                    <div class="box1">
+                        <img src="${imagePlat}" alt="${plat.nom}">
+                        <div class="box-content">
+                            <h3>${plat.nom}</h3>
+                            <p>${descPlat}</p>
+                            <span>${prixFixe} €</span>
+                            <form action="ajout_panier.php" method="POST">
+                                <input type="hidden" name="id_plat" value="${plat.id}">
+                                <input type="number" name="quantite" value="1" min="1">
+                                <button type="submit">Ajouter</button>
+                            </form>
+                        </div>
+                    </div>`;
+            });
+
+            container.appendChild(grilleFlex);
+        }
     });
 }
 
-window.addEventListener('DOMContentLoaded', filtrerEtCharger);
+// Lancement automatique au chargement
+filtrerEtCharger();

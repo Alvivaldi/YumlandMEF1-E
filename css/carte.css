@@ -1,7 +1,7 @@
 /* ==========================================================================
    RESET & INTEGRATION DU THEME DE BASE
    ========================================================================== */
-   * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -105,210 +105,135 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   ZONE DES PLATS EN BANDES HORIZONTALES (AFFICHAGE DE BASE RECRÉÉ)
+   CONTENEUR PRINCIPAL DES PLATS
    ========================================================================== */
-   .affichage-produits {
+.affichage-produits {
     width: 100%;
     overflow: hidden;
     padding: 30px 20px 60px;
 }
 
-
-.grille-plats-dynamique {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 25px;
-
+#zone-plats {
+    display: block;
     width: 100%;
-
-    max-width: 1400px;
-
-    margin: auto;
-
-    padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* LA BOX HORIZONTALE UNIQUE IDENTIQUE À VOTRE DESIGN INITIAL */
-.grille-plats-dynamique .box1 {
+/* --- Titres des catégories de plats --- */
+.titre-categorie-carte {
+    font-family: 'Mogra', cursive;
+    color: #d23508;
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #fca311;
+    padding-bottom: 10px;
+    width: 100%;
+}
 
-    height: 100%;
+/* --- La Grille Magique (identique, alignée et responsive toute seule) --- */
+.grille-categorie-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 40px;
+}
 
-    background: linear-gradient(
-        180deg,
-        #e45b16 100%
-    );
-
-    border-radius: 18px;
-
+/* --- Chaque case (plat) --- */
+.grille-categorie-flex .box1 {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 12px;
     overflow: hidden;
-
-    border: 2px solid transparent;
-
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-
-    display: grid;
-    flex-direction: column;
-
-    transition: all 0.25s ease;
-
-    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    height: 100%;
 }
 
-.grille-plats-dynamique .box1:hover {
-
-    transform: translateY(-8px);
-
-    border-color: #e24a0a;
-
-    box-shadow:
-        0 12px 24px rgba(226, 74, 10, 0.18);
-
-    background: linear-gradient(
-        180deg,
-        #fddfca 100%
-    );
-}
-
-/* Image d'origine à gauche */
-.grille-plats-dynamique .box1 img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-}
-
-/* Bloc d'informations à droite de l'image */
-.grille-plats-dynamique .box-content {
-
-    padding: 16px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.grille-plats-dynamique .box-content h3 {
-    color: #2f1b08;
-    font-size: 1.1rem;
-}
-
-.grille-plats-dynamique .box-content p {
-    font-size: 0.85rem;
-    color: #2f1b08;
-    line-height: 1.5;
-    margin-top: 5px;
-}
-
-.grille-plats-dynamique .box-content span {
-    font-size: 1.1rem;
-}
-
-/* Formulaire d'ajout au panier d'origine */
-.grille-plats-dynamique .box-content form {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 10px;
-}
-
-.grille-plats-dynamique .box-content input[type="number"] {
-    width: 50px;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.grille-plats-dynamique .box-content button[type="submit"] {
-    cursor: pointer;
-    background-color: var(--accent-orange, #fca311);
-    border: none;
-    padding: 8px 20px;
-    border-radius: 4px;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    transition: background 0.2s;
-}
-
-.grille-plats-dynamique .box-content button[type="submit"]:hover {
-    background-color: #14213d;
-}
-
-.grille-plats-dynamique::-webkit-scrollbar {
-    height: 8px;
-}
-
-.grille-plats-dynamique::-webkit-scrollbar-thumb {
-    background: var(--accent-orange, #fca311);
-    border-radius: 20px;
-}
-
-.grille-plats-dynamique .box1:hover {
+.grille-categorie-flex .box1:hover {
     transform: translateY(-5px);
 }
 
-/* message quand il n'y rien */
-.message-vide {
+/* --- Les images toutes à la même taille --- */
+.grille-categorie-flex .box1 img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
 
-    grid-column: 1 / -1;
+/* --- Le contenu de la case --- */
+.grille-categorie-flex .box-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
-    text-align: center;
-
-    padding: 40px;
-
-    background: white;
-
-    border-radius: 15px;
-
+.grille-categorie-flex .box-content h3 {
+    margin-top: 0;
     font-size: 1.2rem;
+    color: #d23508;
+}
 
-    color: #d9480f;
+.grille-categorie-flex .box-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+}
 
+.grille-categorie-flex .box-content span {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #14213d;
+    margin-bottom: 15px;
+}
+
+/* --- Le formulaire (bouton) toujours collé en bas --- */
+.grille-categorie-flex .box-content form {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.grille-categorie-flex .box-content form input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.grille-categorie-flex .box-content form button {
+    flex-grow: 1;
+    background-color: #fca311;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
     font-weight: bold;
 }
 
-.box1.secondaire {
-
-    opacity: 0.45;
-
-    transform: scale(0.96);
-
-    filter: grayscale(20%);
-
-    transition: 0.3s ease;
+.grille-categorie-flex .box-content form button:hover {
+    background-color: #d23508;
 }
-
-.box1.mis-en-avant {
-
-    border: 3px solid #e45b16;
-
-    transform: scale(1.02);
-
-    box-shadow:
-        0 10px 25px rgba(228,91,22,0.25);
-
-    transition: 0.3s ease;
-}
-
 
 /* ==========================================================================
    NAVIGATION & FOOTER CONSERVÉS
    ========================================================================== */
-.navbar { display: flex; 
+.navbar { 
+    display: flex; 
     justify-content: space-between; 
     align-items: center; 
     background-color: var(--nav-footer-bg); 
-    padding: 3px 40px; }
+    padding: 3px 40px; 
+}
 .logo img { 
     height: var(--logo-nav-height);
- }
+}
 .nav-links { 
     list-style: none; 
     display: flex; 
@@ -327,8 +252,7 @@ h1, h2, h3 {
     display: flex; 
     justify-content: space-between; 
     align-items: flex-start; 
-    background-color: 
-    var(--nav-footer-bg); 
+    background-color: var(--nav-footer-bg); 
     color: var(--text-white); 
     padding: 70px; 
     flex-wrap: wrap; 
@@ -338,13 +262,31 @@ h1, h2, h3 {
     background-position: left 50px bottom 80px; 
     background-size: 600px; 
 }
-.footer-logo img {height: var(--logo-footer-height); }
+.footer-logo img {
+    height: var(--logo-footer-height); 
+}
 .footer-links h3, .footer-contact h3 { 
     margin-bottom: 50px; 
     font-size: var(--footer-title-size); 
 }
-.footer-links ul { list-style: none; padding: 0; font-size: var(--footer-text-size); }
-.footer-links ul li { margin-bottom: 40px; }
-.footer-links ul li a { color: var(--text-white); text-decoration: none; transition: color 0.3s; }
-.footer-links ul li a:hover { color: var(--accent-orange); }
-.footer-contact p { margin: 5px 0; margin-bottom: 40px; font-size: var(--footer-text-size); }
+.footer-links ul { 
+    list-style: none; 
+    padding: 0; 
+    font-size: var(--footer-text-size); 
+}
+.footer-links ul li { 
+    margin-bottom: 40px; 
+}
+.footer-links ul li a { 
+    color: var(--text-white); 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+.footer-links ul li a:hover { 
+    color: var(--accent-orange); 
+}
+.footer-contact p { 
+    margin: 5px 0; 
+    margin-bottom: 40px; 
+    font-size: var(--footer-text-size); 
+}
