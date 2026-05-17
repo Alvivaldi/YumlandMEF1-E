@@ -5,28 +5,35 @@
 session_start();
 require_once 'includes/fonctions.php';
 
+// Validation du cookie : seules deux valeurs sont autorisées
+$valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
+$cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
+$theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
 
-if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] !== 'restaurateur' && $_SESSION['user']['role'] !== 'admin')) {
-    header("Location: formulaire.php");
-    exit();
+
+
+if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] !== 'restaurateur' && $_SESSION['user']['role'] !==
+'admin')) {
+header("Location: formulaire.php");
+exit();
 }
 
 $commandes_donnees = lireJSON('donnees/commandes.json');
 if (!is_array($commandes_donnees)) {
-    $commandes_donnees = [];
+$commandes_donnees = [];
 }
 
 $utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
 if (!is_array($utilisateurs_donnees)) {
-    $utilisateurs_donnees = [];
+$utilisateurs_donnees = [];
 }
 
 
 $users_lookup = [];
 foreach ($utilisateurs_donnees as $u) {
-    if (isset($u['id'])) {
-        $users_lookup[$u['id']] = $u;
-    }
+if (isset($u['id'])) {
+$users_lookup[$u['id']] = $u;
+}
 }
 ?>
 
@@ -36,7 +43,8 @@ foreach ($utilisateurs_donnees as $u) {
 <head>
     <meta charset="UTF-8">
     <title>Gestion des Commandes - Restaurateur</title>
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
+
     <link rel="stylesheet" href="css/commandes.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap" rel="stylesheet" />
@@ -72,97 +80,84 @@ foreach ($utilisateurs_donnees as $u) {
                             $adresse = htmlspecialchars($client_trouve['adresse'] ?? 'Sur place');
                         }
                 ?>
-                        <div class="box-commande" id="commande-<?php echo $cmd['id_commande']; ?>">
-                            <div class="commande-form">
-                                <input type="hidden" name="id_commande_hidden"
-                                    value="<?php echo htmlspecialchars($cmd['id_commande']); ?>">
+                <div class="box-commande" id="commande-<?php echo $cmd['id_commande']; ?>">
+                    <div class="commande-form">
+                        <input type="hidden" name="id_commande_hidden"
+                            value="<?php echo htmlspecialchars($cmd['id_commande']); ?>">
 
-                                    <div class="commande-header">
+                        <div class="commande-header">
 
-                                        <span class="num-commande">
-                                            #<?php echo htmlspecialchars($cmd['id_commande']); ?>
-                                        </span>
+                            <span class="num-commande">
+                                #<?php echo htmlspecialchars($cmd['id_commande']); ?>
+                            </span>
 
-                                        <p
-                                            class="badge-statut"
-                                            id="badge-<?php echo $cmd['id_commande']; ?>"
-                                        >
-                                            <?php echo htmlspecialchars($statut); ?>
-                                        </p>
+                            <p class="badge-statut" id="badge-<?php echo $cmd['id_commande']; ?>">
+                                <?php echo htmlspecialchars($statut); ?>
+                            </p>
 
-                                    </div>
-
-                                <div class="commande-details">
-                                    <ul>
-                                        <?php foreach (($cmd['produits'] ?? []) as $article): ?>
-                                            <li><?php echo htmlspecialchars($article['quantite'] ?? 1); ?>x
-                                                <?php echo htmlspecialchars($article['nom'] ?? 'Produit'); ?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-
-                                <div class="commande-infos-sup">
-                                    <p><strong>Client :</strong> <?php echo $nom_client; ?></p>
-                                    <p><strong>Adresse :</strong> <?php echo $adresse; ?></p>
-                                </div>
-
-                                <div class="gestion-statut">
-                                    <label>Changer statut :</label>
-                                    <select
-                                        name="nouveau_statut"
-                                        class="select-admin"
-                                        id="statut-<?php echo $cmd['id_commande']; ?>"
-                                    >
-                                    <?php if ($statut == 'PAYEE'): ?>
-
-                                        <option value="EN_PREPARATION">
-                                            Passer en préparation
-                                        </option>
-
-                                    <?php elseif ($statut == 'EN_PREPARATION'): ?>
-
-                                        <option value="PRETE">
-                                            Marquer comme prête
-                                        </option>
-
-                                    <?php elseif ($statut == 'PRETE'): ?>
-
-                                         <option value="EN_LIVRAISON">
-                                            Envoyer en livraison
-                                        </option>
-
-                                    <?php endif; ?>
-
-                                    </select>
-                                </div>
-
-                                <div class="gestion-livreur">
-                                    <label>Attribuer Livreur :</label>
-                                    <select
-                                    name="id_livreur"
-                                    class="select-admin"
-                                    id="livreur-<?php echo $cmd['id_commande']; ?>"
-                                    >
-                                        <option value="">-- Choisir un livreur --</option>
-                                        <?php foreach ($utilisateurs_donnees as $u): ?>
-                                            <?php if (strtolower($u['role'] ?? '') === 'livreur'): ?>
-                                                <option value="<?php echo htmlspecialchars($u['id']); ?>">
-                                                    <?php echo htmlspecialchars(($u['prenom'] ?? '') . " " . ($u['nom'] ?? '')); ?>
-                                                </option>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-
-                                <button
-                                    type="button"
-                                    class="btn-update-commande"
-                                    data-id="<?php echo $cmd['id_commande']; ?>"
-                                >
-                                    Valider
-                                </button>
-                            </div>
                         </div>
+
+                        <div class="commande-details">
+                            <ul>
+                                <?php foreach (($cmd['produits'] ?? []) as $article): ?>
+                                <li><?php echo htmlspecialchars($article['quantite'] ?? 1); ?>x
+                                    <?php echo htmlspecialchars($article['nom'] ?? 'Produit'); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
+                        <div class="commande-infos-sup">
+                            <p><strong>Client :</strong> <?php echo $nom_client; ?></p>
+                            <p><strong>Adresse :</strong> <?php echo $adresse; ?></p>
+                        </div>
+
+                        <div class="gestion-statut">
+                            <label>Changer statut :</label>
+                            <select name="nouveau_statut" class="select-admin"
+                                id="statut-<?php echo $cmd['id_commande']; ?>">
+                                <?php if ($statut == 'PAYEE'): ?>
+
+                                <option value="EN_PREPARATION">
+                                    Passer en préparation
+                                </option>
+
+                                <?php elseif ($statut == 'EN_PREPARATION'): ?>
+
+                                <option value="PRETE">
+                                    Marquer comme prête
+                                </option>
+
+                                <?php elseif ($statut == 'PRETE'): ?>
+
+                                <option value="EN_LIVRAISON">
+                                    Envoyer en livraison
+                                </option>
+
+                                <?php endif; ?>
+
+                            </select>
+                        </div>
+
+                        <div class="gestion-livreur">
+                            <label>Attribuer Livreur :</label>
+                            <select name="id_livreur" class="select-admin"
+                                id="livreur-<?php echo $cmd['id_commande']; ?>">
+                                <option value="">-- Choisir un livreur --</option>
+                                <?php foreach ($utilisateurs_donnees as $u): ?>
+                                <?php if (strtolower($u['role'] ?? '') === 'livreur'): ?>
+                                <option value="<?php echo htmlspecialchars($u['id']); ?>">
+                                    <?php echo htmlspecialchars(($u['prenom'] ?? '') . " " . ($u['nom'] ?? '')); ?>
+                                </option>
+                                <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn-update-commande" data-id="<?php echo $cmd['id_commande']; ?>">
+                            Valider
+                        </button>
+                    </div>
+                </div>
                 <?php endif;
                 endforeach; ?>
             </section>
@@ -172,89 +167,86 @@ foreach ($utilisateurs_donnees as $u) {
                 <?php foreach ($commandes_donnees as $cmd):
                     if (($cmd['statut'] ?? '') === 'EN_LIVRAISON'):
                 ?>
-                        <div class="box-commande delivery-mode">
-                            <div class="commande-header">
-                                <span class="num-commande">#<?php echo htmlspecialchars($cmd['id_commande']); ?></span>
-                            </div>
-                            <p><strong>Livreur :</strong> ID
-                                #<?php echo htmlspecialchars($cmd['id_livreur'] ?? 'Non assigné'); ?></p>
-                            <button class="btn-secondary" disabled>Course en cours...</button>
-                        </div>
+                <div class="box-commande delivery-mode">
+                    <div class="commande-header">
+                        <span class="num-commande">#<?php echo htmlspecialchars($cmd['id_commande']); ?></span>
+                    </div>
+                    <p><strong>Livreur :</strong> ID
+                        #<?php echo htmlspecialchars($cmd['id_livreur'] ?? 'Non assigné'); ?></p>
+                    <button class="btn-secondary" disabled>Course en cours...</button>
+                </div>
                 <?php endif;
                 endforeach; ?>
             </section>
         </div>
     </main>
     <script>
+    document.querySelectorAll('.btn-update-commande').forEach(button => {
 
-document.querySelectorAll('.btn-update-commande').forEach(button => {
+        button.addEventListener('click', function() {
 
-    button.addEventListener('click', function() {
+            const idCommande = this.dataset.id;
 
-        const idCommande = this.dataset.id;
+            const statut =
+                document.getElementById(`statut-${idCommande}`).value;
 
-        const statut =
-            document.getElementById(`statut-${idCommande}`).value;
+            const livreur =
+                document.getElementById(`livreur-${idCommande}`).value;
 
-        const livreur =
-            document.getElementById(`livreur-${idCommande}`).value;
+            if (statut === 'EN_LIVRAISON' && livreur === '') {
 
-        if (statut === 'EN_LIVRAISON' && livreur === '') {
+                alert("Choisissez un livreur.");
 
-            alert("Choisissez un livreur.");
-
-            return;
-        }
-
-        const params = new URLSearchParams();
-
-        params.append('id_commande', idCommande);
-        params.append('nouveau_statut', statut);
-        params.append('id_livreur', livreur);
-
-        fetch('update_commande.php', {
-
-            method: 'POST',
-
-            headers: {
-                'Content-Type':
-                'application/x-www-form-urlencoded'
-            },
-
-            body: params
-
-        })
-
-        .then(response => response.json())
-
-        .then(data => {
-
-            if (data.success) {
-
-                const badge =
-                    document.getElementById(`badge-${idCommande}`);
-
-                badge.textContent = data.nouveau_statut;
-
-                badge.classList.add('updated');
-
-                setTimeout(() => {
-                    badge.classList.remove('updated');
-                }, 600);
-
-            } else {
-
-                alert("Erreur.");
-
+                return;
             }
+
+            const params = new URLSearchParams();
+
+            params.append('id_commande', idCommande);
+            params.append('nouveau_statut', statut);
+            params.append('id_livreur', livreur);
+
+            fetch('update_commande.php', {
+
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+
+                    body: params
+
+                })
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    if (data.success) {
+
+                        const badge =
+                            document.getElementById(`badge-${idCommande}`);
+
+                        badge.textContent = data.nouveau_statut;
+
+                        badge.classList.add('updated');
+
+                        setTimeout(() => {
+                            badge.classList.remove('updated');
+                        }, 600);
+
+                    } else {
+
+                        alert("Erreur.");
+
+                    }
+
+                });
 
         });
 
     });
-
-});
-
-</script>
+    </script>
 </body>
 
 </html>
