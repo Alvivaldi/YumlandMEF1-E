@@ -7,15 +7,15 @@
 h1,
 h2,
 h3 {
-  font-family: "Mogra", cursive;
+  font-family: var(--font-title, "Mogra", cursive);
 }
 
 
 
+
 .btn-edit {
-    font-family: 'Chewy', cursive;  
-    font-size: 16px;               
-    
+    font-family: var(--font-body, "Chewy", "Montserrat", sans-serif);
+    font-size: 16px;
 }
 
 .admin-wrapper {
@@ -25,9 +25,14 @@ h3 {
 
 .admin-sidebar {
     flex: 0 0 250px;
-    background-color: white;
+    background-color: var(--nav-footer-bg, #231f20);
     padding: 20px;
     border-right: 2px solid #deebff;
+    
+}
+
+.filtreTexte{
+    color: var(--text-white, #fffcfb);
 }
 
 .admin-main {
@@ -46,7 +51,7 @@ h3 {
 .admin-table {
     width: 100%;
     border-collapse: collapse;
-    font-family:"Chewy", "Montserrat", sans-serif;
+    font-family: var(--font-body, "Chewy", "Montserrat", sans-serif);
 }
 
 .admin-table th {
@@ -54,6 +59,10 @@ h3 {
     padding: 15px;
     border-bottom: 2px solid #d23508;
     color: #d23508;
+}
+
+.big-title{
+    color: var(--text-white, #fffcfb);
 }
 
 .admin-table td {
@@ -94,3 +103,45 @@ h3 {
     background-color: #7a2308;
     transform: scale(1.05);
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-footer-bg, #231f20);
+    padding: 3px 40px;
+}
+ 
+.logo img {
+    height: var(--logo-nav-height, 100px);
+}
+ 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: clamp(200px, 20vw, 200px) !important;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+ 
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white, #fffcfb);
+    transition: color 0.3s ease;
+    font-size: var(--nav-font-size, 30px);
+}
+ 
+.nav-links a:hover {
+    color: var(--accent-orange, #d23508);
+}
+ 
+h1, h2, h3 {
+    font-family: var(--font-title, "Mogra", cursive);
+}
+ 
+body {
+    font-family: var(--font-body, "Chewy", cursive);
+    background-color: var(--main-bg, #fffcfb);
+    margin: 0;
+}
+ 
