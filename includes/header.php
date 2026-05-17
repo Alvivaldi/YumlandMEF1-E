@@ -1,27 +1,27 @@
 <?php
 
 // Vérification instantanée du blocage de l'utilisateur connecté
-session_start();
+//session_start();
 
-$utilisateurs = lireJSON('donnees/utilisateurs.json');
+//$utilisateurs = lireJSON('donnees/utilisateurs.json');
 
-foreach ($utilisateurs as $u) {
+//foreach ($utilisateurs as $u) {
 
-    if (
-        isset($_SESSION['user']) &&
-        $u['id'] == $_SESSION['user']['id']
-    ) {
+//    if (
+//        isset($_SESSION['user']) &&
+//        $u['id'] == $_SESSION['user']['id']
+//    ) {
 
-        if (($u['statut'] ?? 'actif') === 'bloqué') {
+//        if (($u['statut'] ?? 'actif') === 'bloqué') {
 
-            session_unset();
-            session_destroy();
+//            session_unset();
+//            session_destroy();
 
-            header("Location: formulaire.php?erreur=compte_bloque");
-            exit();
-        }
-    }
-}
+//            header("Location: formulaire.php?erreur=compte_bloque");
+//            exit();
+//        }
+//    }
+//}
 /**
  * header.php
  * NE PAS redéclarer le <link id="dynamic-theme"> ici.
@@ -29,7 +29,7 @@ foreach ($utilisateurs as $u) {
  * avec le bon thème lu depuis le cookie PHP.
  * Ce fichier ne gère que la navbar + l'inclusion du JS.
  */
-?>
+//?>
 
 <nav class="navbar">
     <div class="logo">
