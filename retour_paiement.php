@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+// Validation du cookie thème
+$valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
+$cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
+$theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
+
+
 include 'includes/fonctions.php';
 include 'includes/getapikey.php';
 
@@ -79,12 +86,14 @@ $classe_statut = ($statut_paiement === 'accepted') ? 'status-success' : 'status-
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title><?= $titre ?></title>
     <link rel="stylesheet" href="css/carte.css" />
     <link rel="stylesheet" href="css/retour_paiement.css" />
-    
+    <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,7 +103,7 @@ $classe_statut = ($statut_paiement === 'accepted') ? 'status-success' : 'status-
 
 <body>
     <?php include 'includes/header.php'; ?>
-    
+
     <div class="payment-container">
         <h1 class="payment-title <?= $classe_statut ?>"><?= $titre ?></h1>
         <p class="payment-message"><?= $message ?></p>
@@ -103,4 +112,5 @@ $classe_statut = ($statut_paiement === 'accepted') ? 'status-success' : 'status-
 
     <?php include 'includes/footer.php'; ?>
 </body>
+
 </html>

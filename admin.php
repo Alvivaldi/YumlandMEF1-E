@@ -5,7 +5,7 @@
 session_start();
 include 'includes/fonctions.php';
 
-1. SÉCURITÉ : Vérifier si l'utilisateur est connecté ET s'il est admin
+//1. SÉCURITÉ : Vérifier si l'utilisateur est connecté ET s'il est admin
 if (!isset($_SESSION['user'])) {
         // S'il n'est pas connecté, on l'envoie vers la connexion
             header("Location: formulaire.php");
@@ -18,7 +18,7 @@ $role_user = strtolower($_SESSION['user']['role'] ?? '');
 if ($role_user !== 'admin') {
     // Si c'est un client ou un livreur qui essaie de tricher en tapant admin.php dans l'URL
    header("Location: index.php");
-    exit();
+   exit();
 }
 
 // 2. Chargement des données pour l'affichage de la page

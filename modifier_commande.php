@@ -2,6 +2,12 @@
 session_start();
 include 'includes/fonctions.php';
 
+// Validation du cookie thème
+$valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
+$cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
+$theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
+
+
 // Sécurité : Être connecté
 if (!isset($_SESSION['user'])) {
     header('Location: formulaire.php');
@@ -92,44 +98,49 @@ foreach ($ma_commande['produits'] as $prod) {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Modifier ma commande</title>
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
     <link rel="stylesheet" href="css/modifier_commande.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Mogra&display=swap" rel="stylesheet" />
 
 </head>
+
 <body>
     <?php include 'includes/header.php'; ?>
 
-    <h1 style="text-align: center; color: #d23508; margin-top: 20px;">Modifier la commande #<?= htmlspecialchars($id_commande) ?></h1>
+    <h1 style="text-align: center; color: #d23508; margin-top: 20px;">Modifier la commande
+        #<?= htmlspecialchars($id_commande) ?></h1>
 
     <div class="modif-container">
         <div class="catalogue">
             <h2>Carte des plats</h2>
             <?php foreach ($plats as $plat): ?>
-                <div class="plat-item">
-                    <div>
-                        <strong><?= htmlspecialchars($plat['nom']) ?></strong><br>
-                        <span style="color: #666;"><?= number_format($plat['prix'], 2) ?> €</span>
-                    </div>
-                    <button class="btn-add" onclick="ajouterAuPanierJS(<?= $plat['id'] ?>, '<?= addslashes($plat['nom']) ?>', <?= $plat['prix'] ?>)">
-                        <i class="fa-solid fa-plus"></i> Ajouter
-                    </button>
+            <div class="plat-item">
+                <div>
+                    <strong><?= htmlspecialchars($plat['nom']) ?></strong><br>
+                    <span style="color: #666;"><?= number_format($plat['prix'], 2) ?> €</span>
                 </div>
+                <button class="btn-add"
+                    onclick="ajouterAuPanierJS(<?= $plat['id'] ?>, '<?= addslashes($plat['nom']) ?>', <?= $plat['prix'] ?>)">
+                    <i class="fa-solid fa-plus"></i> Ajouter
+                </button>
+            </div>
             <?php endforeach; ?>
         </div>
 
         <div class="panier-live">
             <h2>Ma Commande</h2>
             <div id="cart-content">
-                </div>
+            </div>
 
             <div class="totals">
-                <p>Ancien Total : <span id="ancien-total"><?= number_format($ma_commande['prix_total'], 2) ?></span> €</p>
+                <p>Ancien Total : <span id="ancien-total"><?= number_format($ma_commande['prix_total'], 2) ?></span> €
+                </p>
                 <p>Nouveau Total : <span id="nouveau-total">0.00</span> €</p>
                 <p>Différence : <span id="diff-total">0.00 €</span></p>
             </div>
@@ -144,19 +155,19 @@ foreach ($ma_commande['produits'] as $prod) {
     <?php include 'includes/footer.php'; ?>
 
     <script>
-        // On récupère le panier actuel depuis PHP !
-        let monPanier = <?= json_encode($panier_actuel) ?>;
-        let ancienTotal = <?= $ma_commande['prix_total'] ?>;
+    // On récupère le panier actuel depuis PHP !
+    let monPanier = <?= json_encode($panier_actuel) ?>;
+    let ancienTotal = <?= $ma_commande['prix_total'] ?>;
 
-        function afficherPanier() {
-            let html = "";
-            let nouveauTotal = 0;
+    function afficherPanier() {
+        let html = "";
+        let nouveauTotal = 0;
 
-            // On parcourt l'objet JavaScript
-            for (const [id, plat] of Object.entries(monPanier)) {
-                if (plat.quantite > 0) {
-                    nouveauTotal += plat.prix * plat.quantite;
-                    html += `
+        // On parcourt l'objet JavaScript
+        for (const [id, plat] of Object.entries(monPanier)) {
+            if (plat.quantite > 0) {
+                nouveauTotal += plat.prix * plat.quantite;
+                html += `
                         <div class="cart-item">
                             <span>${plat.nom} (x${plat.quantite})</span>
                             <div class="qte-controls">
@@ -165,62 +176,67 @@ foreach ($ma_commande['produits'] as $prod) {
                             </div>
                         </div>
                     `;
-                }
             }
-
-            if(html === "") {
-                html = "<p style='color:red;'>La commande ne peut pas être vide.</p>";
-                document.querySelector('.btn-valider').disabled = true;
-            } else {
-                document.querySelector('.btn-valider').disabled = false;
-            }
-
-            document.getElementById('cart-content').innerHTML = html;
-            document.getElementById('nouveau-total').innerText = nouveauTotal.toFixed(2);
-
-            // Calcul de la différence
-            let diff = nouveauTotal - ancienTotal;
-            let diffEl = document.getElementById('diff-total');
-            
-            if (diff > 0) {
-                diffEl.innerHTML = `<span class="diff-plus">+ ${diff.toFixed(2)} € (À payer)</span>`;
-            } else if (diff < 0) {
-                diffEl.innerHTML = `<span class="diff-moins">${diff.toFixed(2)} € (Ticket Réduc)</span>`;
-            } else {
-                diffEl.innerHTML = `<span>0.00 €</span>`;
-            }
-
-            // On met à jour l'input caché avec le nouveau panier formaté en JSON pour l'envoyer au PHP
-            let panierPourServeur = {};
-            for (const [id, plat] of Object.entries(monPanier)) {
-                if (plat.quantite > 0) {
-                    panierPourServeur[id] = plat.quantite;
-                }
-            }
-            document.getElementById('nouveau_panier_input').value = JSON.stringify(panierPourServeur);
         }
 
-        function ajouterAuPanierJS(id, nom, prix) {
-            if (monPanier[id]) {
-                monPanier[id].quantite += 1;
-            } else {
-                monPanier[id] = { nom: nom, prix: prix, quantite: 1 };
+        if (html === "") {
+            html = "<p style='color:red;'>La commande ne peut pas être vide.</p>";
+            document.querySelector('.btn-valider').disabled = true;
+        } else {
+            document.querySelector('.btn-valider').disabled = false;
+        }
+
+        document.getElementById('cart-content').innerHTML = html;
+        document.getElementById('nouveau-total').innerText = nouveauTotal.toFixed(2);
+
+        // Calcul de la différence
+        let diff = nouveauTotal - ancienTotal;
+        let diffEl = document.getElementById('diff-total');
+
+        if (diff > 0) {
+            diffEl.innerHTML = `<span class="diff-plus">+ ${diff.toFixed(2)} € (À payer)</span>`;
+        } else if (diff < 0) {
+            diffEl.innerHTML = `<span class="diff-moins">${diff.toFixed(2)} € (Ticket Réduc)</span>`;
+        } else {
+            diffEl.innerHTML = `<span>0.00 €</span>`;
+        }
+
+        // On met à jour l'input caché avec le nouveau panier formaté en JSON pour l'envoyer au PHP
+        let panierPourServeur = {};
+        for (const [id, plat] of Object.entries(monPanier)) {
+            if (plat.quantite > 0) {
+                panierPourServeur[id] = plat.quantite;
+            }
+        }
+        document.getElementById('nouveau_panier_input').value = JSON.stringify(panierPourServeur);
+    }
+
+    function ajouterAuPanierJS(id, nom, prix) {
+        if (monPanier[id]) {
+            monPanier[id].quantite += 1;
+        } else {
+            monPanier[id] = {
+                nom: nom,
+                prix: prix,
+                quantite: 1
+            };
+        }
+        afficherPanier();
+    }
+
+    function modifierQuantite(id, changement) {
+        if (monPanier[id]) {
+            monPanier[id].quantite += changement;
+            if (monPanier[id].quantite <= 0) {
+                delete monPanier[id]; // Retire du panier si quantité = 0
             }
             afficherPanier();
         }
+    }
 
-        function modifierQuantite(id, changement) {
-            if (monPanier[id]) {
-                monPanier[id].quantite += changement;
-                if (monPanier[id].quantite <= 0) {
-                    delete monPanier[id]; // Retire du panier si quantité = 0
-                }
-                afficherPanier();
-            }
-        }
-
-        // On affiche le panier dès le chargement de la page
-        afficherPanier();
+    // On affiche le panier dès le chargement de la page
+    afficherPanier();
     </script>
 </body>
+
 </html>
