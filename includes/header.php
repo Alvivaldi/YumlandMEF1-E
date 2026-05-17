@@ -1,13 +1,13 @@
 <?php
-// Vérification si la session n'est pas déjà démarrée par la page principale
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// On inclut les fonctions pour que lireJSON() fonctionne partout
+
 require_once __DIR__ . '/fonctions.php';
 
-// Vérification instantanée du blocage de l'utilisateur connecté
+
 $utilisateurs = lireJSON('donnees/utilisateurs.json');
 
 foreach ($utilisateurs as $u) {
@@ -57,7 +57,7 @@ foreach ($utilisateurs as $u) {
 
         <li>
             <?php
-            // Lecture sécurisée du cookie pour l'état initial du bouton
+            
             $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
             $cookie_val = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
             $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';

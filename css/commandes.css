@@ -13,7 +13,7 @@ h1, h2, h3 {
     font-family: var(--font-title, "Mogra", cursive);
 }
 
-/* ========= NAVBAR ========= */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@ h1, h2, h3 {
 .nav-links a { text-decoration: none; color: var(--text-white, #fffcfb); transition: color 0.3s ease; font-size: var(--nav-font-size, 30px); }
 .nav-links a:hover { color: var(--accent-orange, #d23508); }
 
-/* ========= TITRE ========= */
+
 .big-title {
     text-align: center;
     color: var(--accent-orange, #d23508);
@@ -41,7 +41,7 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
-/* ========= LAYOUT ========= */
+
 .restaurateur-main {
     padding: 20px;
     max-width: 1200px;
@@ -54,7 +54,7 @@ h1, h2, h3 {
     gap: 30px;
 }
 
-/* ========= CARTE COMMANDE ========= */
+
 .box-commande {
     background-color: var(--menu-box-bg, #ffffff);
     border-radius: 15px;
@@ -107,7 +107,7 @@ h1, h2, h3 {
     font-size: var(--base-font-size, 16px);
 }
 
-/* ========= GESTION STATUT / LIVREUR ========= */
+
 .gestion-statut,
 .gestion-livreur {
     margin-top: 12px;
@@ -134,7 +134,7 @@ h1, h2, h3 {
     color: #1c1c1c;
 }
 
-/* ========= BOUTONS ========= */
+
 .btn-action-status,
 .btn-update-commande {
     width: 100%;
@@ -174,7 +174,7 @@ h1, h2, h3 {
     opacity: 0.85;
 }
 
-/* ========= BADGE STATUT ========= */
+
 .badge-statut {
     display: inline-block;
     padding: 6px 12px;
@@ -192,7 +192,7 @@ h1, h2, h3 {
     color: #155724;
 }
 
-/* ========= FOOTER ========= */
+
 .footer {
     display: flex;
     justify-content: space-between;

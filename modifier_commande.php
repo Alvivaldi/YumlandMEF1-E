@@ -2,13 +2,13 @@
 session_start();
 include 'includes/fonctions.php';
 
-// Validation du cookie thème
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
 
 
-// Sécurité : Être connecté
+
 if (!isset($_SESSION['user'])) {
     header('Location: formulaire.php');
     exit();
@@ -18,7 +18,7 @@ $id_commande = $_GET['id'] ?? '';
 $commandes = lireJSON('donnees/commandes.json');
 $plats = lireJSON('donnees/plats.json');
 
-// 1. Chercher la commande
+
 $ma_commande = null;
 $index_commande = -1;
 foreach ($commandes as $i => $cmd) {
@@ -29,12 +29,12 @@ foreach ($commandes as $i => $cmd) {
     }
 }
 
-// 2. Vérifier si elle existe et si elle est modifiable
+
 if (!$ma_commande || !in_array(strtoupper($ma_commande['statut']), ['A_PREPARER', 'EN_ATTENTE'])) {
     die("<h1 style='color:red; text-align:center;'>Erreur : Cette commande n'est plus modifiable (déjà en cuisine).</h1>");
 }
 
-// --- TRAITEMENT DU FORMULAIRE APRÈS MODIFICATION ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nouveau_panier_json = $_POST['nouveau_panier'] ?? '{}';
     $nouveau_panier = json_decode($nouveau_panier_json, true);
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nouveau_total = 0;
     $nouveaux_produits = [];
     
-    // On recalcule le vrai prix côté serveur (sécurité !)
+
     foreach ($nouveau_panier as $id_plat => $qte) {
         foreach ($plats as $p) {
             if ($p['id'] == $id_plat && $qte > 0) {
@@ -60,20 +60,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ancien_total = $ma_commande['prix_total'];
     $difference = $nouveau_total - $ancien_total;
 
-    // On met à jour la commande
     $commandes[$index_commande]['produits'] = $nouveaux_produits;
     $commandes[$index_commande]['prix_total'] = $nouveau_total;
     
-    // Gestion de la différence (Cahier des charges Phase 3)
+
     if ($difference > 0) {
-        $commandes[$index_commande]['reste_a_payer'] = $difference; // On simule le nouveau paiement
+        $commandes[$index_commande]['reste_a_payer'] = $difference; 
         ecrireJSON('donnees/commandes.json', $commandes);
-        // On redirige vers le profil avec un message (idéalement, ça irait vers CYBank)
+
         header("Location: profil.php?success=1&msg=Commande modifiée ! " . $difference . "€ supplémentaires ont été facturés.");
         exit();
     } else {
         if ($difference < 0) {
-            $commandes[$index_commande]['ticket_reduction'] = abs($difference); // On lui donne un ticket
+            $commandes[$index_commande]['ticket_reduction'] = abs($difference); 
         }
         ecrireJSON('donnees/commandes.json', $commandes);
         header("Location: profil.php?success=1&msg=Commande modifiée ! Un ticket de réduction de " . abs($difference) . "€ a été généré.");
@@ -81,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// 3. Préparer le panier actuel pour le donner au JavaScript
+
 $panier_actuel = [];
 foreach ($ma_commande['produits'] as $prod) {
     $prix_unitaire = 0;
@@ -155,7 +154,7 @@ foreach ($ma_commande['produits'] as $prod) {
     <?php include 'includes/footer.php'; ?>
 
     <script>
-    // On récupère le panier actuel depuis PHP !
+
     let monPanier = <?= json_encode($panier_actuel) ?>;
     let ancienTotal = <?= $ma_commande['prix_total'] ?>;
 
@@ -163,7 +162,7 @@ foreach ($ma_commande['produits'] as $prod) {
         let html = "";
         let nouveauTotal = 0;
 
-        // On parcourt l'objet JavaScript
+
         for (const [id, plat] of Object.entries(monPanier)) {
             if (plat.quantite > 0) {
                 nouveauTotal += plat.prix * plat.quantite;
@@ -189,7 +188,7 @@ foreach ($ma_commande['produits'] as $prod) {
         document.getElementById('cart-content').innerHTML = html;
         document.getElementById('nouveau-total').innerText = nouveauTotal.toFixed(2);
 
-        // Calcul de la différence
+
         let diff = nouveauTotal - ancienTotal;
         let diffEl = document.getElementById('diff-total');
 
@@ -201,7 +200,7 @@ foreach ($ma_commande['produits'] as $prod) {
             diffEl.innerHTML = `<span>0.00 €</span>`;
         }
 
-        // On met à jour l'input caché avec le nouveau panier formaté en JSON pour l'envoyer au PHP
+
         let panierPourServeur = {};
         for (const [id, plat] of Object.entries(monPanier)) {
             if (plat.quantite > 0) {
@@ -228,13 +227,13 @@ foreach ($ma_commande['produits'] as $prod) {
         if (monPanier[id]) {
             monPanier[id].quantite += changement;
             if (monPanier[id].quantite <= 0) {
-                delete monPanier[id]; // Retire du panier si quantité = 0
+                delete monPanier[id]; 
             }
             afficherPanier();
         }
     }
 
-    // On affiche le panier dès le chargement de la page
+
     afficherPanier();
     </script>
 </body>

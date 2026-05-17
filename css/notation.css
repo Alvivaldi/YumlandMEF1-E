@@ -1,4 +1,4 @@
-/* css/notation.css */
+
 
 .notation-container {
     max-width: 600px;
@@ -68,7 +68,7 @@
     padding-bottom: 20px;
 }
 
-/* Texte lisible sur fond clair */
+
 .notation-container,
 .notation-container p,
 .notation-container label {

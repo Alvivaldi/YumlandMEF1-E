@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Validation du cookie : seules deux valeurs sont autorisées
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
@@ -14,11 +14,7 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tradimiam</title>
 
-    <!--
-        IMPORTANT : c'est ici et seulement ici que le <link id="dynamic-theme"> est déclaré.
-        header.php NE doit PAS en contenir un second, sinon JavaScript cible le premier
-        (dans le <head>) mais le second (dans le <body>) continue d'appliquer l'ancien thème.
-    -->
+
     <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
 
     <link rel="stylesheet" href="css/accueil.css" />

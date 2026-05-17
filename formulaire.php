@@ -4,7 +4,7 @@ include 'includes/fonctions.php';
 
 $erreur = "";
 
-// Validation du cookie thème
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';

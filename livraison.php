@@ -2,7 +2,7 @@
 session_start();
 require_once 'includes/fonctions.php';
 
-// Validation du cookie thème
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
@@ -15,7 +15,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'livreur') {
 $id_livreur   = (string) $_SESSION['user']['id'];
 $message_status = "";
 
-// --- Traitement du formulaire POST ---
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'], $_POST['id_commande'])) {
     $id_cmd_a_modifier = $_POST['id_commande'];
     $nouveau_statut    = ($_POST['action'] === 'terminer') ? 'LIVREE' : 'ABANDONNEE';
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'], $_POST['id_
     foreach ($commandes as &$cmd) {
         if ((string)$cmd['id_commande'] === (string)$id_cmd_a_modifier) {
             $cmd['statut']           = $nouveau_statut;
-            $cmd['date_livraison']   = date("d/m/Y H:i"); // horodatage réel
+            $cmd['date_livraison']   = date("d/m/Y H:i");
             break;
         }
     }
@@ -35,8 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'], $_POST['id_
     $message_status = "Commande $id_cmd_a_modifier $libelle.";
 }
 
-// --- Récupération des commandes du livreur connecté ---
-// On accepte les deux formats de statut présents dans le JSON
+
 $statuts_en_cours = ['en_livraison', 'en livraison'];
 
 $all_commandes = lireJSON('donnees/commandes.json');
@@ -78,7 +77,7 @@ $utilisateurs = lireJSON('donnees/utilisateurs.json');
 
         <?php if (!empty($mes_commandes)): ?>
         <?php foreach ($mes_commandes as $cmd):
-                // Trouver les infos client
+  
                 $client = null;
                 foreach ($utilisateurs as $u) {
                     if ((string)$u['id'] === (string)$cmd['id_client']) {

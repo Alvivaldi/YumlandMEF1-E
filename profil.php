@@ -2,7 +2,7 @@
 session_start(); 
 include 'includes/fonctions.php';
 
-// Validation du cookie thème
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
@@ -163,25 +163,25 @@ foreach ($commandes as $cmd) {
 
     <?php include 'includes/footer.php'; ?>
     <script>
-    // 1. Gérer l'affichage des champs de modification au clic sur les crayons
+
     document.querySelectorAll('.edit').forEach(btn => {
         btn.addEventListener('click', function() {
             let fieldDiv = this.closest('.field');
-            fieldDiv.querySelector('.display-val').style.display = 'none'; // Cache le texte
-            fieldDiv.querySelector('.input-val').style.display = 'inline-block'; // Affiche l'input
+            fieldDiv.querySelector('.display-val').style.display = 'none'; 
+            fieldDiv.querySelector('.input-val').style.display = 'inline-block'; 
             this.style.display = 'none'; // Cache le crayon
-            document.getElementById('btn-save').style.display = 'block'; // Affiche le bouton valider
+            document.getElementById('btn-save').style.display = 'block'; 
         });
     });
 
-    // 2. Envoyer les données en asynchrone (AJAX / Fetch)
-    document.getElementById('form-profil').addEventListener('submit', function(e) {
-        e.preventDefault(); // Empêche le rechargement de la page !
 
-        // On récupère toutes les données du formulaire
+    document.getElementById('form-profil').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+
+
         let formData = new FormData(this);
 
-        // On envoie les données à notre fichier PHP en arrière-plan
+
         fetch('api_update_profil.php', {
                 method: 'POST',
                 body: formData
@@ -189,26 +189,26 @@ foreach ($commandes as $cmd) {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // On met à jour l'affichage avec les nouvelles valeurs
+  
                     document.querySelectorAll('.field').forEach(fieldDiv => {
                         let input = fieldDiv.querySelector('.input-val');
                         let display = fieldDiv.querySelector('.display-val');
                         let editBtn = fieldDiv.querySelector('.edit');
 
                         if (input && display) {
-                            display.innerText = input.value; // Met à jour le texte
-                            input.style.display = 'none'; // Recache l'input
-                            display.style.display = 'inline-block'; // Réaffiche le texte
-                            editBtn.style.display = 'inline-block'; // Remet le crayon
+                            display.innerText = input.value; 
+                            input.style.display = 'none'; 
+                            display.style.display = 'inline-block'; 
+                            editBtn.style.display = 'inline-block'; 
                         }
                     });
-                    document.getElementById('btn-save').style.display = 'none'; // Cache le bouton Valider
+                    document.getElementById('btn-save').style.display = 'none'; 
 
-                    // Afficher le message de succès
+
                     let msgBox = document.getElementById('msg-profil');
                     msgBox.innerText = "Profil mis à jour avec succès !";
                     msgBox.style.display = 'block';
-                    setTimeout(() => msgBox.style.display = 'none', 3000); // Fait disparaître après 3s
+                    setTimeout(() => msgBox.style.display = 'none', 3000); 
                 } else {
                     alert("Erreur lors de la mise à jour.");
                 }

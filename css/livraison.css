@@ -17,7 +17,7 @@ h1, h2, h3 {
     font-family: var(--font-title, "Mogra", cursive);
 }
 
-/* Navbar — variables pour le thème */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@ h1, h2, h3 {
 .nav-links a     { text-decoration: none; color: var(--text-white, #fffcfb); transition: color 0.3s ease; font-size: var(--nav-font-size, 30px); }
 .nav-links a:hover { color: var(--accent-orange, #d23508); }
 
-/* Container principal */
+
 .livraison-container {
     max-width: 860px;
     margin: 80px auto 60px;
@@ -44,7 +44,7 @@ h1, h2, h3 {
     font-size: 2.5rem;
 }
 
-/* Message de confirmation */
+
 .message-status {
     text-align: center;
     background-color: #e8f5e9;
@@ -56,7 +56,7 @@ h1, h2, h3 {
     font-size: 1.1rem;
 }
 
-/* Carte de livraison */
+
 .carte-livraison {
     background-color: #faebe4;
     border-radius: 12px;
@@ -78,7 +78,7 @@ h1, h2, h3 {
 .carte-header .cmd-id { font-weight: bold; }
 .carte-header .cmd-date { font-size: 0.95rem; opacity: 0.9; }
 
-/* Infos client */
+
 .info-livraison {
     padding: 15px 20px;
     border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -108,7 +108,7 @@ h1, h2, h3 {
 }
 .info-livraison a:hover { text-decoration: underline; }
 
-/* Liste des produits */
+
 .produits-list {
     padding: 15px 20px;
     border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -141,7 +141,7 @@ h1, h2, h3 {
     color: #d23508;
 }
 
-/* Actions */
+
 .actions {
     display: flex;
     flex-wrap: wrap;
@@ -181,7 +181,7 @@ h1, h2, h3 {
 
 .complete-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* Empty state */
+
 .empty-state {
     text-align: center;
     padding: 60px 20px;

@@ -221,7 +221,7 @@ section h1{
     font-size: 0.8rem;
     display: block;
     margin-top: 5px;
-    font-family: 'Arial', sans-serif; /* Plus lisible pour les alertes */
+    font-family: 'Arial', sans-serif;
 }
 input.invalid {
     border: 2px solid #e74c3c !important;
@@ -235,7 +235,7 @@ input.invalid {
     margin-bottom: 10px;
 }
 
-/* On peut changer la couleur si on approche de la limite */
+
 .char-counter.limit-reached {
     color: #e74c3c;
     font-weight: bold;

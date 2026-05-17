@@ -204,7 +204,7 @@ h1, h2, h3 {
 .btn-payer:hover {
     background-color: #219653;
 }
-/* Texte lisible dans le panier (fond clair) */
+
 .panier-container,
 .panier-container td,
 .panier-container th,

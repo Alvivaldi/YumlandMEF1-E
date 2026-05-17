@@ -1,16 +1,16 @@
-/* --- 1. DÉFINITION DES VARIABLES (Thème Clair par défaut) --- */
+
 :root {
-  /* Couleurs */
+
   --main-bg: #fffcfb;
   --nav-footer-bg: #231f20;
   --text-white: #fffcfb;
   --accent-orange: #d23508;
 
-  /* Polices */
+
   --font-body: "Chewy", cursive;
   --font-title: "Mogra", cursive;
 
-  /* Tailles de texte */
+
   --base-font-size: 20px;
   --nav-font-size: 30px;
   --footer-title-size: 30px;
@@ -21,7 +21,7 @@
   --logo-footer-height: 150px;
 }
 
-/* --- 2. CODE GLOBAL --- */
+
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +40,7 @@ body {
   font-size: var(--base-font-size);
 }
 
-/* --- 3. NAVIGATION --- */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -72,7 +72,7 @@ body {
   color: var(--accent-orange);
 }
 
-/* --- 4. FOOTER --- */
+
 .footer {
   display: flex;
   justify-content: space-between;

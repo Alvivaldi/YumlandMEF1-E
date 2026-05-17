@@ -1,33 +1,32 @@
 <?php
-//$_SESSION['user'] = ['nom' => 'Admin Test', 'email' => 'admin@test.com'];
-//$_SESSION['role'] = 'admin';
+
 
 session_start();
 include 'includes/fonctions.php';
 
-// Validation du cookie : seules deux valeurs sont autorisées
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
 
 
-//1. SÉCURITÉ : Vérifier si l'utilisateur est connecté ET s'il est admin
+
 if (!isset($_SESSION['user'])) {
         // S'il n'est pas connecté, on l'envoie vers la connexion
             header("Location: formulaire.php");
     exit();
 }
 
-// On récupère son rôle en minuscules (pour éviter les bugs avec "Admin" ou "ADMIN")
+
 $role_user = strtolower($_SESSION['user']['role'] ?? '');
 
 if ($role_user !== 'admin') {
-    // Si c'est un client ou un livreur qui essaie de tricher en tapant admin.php dans l'URL
+
    header("Location: index.php");
    exit();
 }
 
-// 2. Chargement des données pour l'affichage de la page
+
 $utilisateurs = lireJSON('donnees/utilisateurs.json');
 if (!is_array($utilisateurs)) { 
     $utilisateurs = []; 
@@ -99,7 +98,7 @@ if (!is_array($utilisateurs)) {
                 <tbody>
                     <?php foreach ($utilisateurs as $u): ?>
                     <?php 
-                // On ignore l'administrateur lui-même pour éviter de se bloquer par erreur
+
                 if (($u['role'] ?? '') === 'admin') continue; 
                 $statutActuel = $u['statut'] ?? 'actif';
                 ?>
@@ -140,7 +139,7 @@ if (!is_array($utilisateurs)) {
                 params.append('id_user', userId);
                 params.append('nouveau_statut', nouveauStatut);
 
-                // Envoi asynchrone corrigé avec les bons en-têtes
+
                 fetch('statut.php', {
                         method: 'POST',
                         headers: {

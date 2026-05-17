@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // =========================================================
-    // UTILITAIRES
-    // =========================================================
+
     function showError(inputEl, msgId, message) {
         const span = document.getElementById(msgId);
         if (span) span.textContent = message;
@@ -20,9 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('input').forEach(i => i.classList.remove('invalid'));
     }
 
-    // =========================================================
-    // AFFICHER / CACHER LES MOTS DE PASSE (icône œil)
-    // =========================================================
+
     document.querySelectorAll('.toggle-password').forEach(icon => {
         icon.addEventListener('click', () => {
             const targetId = icon.dataset.target;
@@ -35,9 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // =========================================================
-    // VALIDATION EN TEMPS RÉEL (au fur et à mesure de la saisie)
-    // =========================================================
+
     const emailInput = document.querySelector('input[name="email"]');
     const telInput = document.querySelector('input[name="telephone"]');
     const passInput = document.getElementById('reg-password');
@@ -96,9 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (counter) counter.classList.toggle('limit-reached', current >= max);
     }
 
-    // =========================================================
-    // VALIDATION À LA SOUMISSION (bloque si invalide)
-    // =========================================================
+
     const form = document.querySelector('form');
     if (!form) return;
 
@@ -106,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearAll();
         let isValid = true;
 
-        // --- Nom (lettres uniquement, 2–30 chars) ---
+
         if (nomInput) {
             const nomRegex = /^[A-Za-zÀ-ÿ\s\-]{2,30}$/;
             if (!nomRegex.test(nomInput.value.trim())) {
@@ -115,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // --- Prénom (lettres uniquement, 2–30 chars) ---
+
         if (prenomInput) {
             const prenomRegex = /^[A-Za-zÀ-ÿ\s\-]{2,30}$/;
             if (!prenomRegex.test(prenomInput.value.trim())) {
@@ -124,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // --- Email ---
+
         if (emailInput) {
             if (!emailRegex.test(emailInput.value.trim())) {
                 showError(emailInput, 'err-email', "Format d'email invalide (ex: nom@domaine.fr)");
@@ -132,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // --- Téléphone ---
+
         if (telInput) {
             if (!telRegex.test(telInput.value.trim())) {
                 showError(telInput, 'err-telephone', "Numéro invalide (ex: 06 12 34 56 78 ou +33 6 12 34 56 78)");
@@ -140,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // --- Mot de passe ---
         if (passInput) {
             if (passInput.value.length < 8) {
                 showError(passInput, 'err-password', "Le mot de passe doit faire au moins 8 caractères");

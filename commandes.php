@@ -1,11 +1,10 @@
 <?php
-//$_SESSION['user'] = ['nom' => 'nom8', 'email' => 'restau@manger.com'];
-//$_SESSION['role'] = 'restaurateur';
+
 
 session_start();
 require_once 'includes/fonctions.php';
 
-// Validation du cookie : seules deux valeurs sont autorisées
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';

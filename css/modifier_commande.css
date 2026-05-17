@@ -1,4 +1,4 @@
-/* css/modifier_commande.css */
+
 
 * {
     margin: 0;
@@ -15,7 +15,7 @@ h1, h2, h3 {
     font-family: var(--font-title, "Mogra", cursive);
 }
 
-/* ========= NAVBAR ========= */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -28,7 +28,7 @@ h1, h2, h3 {
 .nav-links a { text-decoration: none; color: var(--text-white, #fffcfb); transition: color 0.3s ease; font-size: var(--nav-font-size, 30px); }
 .nav-links a:hover { color: var(--accent-orange, #d23508); }
 
-/* ========= PAGE TITRE ========= */
+
 .page-titre {
     text-align: center;
     color: var(--accent-orange, #d23508);
@@ -36,7 +36,7 @@ h1, h2, h3 {
     font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
-/* ========= LAYOUT ========= */
+
 .modif-container {
     display: flex;
     gap: 20px;
@@ -45,7 +45,7 @@ h1, h2, h3 {
     margin: auto;
 }
 
-/* ========= CATALOGUE ========= */
+
 .catalogue {
     flex: 2;
     background: var(--menu-box-bg, #ffffff);
@@ -91,7 +91,7 @@ h1, h2, h3 {
     background: var(--accent-orange, #d23508);
 }
 
-/* ========= PANIER LIVE ========= */
+
 .panier-live {
     flex: 1;
     background: var(--menu-box-bg, #fffcfb);
@@ -162,7 +162,7 @@ h1, h2, h3 {
 .btn-valider:hover   { filter: brightness(1.15); }
 .btn-valider:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* ========= FOOTER ========= */
+
 .footer {
     display: flex;
     justify-content: space-between;

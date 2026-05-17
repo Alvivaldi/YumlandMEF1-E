@@ -1,6 +1,6 @@
 <?php
-// statut.php (à la racine)
-include 'includes/fonctions.php'; // Correction du dossier pour trouver fonctions.php
+
+include 'includes/fonctions.php'; 
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nouveau_statut = $_POST['nouveau_statut'] ?? null;
 
     if ($id_user && $nouveau_statut) {
-        // Plus besoin de "../" car on est déjà à la racine, au même niveau que le dossier donnees/
+
         $utilisateurs = lireJSON('donnees/utilisateurs.json');
         $trouve = false;
 

@@ -2,18 +2,18 @@
 session_start();
 include 'includes/fonctions.php';
 
-// Validation du cookie thème
+
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
 
-// 1. SÉCURITÉ : Vérifier si l'utilisateur est bien connecté
+
 if (!isset($_SESSION['user'])) {
     header('Location: formulaire.php');
     exit;
 }
 
-// Vérifier qu'on a bien un ID de commande dans l'URL ou le formulaire
+
 if (!isset($_GET['id']) && !isset($_POST['id_commande'])) {
     header('Location: profil.php');
     exit;
@@ -22,7 +22,7 @@ if (!isset($_GET['id']) && !isset($_POST['id_commande'])) {
 $id_commande = $_GET['id'] ?? $_POST['id_commande'];
 $commandes   = lireJSON('donnees/commandes.json');
 
-// 2. RECHERCHE DE LA COMMANDE
+
 $ma_commande    = null;
 $index_commande = -1;
 
@@ -34,7 +34,7 @@ foreach ($commandes as $index => $cmd) {
     }
 }
 
-// 3. VÉRIFICATIONS AVANT D'AFFICHER LA PAGE
+
 if (!$ma_commande) {
     die("<h1 style='color:red; text-align:center; margin-top:50px;'>Erreur : Commande introuvable.</h1>
          <p style='text-align:center;'><a href='profil.php'>Retour au profil</a></p>");
@@ -45,7 +45,7 @@ if (isset($ma_commande['note'])) {
          <p style='text-align:center;'><a href='profil.php'>Retour au profil</a></p>");
 }
 
-// 4. TRAITEMENT LORS DU CLIC SUR "VALIDER"
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $commandes[$index_commande]['note_livraison']    = (int) $_POST['note_livraison'];
     $commandes[$index_commande]['comment_livraison'] = htmlspecialchars($_POST['comment_livraison'] ?? '');

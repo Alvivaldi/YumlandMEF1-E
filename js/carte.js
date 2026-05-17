@@ -22,7 +22,6 @@ async function filtrerEtCharger() {
         
         let dataBrute = await response.json();
         
-        // ASTUCE ANTI-DOUBLONS : On filtre le tableau pour ne garder qu'une seule fois chaque ID de plat
         platsEnMemoire = dataBrute.filter((plat, index, self) =>
             index === self.findIndex((p) => (
                 p.id === plat.id
@@ -67,7 +66,6 @@ function genererAffichage(liste) {
     const container = document.getElementById('zone-plats');
     if (!container) return;
 
-    // On vide la zone d'affichage
     container.innerHTML = '';
 
     if (liste.length === 0) {
@@ -75,7 +73,7 @@ function genererAffichage(liste) {
         return;
     }
 
-    // 1. Définir l'ordre d'affichage des catégories et leurs titres propres
+
     const ordresCategories = {
         'specialite': 'Nos Spécialités',
         'entree': 'Nos Entrées',
@@ -85,7 +83,7 @@ function genererAffichage(liste) {
         'boisson': 'Nos Boissons'
     };
 
-    // 2. Regrouper les plats de la liste par catégories courantes
+
     const groupePlats = {
         'specialite': [],
         'entree': [],
@@ -106,7 +104,7 @@ function genererAffichage(liste) {
         }
     });
 
-    // 3. Parcourir les catégories dans le bon ordre pour fabriquer le HTML
+
     Object.keys(ordresCategories).forEach(catKey => {
         const listePlatsDeLaCat = groupePlats[catKey];
 
@@ -146,5 +144,5 @@ function genererAffichage(liste) {
     });
 }
 
-// Lancement automatique au chargement
+
 filtrerEtCharger();
