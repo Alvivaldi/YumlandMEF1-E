@@ -47,7 +47,7 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 14,
-        "statut": "en livraison",
+        "statut": "EN_LIVRAISON",
         "produits": [
             {
                 "id_plat": 3,
@@ -64,7 +64,7 @@
         "timing": "plus_tard",
         "date_livraison_prevue": "",
         "prix_total": 40.5,
-        "statut": "en livraison",
+        "statut": "EN_LIVRAISON",
         "produits": [
             {
                 "id_plat": 2,
@@ -95,7 +95,7 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 17.5,
-        "statut": "en livraison",
+        "statut": "EN_LIVRAISON",
         "produits": [
             {
                 "id_plat": 7,
@@ -173,7 +173,7 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 6.5,
-        "statut": "A_PREPARER",
+        "statut": "PAYEE",
         "produits": [
             {
                 "id_plat": 2,
@@ -181,5 +181,54 @@
                 "quantite": 1
             }
         ]
-    }
+    },
+    {
+        "id_commande": "CMD900001",
+        "id_client": 1775414379,
+        "date_creation": "16/05/2026 21:00",
+        "timing": "immediat",
+        "date_livraison_prevue": "Immédiate",
+        "prix_total": 22,
+        "statut": "PAYEE",
+        "produits": [
+            {
+                "id_plat": 3,
+                "nom": "Butter chicken",
+                "quantite": 2
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD900002",
+        "id_client": 1775414379,
+        "date_creation": "16/05/2026 21:05",
+        "timing": "immediat",
+        "date_livraison_prevue": "Immédiate",
+        "prix_total": 18,
+        "statut": "EN_PREPARATION",
+        "produits": [
+            {
+                "id_plat": 2,
+                "nom": "Alloco",
+                "quantite": 1
+            }
+        ]
+    },
+    {
+        "id_commande": "CMD900003",
+        "id_client": 1775414379,
+        "date_creation": "16/05/2026 21:10",
+        "timing": "immediat",
+        "date_livraison_prevue": "Immédiate",
+        "prix_total": 30,
+        "statut": "PRETE",
+        "produits": [
+            {
+                "id_plat": 1,
+                "nom": "Biryani",
+                "quantite": 2
+            }
+        ]
+    }    
 ]
+

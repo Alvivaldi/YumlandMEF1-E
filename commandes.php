@@ -1,4 +1,7 @@
 <?php
+//$_SESSION['user'] = ['nom' => 'nom8', 'email' => 'restau@manger.com'];
+//$_SESSION['role'] = 'restaurateur';
+
 session_start();
 require_once 'includes/fonctions.php';
 
@@ -16,27 +19,6 @@ if (!is_array($commandes_donnees)) {
 $utilisateurs_donnees = lireJSON('donnees/utilisateurs.json');
 if (!is_array($utilisateurs_donnees)) {
     $utilisateurs_donnees = [];
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_commande'])) {
-    $id_cmd_to_update = $_POST['id_commande_hidden'];
-    $nouveau_statut = $_POST['nouveau_statut'];
-    $id_livreur = $_POST['id_livreur'];
-
-    foreach ($commandes_donnees as &$cmd) {
-        if ($cmd['id_commande'] === $id_cmd_to_update) {
-            $cmd['statut'] = $nouveau_statut;
-            if (!empty($id_livreur)) {
-                $cmd['id_livreur'] = $id_livreur; 
-            }
-            break;
-        }
-    }
-    ecrireJSON('donnees/commandes.json', $commandes_donnees);
-
-    header("Location: commandes.php");
-    exit();
 }
 
 
@@ -74,7 +56,12 @@ foreach ($utilisateurs_donnees as $u) {
 
                 <?php foreach ($commandes_donnees as $cmd):
                     $statut = $cmd['statut'] ?? '';
-                    if (in_array($statut, ['A_PREPARER', 'EN_PREPARATION', 'EN_ATTENTE'])):
+                    if (in_array($statut, [
+                        'PAYEE',
+                        'A_PREPARER',
+                        'EN_PREPARATION',
+                        'PRETE'
+                    ])):
                         $id_client = $cmd['id_client'] ?? 0;
                         $nom_client = "Client Inconnu";
                         $adresse = "Adresse non renseignée";
@@ -85,14 +72,25 @@ foreach ($utilisateurs_donnees as $u) {
                             $adresse = htmlspecialchars($client_trouve['adresse'] ?? 'Sur place');
                         }
                 ?>
-                        <div class="box-commande">
-                            <form method="POST" action="commandes.php">
+                        <div class="box-commande" id="commande-<?php echo $cmd['id_commande']; ?>">
+                            <div class="commande-form">
                                 <input type="hidden" name="id_commande_hidden"
                                     value="<?php echo htmlspecialchars($cmd['id_commande']); ?>">
 
-                                <div class="commande-header">
-                                    <span class="num-commande">#<?php echo htmlspecialchars($cmd['id_commande']); ?></span>
-                                </div>
+                                    <div class="commande-header">
+
+                                        <span class="num-commande">
+                                            #<?php echo htmlspecialchars($cmd['id_commande']); ?>
+                                        </span>
+
+                                        <p
+                                            class="badge-statut"
+                                            id="badge-<?php echo $cmd['id_commande']; ?>"
+                                        >
+                                            <?php echo htmlspecialchars($statut); ?>
+                                        </p>
+
+                                    </div>
 
                                 <div class="commande-details">
                                     <ul>
@@ -110,18 +108,41 @@ foreach ($utilisateurs_donnees as $u) {
 
                                 <div class="gestion-statut">
                                     <label>Changer statut :</label>
-                                    <select name="nouveau_statut" class="select-admin">
-                                        <option value="A_PREPARER" <?php if ($statut == 'A_PREPARER') echo 'selected'; ?>>À
-                                            préparer</option>
-                                        <option value="EN_PREPARATION"
-                                            <?php if ($statut == 'EN_PREPARATION') echo 'selected'; ?>>En préparation</option>
-                                        <option value="EN_LIVRAISON">Prêt (Envoyer en livraison)</option>
+                                    <select
+                                        name="nouveau_statut"
+                                        class="select-admin"
+                                        id="statut-<?php echo $cmd['id_commande']; ?>"
+                                    >
+                                    <?php if ($statut == 'PAYEE'): ?>
+
+                                        <option value="EN_PREPARATION">
+                                            Passer en préparation
+                                        </option>
+
+                                    <?php elseif ($statut == 'EN_PREPARATION'): ?>
+
+                                        <option value="PRETE">
+                                            Marquer comme prête
+                                        </option>
+
+                                    <?php elseif ($statut == 'PRETE'): ?>
+
+                                         <option value="EN_LIVRAISON">
+                                            Envoyer en livraison
+                                        </option>
+
+                                    <?php endif; ?>
+
                                     </select>
                                 </div>
 
                                 <div class="gestion-livreur">
                                     <label>Attribuer Livreur :</label>
-                                    <select name="id_livreur" class="select-admin">
+                                    <select
+                                    name="id_livreur"
+                                    class="select-admin"
+                                    id="livreur-<?php echo $cmd['id_commande']; ?>"
+                                    >
                                         <option value="">-- Choisir un livreur --</option>
                                         <?php foreach ($utilisateurs_donnees as $u): ?>
                                             <?php if (strtolower($u['role'] ?? '') === 'livreur'): ?>
@@ -133,9 +154,14 @@ foreach ($utilisateurs_donnees as $u) {
                                     </select>
                                 </div>
 
-                                <button type="submit" name="update_commande" class="btn-action-status">Valider les
-                                    modifications</button>
-                            </form>
+                                <button
+                                    type="button"
+                                    class="btn-update-commande"
+                                    data-id="<?php echo $cmd['id_commande']; ?>"
+                                >
+                                    Valider
+                                </button>
+                            </div>
                         </div>
                 <?php endif;
                 endforeach; ?>
@@ -144,7 +170,7 @@ foreach ($utilisateurs_donnees as $u) {
             <section class="column-livraison">
                 <h2 class="entree" style="color: #d23508;">🚚 Suivi des Livreurs</h2>
                 <?php foreach ($commandes_donnees as $cmd):
-                    if (strtolower($cmd['statut'] ?? '') === 'en_livraison'):
+                    if (($cmd['statut'] ?? '') === 'EN_LIVRAISON'):
                 ?>
                         <div class="box-commande delivery-mode">
                             <div class="commande-header">
@@ -159,6 +185,76 @@ foreach ($utilisateurs_donnees as $u) {
             </section>
         </div>
     </main>
+    <script>
+
+document.querySelectorAll('.btn-update-commande').forEach(button => {
+
+    button.addEventListener('click', function() {
+
+        const idCommande = this.dataset.id;
+
+        const statut =
+            document.getElementById(`statut-${idCommande}`).value;
+
+        const livreur =
+            document.getElementById(`livreur-${idCommande}`).value;
+
+        if (statut === 'EN_LIVRAISON' && livreur === '') {
+
+            alert("Choisissez un livreur.");
+
+            return;
+        }
+
+        const params = new URLSearchParams();
+
+        params.append('id_commande', idCommande);
+        params.append('nouveau_statut', statut);
+        params.append('id_livreur', livreur);
+
+        fetch('update_commande.php', {
+
+            method: 'POST',
+
+            headers: {
+                'Content-Type':
+                'application/x-www-form-urlencoded'
+            },
+
+            body: params
+
+        })
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            if (data.success) {
+
+                const badge =
+                    document.getElementById(`badge-${idCommande}`);
+
+                badge.textContent = data.nouveau_statut;
+
+                badge.classList.add('updated');
+
+                setTimeout(() => {
+                    badge.classList.remove('updated');
+                }, 600);
+
+            } else {
+
+                alert("Erreur.");
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
 </body>
 
 </html>

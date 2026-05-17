@@ -1,5 +1,27 @@
 <?php
 
+// Vérification instantanée du blocage de l'utilisateur connecté
+session_start();
+
+$utilisateurs = lireJSON('donnees/utilisateurs.json');
+
+foreach ($utilisateurs as $u) {
+
+    if (
+        isset($_SESSION['user']) &&
+        $u['id'] == $_SESSION['user']['id']
+    ) {
+
+        if (($u['statut'] ?? 'actif') === 'bloqué') {
+
+            session_unset();
+            session_destroy();
+
+            header("Location: formulaire.php?erreur=compte_bloque");
+            exit();
+        }
+    }
+}
 /**
  * header.php
  * NE PAS redéclarer le <link id="dynamic-theme"> ici.

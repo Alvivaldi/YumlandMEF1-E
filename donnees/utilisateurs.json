@@ -19,7 +19,8 @@
         "prenom": "v",
         "adresse": "c",
         "telephone": "v",
-        "date_inscription": "2026-04-05"
+        "date_inscription": "2026-04-05",
+        "statut": "actif"
     },
     {
         "id": 1775395057,
@@ -141,16 +142,5 @@
         "adresse": "cy tech, cergy",
         "telephone": "0658741354",
         "date_inscription": "2026-04-05"
-    },
-    {
-        "id": 999,
-        "login": "test@test.com",
-        "password": "$2y$10$7rK1gS91C4B5P3dF3hX1e.CgHkR/tGq.Wb0M2O1PzQxRyS.K2uTuC",
-        "role": "restaurateur",
-        "nom": "Restaurateur Test",
-        "prenom": "testtttt",
-        "adresse": "cy tech, cergy",
-        "telephone": "0658741354",
-        "date_inscription": "2026-04-05"
-      }
+    }
 ]

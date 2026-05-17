@@ -36,7 +36,7 @@ h1, h2, h3 {
 
 .titre-carte {
     font-size: 2.8rem;
-    color: var(--accent-orange, #fca311);
+    color: var(--accent-orange, #da570b);
     text-align: center;
     font-weight: bold;
 }
