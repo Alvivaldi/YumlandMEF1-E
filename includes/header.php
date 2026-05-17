@@ -1,35 +1,26 @@
 <?php
+// Vérification si la session n'est pas déjà démarrée par la page principale
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// On inclut les fonctions pour que lireJSON() fonctionne partout
+require_once __DIR__ . '/fonctions.php';
 
 // Vérification instantanée du blocage de l'utilisateur connecté
-//session_start();
+$utilisateurs = lireJSON('donnees/utilisateurs.json');
 
-//$utilisateurs = lireJSON('donnees/utilisateurs.json');
-
-//foreach ($utilisateurs as $u) {
-
-//    if (
-//        isset($_SESSION['user']) &&
-//        $u['id'] == $_SESSION['user']['id']
-//    ) {
-
-//        if (($u['statut'] ?? 'actif') === 'bloqué') {
-
-//            session_unset();
-//            session_destroy();
-
-//            header("Location: formulaire.php?erreur=compte_bloque");
-//            exit();
-//        }
-//    }
-//}
-/**
- * header.php
- * NE PAS redéclarer le <link id="dynamic-theme"> ici.
- * Il est déjà dans le <head> de chaque page (index.php, carte.php, etc.)
- * avec le bon thème lu depuis le cookie PHP.
- * Ce fichier ne gère que la navbar + l'inclusion du JS.
- */
-//?>
+foreach ($utilisateurs as $u) {
+    if (isset($_SESSION['user']) && $u['id'] == $_SESSION['user']['id']) {
+        if (($u['statut'] ?? 'actif') === 'bloqué') {
+            session_unset();
+            session_destroy();
+            header("Location: formulaire.php?erreur=compte_bloque");
+            exit();
+        }
+    }
+}
+?>
 
 <nav class="navbar">
     <div class="logo">
