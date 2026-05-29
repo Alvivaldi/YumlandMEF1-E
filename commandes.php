@@ -34,6 +34,39 @@ if (isset($u['id'])) {
 $users_lookup[$u['id']] = $u;
 }
 }
+
+
+// --- BONUS PHASE 4 : CALCUL DES STATISTIQUES ---
+$stats_ca_total = 0;
+$stats_nb_commandes = count($commandes_donnees);
+$compteur_plats = [];
+
+foreach ($commandes_donnees as $cmd) {
+    // 1. Calcul du chiffre d'affaires
+    if (isset($cmd['prix_total'])) {
+        $stats_ca_total += (float)$cmd['prix_total'];
+    }
+
+    // 2. Comptage des plats pour trouver le Best-Seller
+    if (isset($cmd['produits']) && is_array($cmd['produits'])) {
+        foreach ($cmd['produits'] as $produit) {
+            $nom_plat = $produit['nom'] ?? 'Inconnu';
+            $qte = (int)($produit['quantite'] ?? 1);
+            
+            if (!isset($compteur_plats[$nom_plat])) {
+                $compteur_plats[$nom_plat] = 0;
+            }
+            $compteur_plats[$nom_plat] += $qte;
+        }
+    }
+}
+
+// 3. On trie le tableau pour trouver le plat le plus vendu
+$best_seller = "Aucun plat vendu";
+if (!empty($compteur_plats)) {
+    arsort($compteur_plats); // Trie du plus grand au plus petit
+    $best_seller = array_key_first($compteur_plats); // Récupère le nom du premier
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +90,29 @@ $users_lookup[$u['id']] = $u;
     </header>
 
     <main class="restaurateur-main">
+        <div class="stats-dashboard">
+            <div class="stat-box">
+                <i class="fa-solid fa-chart-line"></i>
+                <div class="stat-info">
+                    <span class="stat-titre">Chiffre d'Affaires</span>
+                    <span class="stat-valeur"><?php echo number_format($stats_ca_total, 2, ',', ' '); ?> €</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-receipt"></i>
+                <div class="stat-info">
+                    <span class="stat-titre">Commandes Totales</span>
+                    <span class="stat-valeur"><?php echo $stats_nb_commandes; ?></span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <i class="fa-solid fa-crown"></i>
+                <div class="stat-info">
+                    <span class="stat-titre">Best-Seller</span>
+                    <span class="stat-valeur" style="font-size: 1.2rem;"><?php echo htmlspecialchars($best_seller); ?></span>
+                </div>
+            </div>
+        </div>
         <div class="commandes-grid">
             <section class="column-prepa">
                 <h2 class="entree">🔥 Commandes en Cuisine</h2>

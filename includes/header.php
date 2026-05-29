@@ -4,15 +4,17 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 require_once __DIR__ . '/fonctions.php';
-
 
 $utilisateurs = lireJSON('donnees/utilisateurs.json');
 
 foreach ($utilisateurs as $u) {
     if (isset($_SESSION['user']) && $u['id'] == $_SESSION['user']['id']) {
         if (($u['statut'] ?? 'actif') === 'bloqué') {
+            
+            // --- LIGNE AJOUTÉE POUR LA PHASE 4 (LOGS) ---
+            ajouterLogSecurite("Connexion refusée (Compte bloqué)", $u['login'] ?? 'Inconnu');
+            
             session_unset();
             session_destroy();
             header("Location: formulaire.php?erreur=compte_bloque");

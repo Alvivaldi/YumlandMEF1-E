@@ -41,6 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$connecte) {
         $erreur = "Identifiants ou mot de passe incorrects.";
     }
+    if (!$connecte) {
+        // --- BONUS PHASE 4 : On loggue l'erreur de sécurité ---
+        ajouterLogSecurite("Tentative de connexion échouée (Mauvais mot de passe)", $email);
+        
+        $erreur = "Identifiants ou mot de passe incorrects.";
+    }
 }
 ?>
 

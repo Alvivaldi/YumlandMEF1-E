@@ -32,6 +32,15 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
         </div>
     </section>
 
+    <section class="video-presentation">
+        <h2>Découvrez TradiMiam</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0mbRzzCRsoM?si=4z5DBC2Hi4yueAjU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    
+
     <section class="recherche">
         <form class="search-bar">
             <input type="text" placeholder="Rechercher un plat..." />
