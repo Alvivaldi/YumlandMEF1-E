@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
 $cookie_val  = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
 $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
@@ -14,7 +13,6 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tradimiam</title>
 
-
     <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
 
     <link rel="stylesheet" href="css/accueil.css" />
@@ -24,28 +22,31 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
 
 <body>
     <?php include 'includes/header.php'; ?>
-
-    <section class="hero">
+<section class="hero">
         <div class="hero-content">
             <h1>TradiMiam</h1>
             <p>Les papilles aussi ont le droit de voyager</p>
         </div>
     </section>
 
-    <section class="video-presentation">
-        <h2>Découvrez TradiMiam</h2>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/0mbRzzCRsoM?si=4z5DBC2Hi4yueAjU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+    <section class="recherche">
+        <form class="search-bar" action="carte.php" method="GET">
+            <input type="text" name="recherche" placeholder="Rechercher un plat..." aria-label="Champ de recherche de plats" />
+            <button type="submit" aria-label="Lancer la recherche">🔍</button>
+        </form>
     </section>
 
-    
-
-    <section class="recherche">
-        <form class="search-bar">
-            <input type="text" placeholder="Rechercher un plat..." />
-            <button type="submit">🔍</button>
-        </form>
+    <section class="presentation-video">
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/zAx5xFuCLNc?si=SQ8-f3VG3Zvq4Ox1" 
+                title="Vidéo de présentation de TradiMiam" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
     </section>
 
     <section class="menu-container">

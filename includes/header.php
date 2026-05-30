@@ -12,7 +12,7 @@ foreach ($utilisateurs as $u) {
     if (isset($_SESSION['user']) && $u['id'] == $_SESSION['user']['id']) {
         if (($u['statut'] ?? 'actif') === 'bloqué') {
             
-            // --- LIGNE AJOUTÉE POUR LA PHASE 4 (LOGS) ---
+            // --- SÉCURITÉ PHASE 4 : Logs ---
             ajouterLogSecurite("Connexion refusée (Compte bloqué)", $u['login'] ?? 'Inconnu');
             
             session_unset();
@@ -38,7 +38,7 @@ foreach ($utilisateurs as $u) {
 
         <?php if (isset($_SESSION['user'])): ?>
         <?php if (!in_array($_SESSION['user']['role'] ?? '', ['livreur', 'restaurateur', 'admin'])): ?>
-        <li><a href="panier.php"><i class="fa-solid fa-basket-shopping"></i> Mon Panier</a></li>
+        <li><a href="panier.php"><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i> Mon Panier</a></li>
         <?php endif; ?>
         <li><a href="profil.php">Mon profil</a></li>
 
@@ -59,14 +59,13 @@ foreach ($utilisateurs as $u) {
 
         <li>
             <?php
-            
             $valeurs_autorisees = ['css/global.css', 'css/accessible.css'];
             $cookie_val = isset($_COOKIE['theme_choice']) ? $_COOKIE['theme_choice'] : 'css/global.css';
             $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/global.css';
             ?>
             <button id="theme-switch" style="background: none; border: 1px solid white; color: white; cursor: pointer;
                        padding: 8px 12px; border-radius: 5px; font-family: 'Chewy', cursive;
-                       font-size: clamp(16px, 1.5vw, 22px); white-space: nowrap; flex-shrink: 0;">
+                       font-size: clamp(16px, 1.5vw, 22px); white-space: nowrap; flex-shrink: 0;" aria-label="Changer le thème d'affichage">
                 <?php echo ($theme_actif === 'css/accessible.css') ? '☀️ Mode Clair' : '🌓 Mode Accessible'; ?>
             </button>
         </li>

@@ -1,28 +1,24 @@
 <?php
-
 session_start();
-
 
 if (isset($_POST['id_plat']) && isset($_POST['quantite'])) {
     
-
     $id_plat = (int)$_POST['id_plat'];
     $quantite = (int)$_POST['quantite'];
 
+    // SÉCURITÉ PHASE 4 : On refuse les quantités négatives ou nulles
+    if ($quantite > 0) {
+        if (!isset($_SESSION['panier'])) {
+            $_SESSION['panier'] = [];
+        }
 
-    if (!isset($_SESSION['panier'])) {
-        $_SESSION['panier'] = [];
-    }
-
-  
-    if (isset($_SESSION['panier'][$id_plat])) {
-        $_SESSION['panier'][$id_plat] += $quantite;
-    } else {
-        
-        $_SESSION['panier'][$id_plat] = $quantite;
+        if (isset($_SESSION['panier'][$id_plat])) {
+            $_SESSION['panier'][$id_plat] += $quantite;
+        } else {
+            $_SESSION['panier'][$id_plat] = $quantite;
+        }
     }
 }
-
 
 header('Location: carte.php');
 exit;

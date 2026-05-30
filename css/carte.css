@@ -12,10 +12,13 @@ body {
     background-repeat: no-repeat;
     background-position: calc(50% + 15px) 4%;
     background-size: 1600px;
+    
+    /* --- LA LIGNE MAGIQUE POUR FIXER LE FOND --- */
+    background-attachment: fixed; 
+    
     font-size: var(--base-font-size);
     overflow-x: hidden;
 }
-
 h1, h2, h3 {
     font-family: var(--font-title);
 }
