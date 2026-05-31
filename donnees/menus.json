@@ -1,8 +1,38 @@
-{
-"menus" : [
-    { "nom": "Menu Naanfant", "prix": 15.00, "composition": ["Naan", "Poulet", "Boisson"] },
-    { "nom": "Menu Le Classico", "prix": 15.00, "composition": ["Naan", "Poulet", "Boisson"] },
-    { "nom": "Menu Des Couverts", "prix": 15.00, "composition": ["Naan", "Poulet", "Boisson"] }
-  ]
-
-}
+[
+  {
+    "id": 1,
+    "nom": "Menu Naanfant",
+    "description": "Un super menu pour les plus jeunes !",
+    "prix": 8.50,
+    "elements": {
+      "entree": "Pastel",
+      "plat": "Nouilles",
+      "dessert": "Eclair"
+    },
+    "image": "images/naanfant.png"
+  },
+  {
+    "id": 2,
+    "nom": "Menu Le Classico",
+    "description": "Les grands classiques incontournables de Yumland.",
+    "prix": 14.90,
+    "elements": {
+      "entree": "Banane plantain",
+      "plat": "Biryani",
+      "dessert": "Tarte tatin"
+    },
+    "image": "images/dessins/menud2.png"
+  },
+  {
+    "id": 3,
+    "nom": "Menu des Couverts",
+    "description": "Une délicieuse sélection végétarienne et gourmande.",
+    "prix": 16.50,
+    "elements": {
+      "entree": "Brick",
+      "plat": "Paneer butter masala",
+      "dessert": "Fondant au chocolat"
+    },
+    "image": "images/dessins/menud1.png"
+  }
+]

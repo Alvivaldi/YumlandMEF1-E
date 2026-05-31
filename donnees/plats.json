@@ -38,7 +38,7 @@
     "description": "Délicieuse crème vanillée recouverte d'une fine couche de caramel croquant.",
     "prix": 7.00,
     "image": "images/creme.jpg",
-    "categorie": "dessert",
+    "categorie": "dessert, specialite",
     "regime": "végétarien, sans gluten",
     "saveur": "sucré",
     "allergene": "lactose"
@@ -82,7 +82,7 @@
     "description": "Beignets africains sucrés et moelleux, parfaits pour commencer.",
     "prix": 4.50,
     "image": "images/beignet.webp",
-    "categorie": "entree, dessert",
+    "categorie": "entree",
     "regime": "vegan, végétarien",
     "saveur": "sucré",
     "allergene": "gluten"
@@ -207,5 +207,38 @@
     "regime": "vegan, végétarien, sans gluten",
     "saveur": "sucré",
     "allergene": "aucun"
+  },
+  {
+    "id": 24,
+    "nom": "Menu Naanfant",
+    "description": "Un menu pensé pour régaler les plus jeunes, avec comme entrée nos pastels, en plat  nos nouilles sautées accompagné d'un cheese naan et en dessert un petit éclair au chocolat.",
+    "prix": 8.50,
+    "image": "images/naanfant.png",
+    "categorie": "formule",
+    "regime": "halal",
+    "saveur": "salé, sucré",
+    "allergene": "gluten"
+  },
+  {
+    "id": 25,
+    "nom": "Menu Le Classico",
+    "description": "Découvrez le menu classique composée en entrée de nos bananes plantain, en plat de notre riz biryani et en dessert de notre tarte tatin.",
+    "prix": 14.90,
+    "image": "images/classico.png",
+    "categorie": "formule",
+    "regime": "halal",
+    "saveur": "salé, sucré",
+    "allergene": "gluten, lactose"
+  },
+  {
+    "id": 26,
+    "nom": "Menu des Couverts",
+    "description": "Découvrez le menu qui va vous faire voyager avec en entrée des bricks, en plat un gobi manchurian et en dessert un magnifique fondant au chocolat.",
+    "prix": 16.50,
+    "image": "images/decouverts.png",
+    "categorie": "formule",
+    "regime": "halal",
+    "saveur": "salé, sucré",
+    "allergene": "gluten, lactose"
   }
 ]
