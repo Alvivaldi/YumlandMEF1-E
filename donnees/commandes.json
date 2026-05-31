@@ -161,7 +161,7 @@
         "timing": "immediat",
         "date_livraison_prevue": "Imm\u00e9diate",
         "prix_total": 15.5,
-        "statut": "EN_LIVRAISON",
+        "statut": "LIVREE",
         "produits": [
             {
                 "id_plat": 1,
@@ -169,7 +169,8 @@
                 "quantite": 1
             }
         ],
-        "id_livreur": "1775414679"
+        "id_livreur": "1775414679",
+        "date_livraison": "31\/05\/2026 13:38"
     },
     {
         "id_commande": "CMD177877155072",

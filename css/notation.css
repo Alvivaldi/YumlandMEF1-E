@@ -87,33 +87,3 @@ h1, h3 {
   color: #1c1c1c;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--nav-footer-bg, #231f20);
-  padding: 3px 40px;
-}
-
-.logo img {
-  height: var(--logo-nav-height, 100px);
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: clamp(15px, 2vw, 80px);
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-white, #fffcfb);
-  transition: color 0.3s ease;
-  font-size: var(--nav-font-size, 30px);
-}
-
-.nav-links a:hover {
-  color: var(--accent-orange, #d23508);
-}

@@ -1,79 +1,65 @@
+@import url('global.css');
 
 :root {
-
-    --main-bg: #181818e9;
-    --text-white: #e9e8e8;
-
-    --accent-orange: #b90101;
-    --nav-footer-bg: #231f20;
-
+    --main-bg: #121212;
+    --text-white: #ffffff;
+    --accent-orange: rgb(210, 53, 8);
+    --nav-footer-bg: #1a1a1a;
     --font-body: "Chewy", cursive;
     --font-title: "Mogra", cursive;
-
-    --base-font-size: 28px;
-
-    --nav-font-size: 42px;
-
-    --footer-title-size: 45px;
-
-    --footer-text-size: 28px;
-
-
-    --menu-box-bg: #ebedf5eb;
-    --menu-box-text: #1c1c1c;
-
-
-    --logo-nav-height: 130px;
-
-    --logo-footer-height: 190px;
-
+    --base-font-size: 22px;
+    --nav-font-size: 26px;
+    --footer-title-size: 30px;
+    --footer-text-size: 22px;
+    --menu-box-bg: #ffffff;
+    --menu-box-text: #000000;
+    --logo-nav-height: 110px;
+    --logo-footer-height: 150px;
 }
-
-
 
 body {
     background-color: var(--main-bg) !important;
     color: var(--text-white) !important;
+    font-family: var(--font-body) !important;
 }
 
+h1, h2, h3 {
+    font-family: var(--font-title) !important;
+}
 
-
+span, p, a, label, input, button, select, textarea {
+    font-family: var(--font-body) !important;
+}
 
 .background .slide {
-    filter: brightness(0.2) grayscale(1);
+    filter: brightness(0.15) grayscale(1);
 }
 
 .nav-links a,
-.footer,
 .footer-links ul li a {
-    color: #fafafa !important;
-
+    color: var(--text-white) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
 
-
-.nav-links {
-    gap: clamp(100px, 10vw, 15px) !important;
-    flex-wrap: wrap !important;
-    justify-content: flex-end !important;
+.nav-links a:hover,
+.footer-links ul li a:hover {
+    color: var(--accent-orange) !important;
 }
-
-.navbar {
-    flex-wrap: wrap;
-    padding: 8px 20px;
-}
-
 
 .filtreTexteIcons {
-    color: #ece9e9 !important;
-    border: 2px solid #ffffff !important;
-    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 3px solid #ffffff !important;
+    background-color: #000000 !important;
+    font-weight: bold !important;
 }
 
 .filtreTexte {
-    color: #e3e1e1 !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
 }
 
 .filtreIcons {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color: #e70606 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }

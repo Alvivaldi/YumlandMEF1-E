@@ -40,6 +40,7 @@ if (!is_array($utilisateurs)) {
     <meta charset="UTF-8">
     <title>Administration</title>
     <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    
     <link rel="stylesheet" id="dynamic-theme" href="<?php echo htmlspecialchars($theme_actif); ?>">
 
 
