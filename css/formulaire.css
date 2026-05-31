@@ -60,6 +60,7 @@ h3 {
     position: fixed;
     inset: 0;
     z-index: -1;
+    background-color: #231f20;
 }
 
 .slide {

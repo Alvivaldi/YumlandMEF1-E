@@ -145,11 +145,11 @@ h3 {
 }
 
 .menu-box {
-  background-color: var(--menu-box-bg);
+  background-color: rgb(250, 235,228);
+  border-radius: 25px;
   padding: 40px;
   width: 500px;
   text-align: center;
-  border-radius: 10px;
   color: var(--menu-box-text);
 }
 
