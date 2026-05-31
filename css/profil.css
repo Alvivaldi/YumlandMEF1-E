@@ -1,10 +1,8 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body {
   font-family: "Chewy", cursive;
@@ -14,7 +12,6 @@ body {
   background-position: center -100px;
   background-size: 2000px;
 }
-
 
 h1,
 h2,
@@ -98,18 +95,6 @@ h2 {
   color: #333;
 }
 
-.past-orders ul {
-  list-style: none;
-  padding: 0;
-}
-
-.past-orders li {
-  padding: 8px;
-  background-color: #fffcfb;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
 .loyalty p {
   margin: 8px 0;
   font-weight: bold;
@@ -124,7 +109,6 @@ h2 {
   padding: 70px;
   flex-wrap: wrap;
   gap: 30px;
-
   background-image: url("../images/dessins/footerd1.png");
   background-repeat: no-repeat;
   background-position: left 50px bottom 80px;
@@ -167,8 +151,6 @@ h2 {
   font-size: 20px;
 }
 
-
-
 .success-msg {
   color: green;
   background-color: #e8f5e9;
@@ -176,12 +158,6 @@ h2 {
   border-radius: 5px;
   text-align: center;
   margin-bottom: 20px;
-}
-
-.info-note {
-  font-size: 0.8em;
-  color: gray;
-  margin-top: 10px;
 }
 
 .history-table {
@@ -233,4 +209,3 @@ h2 {
 .history-table td {
     color: #292929 !important;
 }
-

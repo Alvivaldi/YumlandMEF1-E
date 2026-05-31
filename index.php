@@ -30,10 +30,10 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
     </section>
 
     <section class="recherche">
-        <form class="search-bar" action="carte.php" method="GET">
-            <input type="text" name="recherche" placeholder="Rechercher un plat..." aria-label="Champ de recherche de plats" />
-            <button type="submit" aria-label="Lancer la recherche">🔍</button>
-        </form>
+        <a href="carte.php" class="search-bar-link" aria-label="Accéder à la carte pour rechercher un plat">
+            <span class="fake-input">Rechercher un plat...</span>
+            <span class="fake-button">🔍</span>
+        </a>
     </section>
 
     <section class="presentation-video">

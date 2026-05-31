@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -71,8 +71,6 @@ h3 {
     animation: fade 18s infinite;
 }
 
-
-
 .slide1 {
     background-image: url('../images/inde2.jpg');
     animation-delay: 0s;
@@ -106,7 +104,7 @@ h3 {
     border-radius: 20px;
 }
 
-section h1{
+section h1 {
     font-size: 30px;
     text-align: center;
     color: #fffcfb;
@@ -114,7 +112,7 @@ section h1{
     font-family: "Mogra", cursive;
 }
 
-.close-btn{
+.close-btn {
     position: absolute;
     top: -1.1px;
     right: -1.1px;
@@ -129,13 +127,13 @@ section h1{
     border: 2px solid #fffcfb;
 }
 
-.input-box{
+.input-box {
     width: 100%;
     position: relative;
     margin-bottom: 25px;
 }
 
-.input-box input{
+.input-box input {
     width: 100%;
     padding: 10px;
     border-radius: 40px;
@@ -146,11 +144,11 @@ section h1{
     padding-right: 40px;
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
     color: #fffcfb;
 }
 
-.input-box i{
+.input-box i {
     position: absolute;
     transform: translateY(-50%);
     right: 20px;
@@ -158,7 +156,7 @@ section h1{
     color: #fffcfb;
 }
 
-.remember-forgot{
+.remember-forgot {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -167,52 +165,49 @@ section h1{
     margin-bottom: 25px;
 }
 
-.remember-forgot a{
+.remember-forgot a {
     color: #fffcfb;
     text-decoration: none;
     transition: 0.5s;
     font-weight: bold;
+}
 
-    }
-
-.remember-forgot a:hover{
+.remember-forgot a:hover {
     text-decoration: underline ;
 }
 
-.login-btn{
+.login-btn {
     width: 100%;
     padding: 14px;
     border: none;
     border-radius: 40px;
-    border: 0;
     font-weight: bold;
     cursor: pointer;
     border: 2px solid transparent;
     transition: 0.5s;
 }
 
-.login-btn:hover{
+.login-btn:hover {
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.2);
     color: #fffcfb;
 }
 
-.register-link{
+.register-link {
     text-align: center;
     margin : 25px;
     color: #fffcfb;
     font-size: 14px;
 }
 
-.register-link a{
+.register-link a {
     color: #fffcfb;
     text-decoration: none;
     transition: 0.5s;
     font-weight: bold;
-
 }
 
-.register-link a:hover{
+.register-link a:hover {
     text-decoration: underline ;
 }
 
@@ -223,9 +218,11 @@ section h1{
     margin-top: 5px;
     font-family: 'Arial', sans-serif;
 }
+
 input.invalid {
     border: 2px solid #e74c3c !important;
 }
+
 .char-counter {
     display: block;
     text-align: right;
@@ -234,7 +231,6 @@ input.invalid {
     margin-top: -5px;
     margin-bottom: 10px;
 }
-
 
 .char-counter.limit-reached {
     color: #e74c3c;
