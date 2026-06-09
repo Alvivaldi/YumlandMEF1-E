@@ -12,7 +12,7 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
 
 
 if (!isset($_SESSION['user'])) {
-        // S'il n'est pas connecté, on l'envoie vers la connexion
+    
             header("Location: formulaire.php");
     exit();
 }

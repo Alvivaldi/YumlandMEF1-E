@@ -1,6 +1,5 @@
 <?php
 
-
 session_start();
 require_once 'includes/fonctions.php';
 
@@ -11,8 +10,7 @@ $theme_actif = in_array($cookie_val, $valeurs_autorisees) ? $cookie_val : 'css/g
 
 
 
-if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] !== 'restaurateur' && $_SESSION['user']['role'] !==
-'admin')) {
+if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] !== 'restaurateur' && $_SESSION['user']['role'] !=='admin')) {
 header("Location: formulaire.php");
 exit();
 }
@@ -36,18 +34,18 @@ $users_lookup[$u['id']] = $u;
 }
 
 
-// --- BONUS PHASE 4 : CALCUL DES STATISTIQUES ---
+//  calcul CA et meilleur plat
 $stats_ca_total = 0;
 $stats_nb_commandes = count($commandes_donnees);
 $compteur_plats = [];
 
 foreach ($commandes_donnees as $cmd) {
-    // 1. Calcul du chiffre d'affaires
+
     if (isset($cmd['prix_total'])) {
         $stats_ca_total += (float)$cmd['prix_total'];
     }
 
-    // 2. Comptage des plats pour trouver le Best-Seller
+   
     if (isset($cmd['produits']) && is_array($cmd['produits'])) {
         foreach ($cmd['produits'] as $produit) {
             $nom_plat = $produit['nom'] ?? 'Inconnu';
@@ -61,11 +59,11 @@ foreach ($commandes_donnees as $cmd) {
     }
 }
 
-// 3. On trie le tableau pour trouver le plat le plus vendu
+
 $best_seller = "Aucun plat vendu";
 if (!empty($compteur_plats)) {
-    arsort($compteur_plats); // Trie du plus grand au plus petit
-    $best_seller = array_key_first($compteur_plats); // Récupère le nom du premier
+    arsort($compteur_plats); //du plus grand au plus petit
+    $best_seller = array_key_first($compteur_plats); 
 }
 ?>
 
