@@ -6,12 +6,12 @@
 
 body {
   font-family: var(--font-body, "Chewy", cursive);
-  background-color: var(--main-bg, #fffcfb);
+  background-color: var(--main-bg, #858383);
   margin: 0;
 }
 
 .admin-body {
-  background-color: #f2f2f2; 
+  background-color: #797676; 
   font-family: "Chewy", cursive;
 }
 
